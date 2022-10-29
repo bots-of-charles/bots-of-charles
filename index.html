@@ -10,15 +10,16 @@ Bots Of Charles
 <style>
 body {background-color:#18191D;color:white;}
 div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bottom:0;cursor:pointer;}
-#page_next {right:0;}
-#page_prev {left:0;}
+#page-next {right:0;}
+#page-prev {left:0;}
 </style>
 <link rel="stylesheet" href="w3.css">
 <script>
 	const pages=document.getElementsByClassName("page");
 	var page_curr=0;
+	var ipage=true;
 
-	function page_update()
+	function page_update(start=false)
 	{
 		let pages_qtty=pages.length;
 		let page_last=pages_qtty-1;
@@ -48,6 +49,14 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 			pages[idx]["style"]=set_display;
 			idx++;
 		};
+		if (start===false)
+		{
+			if (ipage)
+			{
+				ipage=false;
+				document.getElementById("ipage-msg")["style"]="display:none;";
+			};
+		};
 	};
 
 	function page_set(n)
@@ -68,7 +77,7 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 		page_update();
 	};
 
-	page_update();
+	page_update(true);
 
 </script>
 <script src="w3.js"></script>
@@ -125,7 +134,6 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 			<div id="text1">
 				<h2>What is Bots Of Charles?</h2>
 				<p>Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and transferring</p>
-				<p><i>To navigate in this site, touch the left side or the right side of the screen</i></p>
 			</div>
 		</div>
 	</div>
@@ -157,11 +165,10 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 	<div class="page" style="display:none">
 		<div class="w3-content w3-center">
 			<h2>Our bots</h2>
-			<h3>The main topic</h3>
+			<h3>File oriented bots</h3>
 			<p>At BoC the bots are all about the files<br>We have 2 main bots: MF Shell and PRO Mail</p>
 		</div>
 	</div>
-
 
 	<div class="page" style="display:none">
 		<div class="w3-content w3-center">
@@ -186,13 +193,17 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 		</div>
 	</div>
 
-	<div id="page_prev" class="inv" onclick="page_prev()">
+	<div id="page-prev" class="inv" onclick="page_prev()">
 		<!--Prev Page-->
 	</div>
 
 
-	<div id="page_next" class="inv" onclick="page_next()">
+	<div id="page-next" class="inv" onclick="page_next()">
 		<!--Next Page-->
+	</div>
+
+	<div id="ipage-msg" style="display:block">
+		<p class="w3-container w3-center"><i>To navigate in this site, touch the left side or the right side of the screen</i></p>
 	</div>
 
 </body>
