@@ -10,6 +10,7 @@ Bots Of Charles
 <style>
 body {background-color:#18191D;color:white;}
 div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bottom:0;cursor:pointer;}
+img.slides {width:100%;}
 #page-next {right:0;}
 #page-prev {left:0;}
 </style>
@@ -88,7 +89,7 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 			<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(2)">About</button>
 			<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(4)">Our Bots</button>
 			<div style="float:right;">
-				<a><button id="button_lang" class="w3-bar-item w3-button w3-padding-large">Español</button></a>
+				<button id="button_lang" class="w3-bar-item w3-button w3-padding-large">Español</button>
 			</div>
 		</div>
 	</div>
@@ -111,12 +112,12 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 		<!-- Slides -->
 		<div class="w3-content" onclick="page_next()" style="cursor:pointer;">
 			<div class="slideshow w3-center">
-				<img class="slides" src="show_mfshell_1.jpeg" width="100%">
-				<img class="slides" src="show_mfshell_2.jpeg" width="100%">
-				<img class="slides" src="show_mfshell_3.jpeg" width="100%">
-				<img class="slides" src="show_promail_1.jpeg" width="100%">
-				<img class="slides" src="show_promail_2.jpeg" width="100%">
-				<img class="slides" src="show_promail_3.jpeg" width="100%">
+				<img class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
+				<img class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
+				<img class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic2">
+				<img class="slides" src="show_promail_1.jpeg" alt="promail pic1">
+				<img class="slides" src="show_promail_2.jpeg" alt="promail pic2">
+				<img class="slides" src="show_promail_3.jpeg" alt="promail pic3">
 			</div>
 			<script>
 				w3.slideshow(".slides", 3000);
@@ -142,7 +143,7 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 		<div class="w3-container w3-center">
 			<div id="text2">
 				<h2>About</h2>
-				<p><h3>What is this website?</h3></p>
+				<h3>What is this website?</h3>
 				<p>This is the documentation website<br>In this site you can learn how to use the bots</p>
 			</div>
 		</div>
@@ -152,13 +153,13 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 		<div class="w3-container w3-center">
 			<h2>About</h2>
 
-			<p><h3>Telegram Channel</h3></p>
+			<h3>Telegram Channel</h3>
 			<p>In the BoC main channel we post news and update notices about the bots<br>It is the main source of information of the whole project</p>
-			<p><a href="https://t.me/bots_of_charles"><button class="w3-black w3-button w3-padding-large">Go to Telegram channel</button></a></p>
+			<p><a class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles">Go to Telegram channel</a></p>
 
-			<p><h3>Telegram group</h3></p>
+			<h3>Telegram group</h3>
 			<p>The channel's corresponding group is a tech support group<br>Languages used in the group are only english or spanish<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly</p>
-			<p><a href="https://t.me/bots_of_charles_chat"><button class="w3-black w3-button w3-padding-large">Go to Telegram group</button></a></p>
+			<p><a class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
 		</div>
 	</div>
 
@@ -176,7 +177,7 @@ div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bott
 
 			<div class="w3-half w3-padding" style="margin-top:32px">
 				<h3>PRO Mail</h3>
-				<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
+				<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
 				<p>Sends files through e-mail, supports many SMTP providers</p>
 				<p>Languages: English, Spanish</p>
 			</div>
