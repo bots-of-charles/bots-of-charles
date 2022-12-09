@@ -9,15 +9,67 @@ Bots Of Charles
 <link rel="stylesheet" href="w3.css">
 <style>
 body {background-color:#18191D;color:white;}
+#nvaf {display:none;}
 div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bottom:0;cursor:pointer;}
 img.slides {width:100%;}
 #page-next {right:0;}
 #page-prev {left:0;}
 </style>
 <script>
+
+	const tl_data={
+		"bt1":"Inicio",
+		"bt2":"Acerca de",
+		"bt3":"Los bots",
+		"button_lang":"English",
+		"subt":"Bots de Telegram",
+		"p1t":"¿Qué es Bots Of Charles?",
+		"p1c":"Bots Of Charles (BoC) es un proyecto de bots de Telegram<br>Los bots están orientados a la administración y transferencia de archivos",
+		"p2t":"Acerca de",
+		"p2c1":"¿Qué es este sitio?",
+		"p2c2":"Este es el sitio web del proyecto<br>En este sitio puede aprender a usar los bots",
+		"p3t":"Acerca de",
+		"p3t1":"Canal de Telegram",
+		"p3t1c":"En el canal de Telegram de BoC se publican noticias y avisos de mantenimiento sobre los bots<br>Es la fuente principal de información para el proyecto",
+		"p3t1b":"Ir al canal de Telegram",
+		"p3t2":"Grupo de Telegram",
+		"p3t2c":"El grupo te Telegram correspondiente al canal de BoC es un grupo de soporte técnico<br>En el grupo solo se habla inglés o español<br>Antes de preguntar sobre el uso del bot en el grupo, asegúrese de haber leido la documentación",
+		"p3t2b":"Ir al grupo de Telegram",
+		"p4t":"Los bots",
+		"p4t1c1":"[ Administrador de archivos ]<br>[ Múltiples casos de uso y herramientas ]<br>[ Descargadores de archivos y streams multimedia ]<br>[ Soporte FTL ]",
+		"p4t1c2":"idiomas: Inglés, Español, Ruso",
+		"p4t2c1":"[ Envía archivos por correo electrónico ]<br>[ Herramientas para el tratamiento de archivos antes y después de cada envío ]<br>[ Soporta un puñado de proveedores SMTP más allá de Google ]",
+		"p4t2c2":"Idiomas: Inglés, Español",
+	}
+
 	const pages=document.getElementsByClassName("page");
 	var page_curr=0;
 	var ipage=true;
+
+	function translate()
+	{
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			let langswitch={"es":"en","en":"es"};
+			let currlang=sessionStorage["lang"];
+			sessionStorage["lang"]=langswitch[currlang];
+		}
+		else
+		{
+			sessionStorage.setItem("lang","es");
+		}
+
+		console.log("Language = "+sessionStorage["lang"]);
+
+		for (let id in tl_data)
+		{
+			let elem=document.getElementById(id);
+			let text_old=elem.innerHTML;
+			let text_new=tl_data[id];
+			elem.innerHTML=text_new;
+			tl_data[id]=text_old;
+		}
+	}
 
 	function page_update(start=false)
 	{
@@ -77,125 +129,138 @@ img.slides {width:100%;}
 		page_update();
 	};
 
-	page_update(true);
+	function init()
+	{
+		page_update(true);
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			if (sessionStorage["lang"]==="es")
+			{
+				translate();
+				sessionStorage["lang"]="es"
+			};
+		};
+		document.getElementById("nvaf")["style"]="display:block;";
+	};
 
+window.onload=init;
 </script>
 <script src="w3.js"></script>
 </head>
 <body>
-	<div class="w3-top">
-		<div class="w3-bar w3-black w3-card">
-			<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">Home</button>
-			<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(2)">About</button>
-			<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(4)">Our Bots</button>
-			<div style="float:right;">
-				<button id="button_lang" class="w3-bar-item w3-button w3-padding-large">Español</button>
+	<div id="nvaf">
+		<div class="w3-top">
+			<div class="w3-bar w3-black w3-card">
+				<button id="bt1" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">Home</button>
+				<button id="bt2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(2)">About</button>
+				<button id="bt3" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(4)">Our Bots</button>
+				<div style="float:right;">
+					<button id="button_lang" class="w3-bar-item w3-button w3-padding-large" onclick="translate()">Español</button>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="w3-content">
-		<p><br><br></p>
-		<h1 class="w3-center">Bots Of Charles</h1>
-		<p class="w3-center">Telegram Bots</p>
-	</div>
-
-	<!--
-	<div class="page">
-		<div class="w3-container w3-center">
-			<p></p>
-		</div>
-	</div>
-	-->
-
-	<div class="page">
-		<!-- Slides -->
-		<div class="w3-content" onclick="page_next()" style="cursor:pointer;">
-			<div class="slideshow w3-center">
-				<img class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
-				<img class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
-				<img class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic2">
-				<img class="slides" src="show_promail_1.jpeg" alt="promail pic1">
-				<img class="slides" src="show_promail_2.jpeg" alt="promail pic2">
-				<img class="slides" src="show_promail_3.jpeg" alt="promail pic3">
-			</div>
-			<script>
-				w3.slideshow(".slides", 3000);
-			</script>
-
-		<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
-		<p>This website is in development<br>Este sitio web está en desarrollo</p>
+		<div class="w3-content">
+			<p><br><br></p>
+			<h1 class="w3-center">Bots Of Charles</h1>
+			<p id="subt" class="w3-center">Telegram Bots</p>
 		</div>
 
-		</div>
-	</div>
-
-	<div class="page" style="display:none">
-		<div class="w3-container w3-center">
-			<div id="text1">
-				<h2>What is Bots Of Charles?</h2>
-				<p>Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and transferring</p>
+		<!--
+		<div class="page">
+			<div class="w3-container w3-center">
+				<p></p>
 			</div>
 		</div>
-	</div>
+		-->
 
-	<div class="page" style="display:none">
-		<div class="w3-container w3-center">
-			<div id="text2">
-				<h2>About</h2>
-				<h3>What is this website?</h3>
-				<p>This is the documentation website<br>In this site you can learn how to use the bots</p>
-			</div>
-		</div>
-	</div>
+		<div class="page">
+			<!-- Slides -->
+			<div class="w3-content" onclick="page_next()" style="cursor:pointer;">
+				<div class="slideshow w3-center">
+					<img class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
+					<img class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
+					<img class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic2">
+					<img class="slides" src="show_promail_1.jpeg" alt="promail pic1">
+					<img class="slides" src="show_promail_2.jpeg" alt="promail pic2">
+					<img class="slides" src="show_promail_3.jpeg" alt="promail pic3">
+				</div>
+				<script>
+					w3.slideshow(".slides", 3000);
+				</script>
 
-	<div class="page" style="display:none">
-		<div class="w3-container w3-center">
-			<h2>About</h2>
-
-			<h3>Telegram Channel</h3>
-			<p>In the BoC main channel we post news and update notices about the bots<br>It is the main source of information of the whole project</p>
-			<p><a class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles">Go to Telegram channel</a></p>
-
-			<h3>Telegram group</h3>
-			<p>The channel's corresponding group is a tech support group<br>Languages used in the group are only english or spanish<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly</p>
-			<p><a class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
-		</div>
-	</div>
-
-	<div class="page" style="display:none">
-		<div class="w3-content w3-center">
-			<h2>Our bots</h2>
-
-			<div class="w3-half w3-padding" style="margin-top:32px">
-				<h3>MF Shell</h3>
-				<p><a href="https://t.me/karurosagu_shell_bot"><img src="icon_mfshell.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
-				<p>File manager, URL Uploader and FTL support</p>
-				<p>Languages: English, Spanish, Russian</p>
+			<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+			<p>This website is in development<br>Este sitio web está en desarrollo</p>
 			</div>
 
-
-			<div class="w3-half w3-padding" style="margin-top:32px">
-				<h3>PRO Mail</h3>
-				<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
-				<p>Sends files through e-mail, supports many SMTP providers</p>
-				<p>Languages: English, Spanish</p>
 			</div>
+		</div>
 
+		<div class="page" style="display:none">
+			<div class="w3-container w3-center">
+				<div id="text1">
+					<h2 id="p1t">What is Bots Of Charles?</h2>
+					<p id="p1c">Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and file transferring</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" style="display:none">
+			<div class="w3-container w3-center">
+				<div id="text2">
+					<h2 id="p2t">About</h2>
+					<h3 id="p2c1">What is this website?</h3>
+					<p id="p2c2">This is the documentation website<br>In this site you can learn how to use the bots</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="page" style="display:none">
+			<div class="w3-container w3-center">
+				<h2 id="p3t">About</h2>
+
+				<h3 id="p3t1">Telegram Channel</h3>
+				<p id="p3t1c">In the BoC main channel we post news and update notices about the bots<br>It is the main source of information of the whole project</p>
+				<p><a id="p3t1b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles">Go to Telegram channel</a></p>
+
+				<h3 id="p3t2">Telegram group</h3>
+				<p id="p3t2c">The channel's corresponding group is a tech support group<br>Languages used in the group are only english or spanish<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly</p>
+				<p><a id="p3t2b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
+			</div>
+		</div>
+
+		<div class="page" style="display:none">
+			<div class="w3-content w3-center">
+				<h2 id="p4t">Our bots</h2>
+
+				<div class="w3-half w3-padding" style="margin-top:32px">
+					<h3>MF Shell</h3>
+					<p><a href="https://t.me/karurosagu_shell_bot"><img src="icon_mfshell.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
+					<p id="p4t1c1">[ File manager]<br>[ Multiple use cases and tools ]<br>[ File or media stream downloader ]<br>[ FTL support ]</p>
+					<p id="p4t1c2">Languages: English, Spanish, Russian</p>
+				</div>
+
+				<div class="w3-half w3-padding" style="margin-top:32px">
+					<h3>PRO Mail</h3>
+					<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
+					<p id="p4t2c1">[ Sends files through e-mail ]<br>[ It has tools for file treatment before and after each shipment ]<br>[ Supports a handful of SMTP providers beyond Google ]</p>
+					<p id="p4t2c2">Languages: English, Spanish</p>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="page-prev" class="inv" onclick="page_prev()">
+			<!--Prev Page-->
+		</div>
+
+		<div id="page-next" class="inv" onclick="page_next()">
+			<!--Next Page-->
+		</div>
+
+		<div id="ipage-msg" style="display:block">
+			<p class="w3-container w3-center"><i>To navigate in this site, touch the left side or the right side of the screen</i></p>
 		</div>
 	</div>
-
-	<div id="page-prev" class="inv" onclick="page_prev()">
-		<!--Prev Page-->
-	</div>
-
-	<div id="page-next" class="inv" onclick="page_next()">
-		<!--Next Page-->
-	</div>
-
-	<div id="ipage-msg" style="display:block">
-		<p class="w3-container w3-center"><i>To navigate in this site, touch the left side or the right side of the screen</i></p>
-	</div>
-
 </body>
 </html>
