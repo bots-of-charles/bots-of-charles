@@ -33,13 +33,17 @@ img.slides {width:100%;}
 		"p3t1c":"En el canal de Telegram de BoC se publican noticias y avisos de mantenimiento sobre los bots<br>Es la fuente principal de información para el proyecto",
 		"p3t1b":"Ir al canal de Telegram",
 		"p3t2":"Grupo de Telegram",
-		"p3t2c":"El grupo te Telegram correspondiente al canal de BoC es un grupo de soporte técnico<br>En el grupo solo se habla inglés o español<br>Antes de preguntar sobre el uso del bot en el grupo, asegúrese de haber leido la documentación",
+		"p3t2c":"El grupo te Telegram correspondiente al canal de BoC es un grupo de soporte técnico<br>Antes de preguntar sobre el uso del bot en el grupo, asegúrese de haber leido la documentación<br>En el grupo solo se habla inglés y español",
 		"p3t2b":"Ir al grupo de Telegram",
 		"p4t":"Los bots",
-		"p4t1c1":"[ Administrador de archivos ]<br>[ Múltiples casos de uso y herramientas ]<br>[ Descargadores de archivos y streams multimedia ]<br>[ Soporte FTL ]",
-		"p4t1c2":"idiomas: Inglés, Español, Ruso",
-		"p4t2c1":"[ Envía archivos por correo electrónico ]<br>[ Herramientas para el tratamiento de archivos antes y después de cada envío ]<br>[ Soporta un puñado de proveedores SMTP más allá de Google ]",
-		"p4t2c2":"Idiomas: Inglés, Español",
+		"p4t1c_wutt":"Características: [ Administrador de archivos ]<br>[ Múltiples casos de uso y herramientas ]<br>[ Descargadores de archivos y streams multimedia ]<br>[ Soporte FTL ]",
+		"p4t1c_langs":"Idiomas del bot: Inglés, Español, Ruso",
+		"p4t1b1":"Guía de usuario",
+		"p4t1b2":"Referencia de comandos",
+		"p4t2c1":"Características: [ Envía archivos por correo electrónico ]<br>[ Herramientas para el tratamiento de archivos antes y después de cada envío ]<br>[ Soporta un puñado de proveedores SMTP más allá de Google ]",
+		"p4t2c2":"Idiomas del bot: Inglés, Español",
+		"p4t2b1":"Guía de usuario",
+		"p4t2b2":"Referencia de comandos",
 	}
 
 	const pages=document.getElementsByClassName("page");
@@ -58,8 +62,6 @@ img.slides {width:100%;}
 		{
 			sessionStorage.setItem("lang","es");
 		}
-
-		console.log("Language = "+sessionStorage["lang"]);
 
 		for (let id in tl_data)
 		{
@@ -224,7 +226,7 @@ window.onload=init;
 				<p><a id="p3t1b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles">Go to Telegram channel</a></p>
 
 				<h3 id="p3t2">Telegram group</h3>
-				<p id="p3t2c">The channel's corresponding group is a tech support group<br>Languages used in the group are only english or spanish<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly</p>
+				<p id="p3t2c">The channel's corresponding group is a tech support group<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly<br>Only english and spanish languages are allowed in the group</p>
 				<p><a id="p3t2b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
 			</div>
 		</div>
@@ -236,15 +238,19 @@ window.onload=init;
 				<div class="w3-half w3-padding" style="margin-top:32px">
 					<h3>MF Shell</h3>
 					<p><a href="https://t.me/karurosagu_shell_bot"><img src="icon_mfshell.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
-					<p id="p4t1c1">[ File manager]<br>[ Multiple use cases and tools ]<br>[ File or media stream downloader ]<br>[ FTL support ]</p>
-					<p id="p4t1c2">Languages: English, Spanish, Russian</p>
+					<p id="p4t1c_wutt">Features: [ File manager]<br>[ Multiple use cases and tools ]<br>[ File or media stream downloader ]<br>[ FTL support ]</p>
+					<p id="p4t1c_langs">Languages in the bot: English, Spanish, Russian</p>
+					<p><a id="p4t1b1" class="w3-black w3-button w3-padding-large" href="mfshell_g.html">User guide</a></p>
+					<p><a id="p4t1b2" class="w3-black w3-button w3-padding-large" href="mfshell_h.html">Commands reference</a></p>
 				</div>
 
 				<div class="w3-half w3-padding" style="margin-top:32px">
 					<h3>PRO Mail</h3>
 					<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
-					<p id="p4t2c1">[ Sends files through e-mail ]<br>[ It has tools for file treatment before and after each shipment ]<br>[ Supports a handful of SMTP providers beyond Google ]</p>
-					<p id="p4t2c2">Languages: English, Spanish</p>
+					<p id="p4t2c1">Features: [ Sends files through e-mail ]<br>[ It has tools for file treatment before and after each shipment ]<br>[ Supports a handful of SMTP providers beyond Google ]</p>
+					<p id="p4t2c2">Languages in the bot: English, Spanish</p>
+					<p><a id="p4t2b1" class="w3-black w3-button w3-padding-large" href="promail_g.html">User guide</a></p>
+					<p><a id="p4t2b2" class="w3-black w3-button w3-padding-large" href="promail_h.html">Commands reference</a></p>
 				</div>
 
 			</div>
