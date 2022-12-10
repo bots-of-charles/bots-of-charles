@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>
+Bots Of Charles
+</title>
+<link rel="stylesheet" href="w3.css">
+<style>
+body {background-color:#18191D;color:white;}
+code.cmd{font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
+div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bottom:0;cursor:pointer;}
+img.slides {width:100%;}
+#nvaf {display:none;}
+#page-next {right:0;}
+#page-prev {left:0;}
+</style>
+<script>
+
+	const tl_data={
+		"bt1":"Inicio",
+		"bt2":"Menú",
+		"bt3":"Arriba",
+		"bt4":"English",
+		"page_title":"Guía de MF Shell",
+		"subt":"Bots de Telegram",
+		"p1t":"Menú",
+		"p1b1":"Introducción",
+		"p1b2":"El Sistema de Archivos",
+		"p1b3":"Tipos de selección",
+		"p1b4":"Límites y colas",
+		"p1b5":"Conocimiento extra",
+		"p2t":"Introducción",
+		"p2c1":"<strong>Este bot no es normal</strong><br>En Telegram, la mayoría de bots para descargar y bots de leech tienen este 'efecto boomerang': les das algo, ya sea un archivo de Telegram, o una URL que conduce a un archivo, ellos hacen 'lo suyo' y al terminar suben al chat, todo esto se considera 'normal'. Lo primero que debe saber es que MF Shell no es un bot 'normal', ese 'efecto boomerang' no existe en el bot porque hay dos formas principales para sacar los archivos. La primera es la típica subida del bot al chat y la segunda es compartir los archivos vía web, también conocido como 'File-to-Link'",
+		"p2c2":"<strong>Características de MF Shell</strong><br>→ Organice sus archivos como guste. Crear carpeta, renombrar archivos (en masa también), borrar archivos, extraer archivos ZIP, RAR, agrupar archivos en 7Z, y mucho más<br>→ Descarga contenido de donde sea. No se trata del típico Youtube o MEGA, aquí hay soporte directo desde archivos y carpetas de Google Drive, hasta aplicaciones de Android e incluso comics y manga<br>→ Creado para trabajos grandes. MF Shell tiene sistemas de listas de espera y colas. Los procesos encolados pueden pausarse o cancelarse, puedes modificar elementos en una cola. Las listas de espera son para racionar los recursos de cómputo del bot<br>→ FTL con esteroides. La interfaz web es muy útil para descargar grandes cantidades de contenido alojado en el bot",
+		"p2c3":"<strong>Tutorial en vídeo</strong><br>La guía puede llegar a ser densa de leer, es por eso que tenemos un tutorial en vídeo mostrando lo básico que se puede hacer en el bot",
+		"p2b":"Ver el vídeo",
+		"p2c4":"El vídeo es solo una mera introducción para entender el uso general que se le da al bot, y el flujo de trabajo<br>El vídeo a penas rasca la superficie, especialmente con lo básico, asi que si ya vió el vídeo, siga leyendo la guía hasta el final y luego vaya a la referencia de comandos",
+		"p2next":"Seguir leyendo",
+		"p3t":"El Sistema de Archivos",
+		"p3c1":"<strong>Espacios de trabajo individuales</strong><br>En el bot, cada usuario tiene su propio directorio (carpeta), donde puede trabajar y dentro de ese directorio, el usuario puede crear más subdirectorios y agrupar archivos",
+		"p3c2":"<strong>Navegación</strong><br>Hay una ubicación (ruta) que es el directorio actual de trabajo (CWD en inglés). Un usuario puede cambiar de CWD yendo más profundo o más arriba en la estructura donde se encuentra. Cada CWD tiene un padre, a exceptión de la raiz '/'<br>Si todo esto le parece confuso, piense en un árbol de cabeza, donde cada nodo del árbol (directorio) tiene un nombre",
+		"p3c3":"<strong>¿Dónde estoy?</strong><br>Para ver los contenidos del CWD, así como el CWD actual, puede ejecutar el comando '/ls' de esta forma:",
+		"p3c4":"La siguiente imagen es un ejemplo de listado de directorio usando '/ls'",
+		"p3c5":"Como se puede ver en esta imagen, al principio del mensaje se puede ver la ruta del CWD y por cada fila (cada elemento) se puede diferenciar entre archivo o directorio solamente mirando el ícono, pero lo más importante de todo esto es lo que hay antes del icono: ese número es el índice del elemento. En MF Shell cuando se seleccionan archivos o directorios, no se hace mediante el nombre del archivo, se hace usando el índice que ocupa en el CWD<br>Sabiendo lo anterior, podemos ver alguna ubicación en específico, como por ejmplo, ese directorio llamado 'stufffff' que ocupa índice 1:",
+		"p3c6":"<strong>No me he movido</strong><br>El comando '/ls' solamente es útil para observar otros elementos, pero observar otra ruta no te hace cambiar el CWD a esa ruta. Hay 2 comandos para cambiar de CWD: '/cd' y '/back'<br>El comando '/cd' puede cambiar el CWD a un subdirectorio:",
+		"p3c7":"Y el comando '/back' cambia el CWD al directorio padre del WD actual:",
+		"p3c8":"Usar como argumento el índice de un elemento en un comando se llama 'Selección simple', ya que en ambos casos ('/ls' y '/cd') se seleccionó solamente uno<br>El próximo capítulo trata sobre los tipos de selección en MF Shell",
+		"p3next":"Seguir leyendo"
+	}
+
+/*
+					<p id="p3c8">By using as an argument a single index of a file or directory in '/ls' or '/cd' is called a 'Simple select'<br>The next chapter is about the selection types in MF Shell</p>
+					<p style="float:right;"><button id="p3next" class="w3-button w3-black" onclick="page_next()">Learn selection types</button></p>
+*/
+
+	const pages=document.getElementsByClassName("page");
+	var page_curr=0;
+	var ipage=true;
+
+	function translate()
+	{
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			let langswitch={"es":"en","en":"es"};
+			let currlang=sessionStorage["lang"];
+			sessionStorage["lang"]=langswitch[currlang];
+		}
+		else
+		{
+			sessionStorage.setItem("lang","es");
+		}
+
+		for (let id in tl_data)
+		{
+			let elem=document.getElementById(id);
+			let text_old=elem.innerHTML;
+			let text_new=tl_data[id];
+			elem.innerHTML=text_new;
+			tl_data[id]=text_old;
+		}
+	}
+
+	function page_update(start=false)
+	{
+		let pages_qtty=pages.length;
+		let page_last=pages_qtty-1;
+
+		if (page_curr>page_last)
+		{
+			page_curr=page_last;
+		};
+
+		if (page_curr<0)
+		{
+			page_curr=0;
+		};
+
+		let idx=0;
+		let set_display;
+		while (idx<pages_qtty) 
+		{
+			if (idx===page_curr)
+			{
+				set_display="display:block";
+			}
+			else
+			{
+				set_display="display:none";
+			};
+			pages[idx]["style"]=set_display;
+			idx++;
+		};
+		if (start===false)
+		{
+			if (ipage)
+			{
+				ipage=false;
+				document.getElementById("ipage-msg")["style"]="display:none;";
+			};
+		};
+	};
+
+	function page_set(n)
+	{
+		page_curr=n;
+		page_update();
+	};
+
+	function page_prev()
+	{
+		page_curr--;
+		page_update();
+	};
+
+	function page_next()
+	{
+		page_curr++;
+		page_update();
+	};
+
+	function init()
+	{
+		page_update(true);
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			if (sessionStorage["lang"]==="es")
+			{
+				translate();
+				sessionStorage["lang"]="es"
+			};
+		};
+		document.getElementById("nvaf")["style"]="display:block;";
+	};
+
+	window.onload=init;
+</script>
+<script src="w3.js"></script>
+</head>
+<body>
+	<div id="nvaf">
+		<div class="w3-top">
+			<div class="w3-bar w3-black w3-card">
+				<button id="bt1" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='index.html'">Home</button>
+				<button id="bt2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(1)">Menu</button>
+				<button id="bt3" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='#top'">Up</button>
+				<div style="float:right;">
+					<button id="bt4" class="w3-bar-item w3-button w3-padding-large" onclick="translate()">Español</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-container">
+
+			<div class="w3-content">
+				<p><br><br></p>
+				<h1 class="w3-center">Bots Of Charles / <span id="page_title">MF Shell guide</span></h1>
+				<p id="subt" class="w3-center">Telegram Bots</p>
+			</div>
+
+			<div class="page">
+				<!-- Slides -->
+				<div class="w3-content">
+					<div class="slideshow w3-center" onclick="page_next()" style="cursor:pointer;">
+						<img class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
+						<img class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
+						<img class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic3">
+					</div>
+					<script>
+						w3.slideshow(".slides", 2000);
+					</script>
+
+					<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+					<p>This page is under development<br>Esta página está en desarrollo</p>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="page">
+				<!-- Index -->
+
+				<h2 id="p1t" class="w3-center">Menu</h1>
+
+				<p class="w3-center"><button id="p1b1" class="w3-button w3-black" style="width:320px" onclick="page_set(2)">Introduction</button></p>
+				<p class="w3-center"><button id="p1b2" class="w3-button w3-black" style="width:320px" onclick="page_set(3)">The file system</button></p>
+				<p class="w3-center"><button id="p1b3" class="w3-button w3-black" style="width:320px" onclick="page_set(4)">Selection types</button></p>
+				<p class="w3-center"><button id="p1b4" class="w3-button w3-black" style="width:320px">Limits and queues</button></p>
+				<p class="w3-center"><button id="p1b5" class="w3-button w3-black" style="width:320px">Extra knowledge</button></p>
+
+			</div>
+
+			<div class="page">
+				<h2 id="p2t" class="w3-center">Introduction</h2>
+				<div class="w3-content">
+					<p id="p2c1"><strong>This bot is not normal</strong><br>In Telegram, most URL uploaders and leechers have this 'boomerang' effect: you give them something, wether it's a Telegram file or a URL, they do their 'thing' and then they upload it to the chat, this is considered 'normal'. The first thing you need to know is that MF Shell is not a 'normal' bot, because this 'boomerang effect' does not exist, and this is because there are two ways to get the files back. The first one is the typical upload to the chat and the second one is sharing through the web server, also known as File-to-Link</p>
+					<p id="p2c2"><strong>MF Shell main features</strong><br>→ Organize files in whatever way you want. Create folders, rename files (even in batch), delete files, extract ZIP, RAR, 7Z files, create 7Z files, and more<br>→ Download content anywhere you want. Not just the typical Youtube or MEGA files, there's direct support from Google Drive files and folders, to android apps and even comics and manga<br>→ Made for big jobs. MF Shell has a waitlist and queues system, queues can be cancelled or paused, you can modify a queue. The waitlist are a mean for rationing the computational resources used by the bot<br>→ FTL on steroids. The web interface of the bot is very helpful for downloading massive amounts of content</p>
+					<p id="p2c3"><strong>Video tutorial</strong><br>The guide can get very dense to read, this is why we have a tutorial video, showing off the basics of the bot</p>
+					<p class="w3-center"><button id="p2b" class="w3-button w3-black" style="width:320px" onclick="window.location.href='https://t.me/bots_of_charles/397'">Watch the video</button></p>
+					<p id="p2c4">The video is just a mere introduction to understand the general use cases of the bot and a general workflow<br>The video barely scratches the surface, specially the basics, so after you whatch the video, keep reading the rest of the guide, and then go to the commands reference to search for what you need to do</p>
+					<p style="float:right;"><button id="p2next" class="w3-button w3-black" onclick="page_next()">Keep reading</button></p>
+				</div>
+			</div>
+
+			<div class="page">
+				<h2 id="p3t" class="w3-center">The File System</h2>
+				<div class="w3-content">
+					<p id="p3c1"><strong>Individual workspaces</strong><br>In the bot, each user has its own directory (folder) were it can work, and inside that one, the user can create more subdirectories to group files and other subdirectories</p>
+					<p id="p3c2"><strong>Navigation</strong><br>There is a location (path) that is the current working directory (CWD). A user can change the CWD to go deeper or shallower in the structure. Also, each CWD has a parent path, except for the root "/", the root has no parent<br>If all of this sounds confusing, think about a tree upside down where each node (directory) has a different name</p>
+					<p id="p3c3"><strong>Where am I?</strong><br>To view the contents of the CWD you can run the '/ls' command like this:</p>
+					<p><code class="cmd">/ls</code></p>
+					<p id="p3c4">The following image is an example of an '/ls' output</p>
+					<p><img src="show_mfshell_example1.png" style="width:100%;max-width:480px"></p>
+					<p id="p3c5">As you can see in this image, at the beggining of the message you can see the CWD path and for each row (each element) you can tell wether the element is a file or a folder just by looking at the icon before the name, but more importantly, the number before the icon is the index of the element. In MF Shell when selecting files or directories, you do not use the filename, instead, you use the index that the file has in the CWD<br>Knowing this, we can take a look at a specific location, for example, the 'stufffff' directory, occupying index no. 1:</p>
+					<p><code class="cmd">/ls 1</code></p>
+					<p><img src="show_mfshell_example2.png" style="width:100%;max-width:480px"></p>
+					<p id="p3c6"><strong>I have not moved</strong><br>The '/ls' command is only useful for observing other elements, but looking at other paths does not mean that you changed your CWD<br>There are 2 commands that change your CWD: '/back' and '/cd'<br>The '/cd' command can change the CWD to a subdirectory:</p>
+					<p><code class="cmd">/cd 1</code></p>
+					<p><img src="show_mfshell_example3.png" style="width:100%;max-width:480px"></p>
+					<p id="p3c7">And the '/back' command changes the CWD to the parent command:</p>
+					<p><code class="cmd">/back</code></p>
+					<p><img src="show_mfshell_example4.png" style="width:100%;max-width:480px"></p>
+					<p id="p3c8">Using a single index of a file or directory in a command is called a 'Simple select', only one element was selected when using '/s' and '/cd'<br>The next chapter is about the selection types in MF Shell</p>
+					<p style="float:right;"><button id="p3next" class="w3-button w3-black" onclick="page_next()">Keep reading</button></p>
+
+				</div>
+			</div>
+
+			<div class="page">
+				<h2 id="p3t" class="w3-center">Selection types</h2>
+				<div class="w3-content">
+					<p>...</p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
