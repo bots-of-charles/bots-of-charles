@@ -9,11 +9,11 @@ Bots Of Charles
 <link rel="stylesheet" href="w3.css">
 <style>
 body {background-color:#18191D;color:white;}
-#nvaf {display:none;}
-div.inv {position:fixed;width:25%;height:calc(100% - 48px);z-index:2;top:48;bottom:0;cursor:pointer;}
 img.slides {width:100%;}
-#page-next {right:0;}
-#page-prev {left:0;}
+div.bb {position:fixed;bottom:16px;}
+div.bnext {left:50%;}
+div.bprev {right:50%;}
+#nvaf {display:none;}
 </style>
 <script>
 
@@ -36,14 +36,10 @@ img.slides {width:100%;}
 		"p3t2c":"El grupo te Telegram correspondiente al canal de BoC es un grupo de soporte técnico<br>Antes de preguntar sobre el uso del bot en el grupo, asegúrese de haber leido la documentación<br>En el grupo solo se habla inglés y español",
 		"p3t2b":"Ir al grupo de Telegram",
 		"p4t":"Los bots",
-		"p4t1c_wutt":"Características: [ Administrador de archivos ]<br>[ Múltiples casos de uso y herramientas ]<br>[ Descargadores de archivos y streams multimedia ]<br>[ Soporte FTL ]",
-		"p4t1c_langs":"Idiomas del bot: Inglés, Español, Ruso",
 		"p4t1b1":"Guía de usuario",
 		"p4t1b2":"Referencia de comandos",
-		"p4t2c1":"Características: [ Envía archivos por correo electrónico ]<br>[ Herramientas para el tratamiento de archivos antes y después de cada envío ]<br>[ Soporta un puñado de proveedores SMTP más allá de Google ]",
-		"p4t2c2":"Idiomas del bot: Inglés, Español",
 		"p4t2b1":"Guía de usuario",
-		"p4t2b2":"Referencia de comandos",
+		"p4t2b2":"Referencia de comandos"
 	}
 
 	const pages=document.getElementsByClassName("page");
@@ -192,10 +188,9 @@ window.onload=init;
 						w3.slideshow(".slides", 3000);
 					</script>
 
-				<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
-				<p>This website is in development<br>Este sitio web está en desarrollo</p>
-				</div>
-
+					<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+						<p>This website is in development<br>Este sitio web está en desarrollo</p>
+					</div>
 				</div>
 			</div>
 
@@ -205,6 +200,11 @@ window.onload=init;
 						<h2 id="p1t">What is Bots Of Charles?</h2>
 						<p id="p1c">Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and file transferring</p>
 					</div>
+
+					<div class="bb bnext">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
+
 				</div>
 			</div>
 
@@ -215,6 +215,14 @@ window.onload=init;
 						<h3 id="p2c1">What is this website?</h3>
 						<p id="p2c2">This is the documentation website<br>In this site you can learn how to use the bots</p>
 					</div>
+
+					<div class="bb bprev">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+					</div>
+					<div class="bb bnext">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
+
 				</div>
 			</div>
 
@@ -229,6 +237,12 @@ window.onload=init;
 					<h3 id="p3t2">Telegram group</h3>
 					<p id="p3t2c">The channel's corresponding group is a tech support group<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly<br>Only english and spanish languages are allowed in the group</p>
 					<p><a id="p3t2b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
+
+					<p>
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</p>
+
 				</div>
 			</div>
 
@@ -239,8 +253,6 @@ window.onload=init;
 					<div class="w3-half w3-padding" style="margin-top:32px">
 						<h3>MF Shell</h3>
 						<p><a href="https://t.me/karurosagu_shell_bot"><img src="icon_mfshell.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
-						<p id="p4t1c_wutt">Features: [ File manager]<br>[ Multiple use cases and tools ]<br>[ File or media stream downloader ]<br>[ FTL support ]</p>
-						<p id="p4t1c_langs">Languages in the bot: English, Spanish, Russian</p>
 						<p><a id="p4t1b1" class="w3-black w3-button w3-padding-large" href="mfshell_g.html">User guide</a></p>
 						<p><a id="p4t1b2" class="w3-black w3-button w3-padding-large" href="mfshell_h.html">Commands reference</a></p>
 					</div>
@@ -248,25 +260,11 @@ window.onload=init;
 					<div class="w3-half w3-padding" style="margin-top:32px">
 						<h3>PRO Mail</h3>
 						<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
-						<p id="p4t2c1">Features: [ Sends files through e-mail ]<br>[ It has tools for file treatment before and after each shipment ]<br>[ Supports a handful of SMTP providers beyond Google ]</p>
-						<p id="p4t2c2">Languages in the bot: English, Spanish</p>
 						<p><a id="p4t2b1" class="w3-black w3-button w3-padding-large" href="promail_g.html">User guide</a></p>
 						<p><a id="p4t2b2" class="w3-black w3-button w3-padding-large" href="promail_h.html">Commands reference</a></p>
 					</div>
 
 				</div>
-			</div>
-
-			<div id="page-prev" class="inv" onclick="page_prev()">
-				<!--Prev Page-->
-			</div>
-
-			<div id="page-next" class="inv" onclick="page_next()">
-				<!--Next Page-->
-			</div>
-
-			<div id="ipage-msg" style="display:block">
-				<p class="w3-container w3-center"><i>To navigate in this site, touch the left side or the right side of the screen</i></p>
 			</div>
 		</div>
 	</div>
