@@ -18,8 +18,8 @@ Bots Of Charles
 		<div class="w3-top">
 			<div class="w3-bar w3-black w3-card">
 				<button id="bt1" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">Home</button>
-				<button id="bt2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(2)">About</button>
-				<button id="bt3" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(4)">Our Bots</button>
+				<button id="bt2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(1)">About</button>
+				<button id="bt3" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(3)">Our Bots</button>
 				<div style="float:right;">
 					<button id="button_lang" class="w3-bar-item w3-button w3-padding-large" onclick="translate()">Español</button>
 				</div>
@@ -64,25 +64,48 @@ Bots Of Charles
 
 			<div class="page" style="display:none">
 				<div class="w3-container w3-center">
-					<div id="text1">
-						<h2 id="p1t">What is Bots Of Charles?</h2>
-						<p id="p1c">Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and file transferring</p>
-					</div>
 
-					<div class="bb bnext">
+					<h2 id="about1">About</h2>
+					<h3 id="about1_t1">What is Bots Of Charles?</h3>
+					<p id="about1_c1">Bots Of Charles (BoC) is a Telegram bots project<br>The bots are oriented to file management and file transferring</p>
+
+					<h3 id="about1_t2">What is this website?</h3>
+					<p id="about1_c2">This is the documentation website<br>In this site you can learn how to use the bots</p>
+
+					<div class="bnext">
 						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
 					</div>
 
 				</div>
 			</div>
 
+			<!--
 			<div class="page" style="display:none">
 				<div class="w3-container w3-center">
-					<div id="text2">
-						<h2 id="p2t">About</h2>
-						<h3 id="p2c1">What is this website?</h3>
-						<p id="p2c2">This is the documentation website<br>In this site you can learn how to use the bots</p>
+					<h2 id="p2t">About</h2>
+
+					<div class="bb bprev">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
 					</div>
+					<div class="bb bnext">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
+
+				</div>
+			</div>
+			-->
+
+			<div class="page" style="display:none">
+				<div class="w3-container w3-center">
+					<h2 id="about2">About</h2>
+
+					<h3 id="about2_t1">Telegram Channel</h3>
+					<p><a class="tglink" href="https://t.me/bots_of_charles">@Bots_Of_Charles</a></p>
+					<p id="about2_c1">In the BoC main channel we post news and update notices about the bots<br>It is the main source of information of the whole project</p>
+
+					<h3 id="about2_t2">Telegram group</h3>
+					<p><a class="tglink" href="https://t.me/bots_of_charles_chat">@Bots_Of_Charles_Chat</a></p>
+					<p id="about2_c2">The channel's corresponding group is a tech support group<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly<br>Only english and spanish languages are allowed in the group</p>
 
 					<div class="bb bprev">
 						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
@@ -95,41 +118,25 @@ Bots Of Charles
 			</div>
 
 			<div class="page" style="display:none">
-				<div class="w3-container w3-center">
-					<h2 id="p3t">About</h2>
-
-					<h3 id="p3t1">Telegram Channel</h3>
-					<p id="p3t1c">In the BoC main channel we post news and update notices about the bots<br>It is the main source of information of the whole project</p>
-					<p><a id="p3t1b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles">Go to Telegram channel</a></p>
-
-					<h3 id="p3t2">Telegram group</h3>
-					<p id="p3t2c">The channel's corresponding group is a tech support group<br>Before asking anything at the group about the bot's usage, make sure you have read the documentation propperly<br>Only english and spanish languages are allowed in the group</p>
-					<p><a id="p3t2b" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles_chat">Go to Telegram group</a></p>
-
-					<p>
-						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
-						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
-					</p>
-
-				</div>
-			</div>
-
-			<div class="page" style="display:none">
 				<div class="w3-content w3-center">
-					<h2 id="p4t">Our bots</h2>
+					<h2 id="s3t1">Our bots</h2>
 
 					<div class="w3-half w3-padding" style="margin-top:32px">
 						<h3>MF Shell</h3>
 						<p><a href="https://t.me/karurosagu_shell_bot"><img src="icon_mfshell.png" class="w3-circle w3-padding" alt="MF Shell" style="width:50%"></a></p>
-						<p><a id="p4t1b1" class="w3-black w3-button w3-padding-large" href="mfshell_g.html">User guide</a></p>
-						<p><a id="p4t1b2" class="w3-black w3-button w3-padding-large" href="mfshell_h.html">Commands reference</a></p>
+						<p><a id="s3b1" class="w3-black w3-button w3-padding-large" href="mfshell_g.html">User guide</a></p>
+						<p><a id="s3b2" class="w3-black w3-button w3-padding-large" href="mfshell_h.html">Commands reference</a></p>
 					</div>
 
 					<div class="w3-half w3-padding" style="margin-top:32px">
 						<h3>PRO Mail</h3>
 						<p><a href="https://t.me/karurosagu_mail_bot"><img src="icon_promail.png" class="w3-circle w3-padding" alt="PRO Mail" style="width:50%"></a></p>
-						<p><a id="p4t2b1" class="w3-black w3-button w3-padding-large" href="promail_g.html">User guide</a></p>
-						<p><a id="p4t2b2" class="w3-black w3-button w3-padding-large" href="promail_h.html">Commands reference</a></p>
+						<p><a id="s3b3" class="w3-black w3-button w3-padding-large" href="promail_g.html">User guide</a></p>
+						<p><a id="s3b4" class="w3-black w3-button w3-padding-large" href="promail_h.html">Commands reference</a></p>
+					</div>
+
+					<div class="bprev">
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
 					</div>
 
 				</div>

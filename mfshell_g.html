@@ -10,7 +10,8 @@ Bots Of Charles
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="boc.css">
 <style>
-code.cmd{font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
+code.cmd {font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
+img.example {max-width:100%;}
 </style>
 <script src="w3.js"></script>
 <script src="tldata_mfshell_g.js"></script>
@@ -79,7 +80,12 @@ code.cmd{font-size:110%;color:white;background-color:black;padding-left:8px;padd
 					<p class="w3-center"><a id="p2b" class="w3-button w3-black" style="width:320px" href="https://t.me/bots_of_charles/397">Watch the video</a></p>
 
 					<p id="p2c4">The video is just a mere introduction to understand the general use cases of the bot and a general workflow<br>The video barely scratches the surface, specially the basics, so after you whatch the video, keep reading the rest of the guide, and then go to the commands reference to search for what you need to do</p>
-					<p style="float:right;width:80px;"><button id="p2next" class="w3-button w3-black w3-padding-large" onclick="page_next()">Start learning</button></p>
+
+
+					<div class="w3-center">
+						<button id="p2next" class="w3-button w3-black w3-padding-large" onclick="page_next()">Start learning</button>
+					</div>
+
 				</div>
 			</div>
 
@@ -91,50 +97,31 @@ code.cmd{font-size:110%;color:white;background-color:black;padding-left:8px;padd
 					<p id="p3c3"><br><strong>Look around, move around</strong><br><br>To view the contents of the CWD you can run the '/ls' command like this:</p>
 					<p><code class="cmd">/ls</code></p>
 					<p id="p3c4">The following image is an example of an '/ls' output</p>
-					<p><img src="show_mfshell_example1.png" style="width:100%;max-width:480px"></p>
+					<p><div src="show_mfshell_example1.png" class="example"></div>
 					<p id="p3c5">As you can see in this image, at the beggining of the message you can see the CWD path and for each row (each element) you can tell wether the element is a file or a folder just by looking at the icon before the name, but more importantly, the number before the icon is the index of the element. In MF Shell when selecting files or directories, you do not use the filename, instead, you use the index that the file has in the CWD<br>Knowing this, we can take a look at a specific location, for example, the 'stufffff' directory, occupying index no. 1:</p>
 					<p><code class="cmd">/ls 1</code></p>
-					<p><img src="show_mfshell_example2.png" style="width:100%;max-width:480px"></p>
+					<p><div src="show_mfshell_example2.png" class="example"></div>
 					<p id="p3c6"><br><strong>I have not moved</strong><br><br>The '/ls' command is only useful for observing other elements, but looking at other paths does not mean that you changed your CWD<br>There are 2 commands that change your CWD: '/back' and '/cd'<br>The '/cd' command can change the CWD to a subdirectory:</p>
 					<p><code class="cmd">/cd 1</code></p>
-					<p><img src="show_mfshell_example3.png" style="width:100%;max-width:480px"></p>
+					<p><div src="show_mfshell_example3.png" class="example"></div>
 					<p id="p3c7">And the '/back' command changes the CWD to the parent command:</p>
 					<p><code class="cmd">/back</code></p>
-					<p><img src="show_mfshell_example4.png" style="width:100%;max-width:480px"></p>
+					<p><div src="show_mfshell_example4.png" class="example"></div>
 					<p id="p3c8">Using a single index of a file or directory in a command is called a 'Simple select', only one element was selected when using '/s' and '/cd'<br>The next chapter is about the selection types in MF Shell</p>
-					<p style="float:right;width:80px;"><button class="w3-button w3-black w3-padding-large" onclick="page_next()">→</button></p>
+
+					<div class="w3-center">
+						<button class="bprev w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+						<button class="bnext w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
 
 				</div>
 			</div>
 
 			<div class="page">
-				<h2 id="p4t" class="w3-center">The selectors</h2>
+				<h2 id="ch2t" class="w3-center">The selectors</h2>
 				<div class="w3-content">
-					<p id="p4c1"><br><strong>Intro</strong><br><br>In the previous chapter, we discussed about the basics of the File System in MF Shell. In this chapter we will talk about the selectors (also called selection tyes) and how we can select elements</p>
-					<p id="p4c2">There are 3 selection types:<br>→ Simple select<br>→ Range select<br>→ Free select</p>
-					<p id="p4c3"><br><strong>Simple select</strong><br><br>Form: N. Where N is an integer<br>In the context of file management, when N is positive (above -1) you are selecting an element that exists in the CWD, we saw an example of this in the previous chapter, but let's see another example with the '/mv' command<br>The '/mv' command is used for moving files and directories and for simple renaming, it all depends on how you run it. Let's try renaming a file first:</p>
-
-					<p><code class="cmd">/mv 3 new name.txt</code></p>
-					<p>PICTURE HERE</p>
-
-					<p id="p4c4">The file has been renamed, now we will see how to move it, but first, we have to run '/ls', because since the name of the file changed, there's a possibility that it's index has also changed</p>
-
-					<p><code class="cmd">/ls</code></p>
-					<p>PICTURE HERE</p>
-
-					<p id="p4c5">As we can see in the picture, the file changed it's position to index X. We now run '/mv'</p>
-
-					<p><code class="cmd">/mv X 2</code></p>
-					<p>PICTURE HERE</p>
-
-					<p id="p4c6">If we run '/ls' to look at that specific directory, we will see that the file is now inside</p>
-					<p>PICTURE HERE</p>
-
-					<p id="p4c7">But what if N (the index) is negative (below zero)? In this case, N selects a parent and (obviously) it selects it as a directory<br>For example, let's suppose that our CWD is the followint path '/some/files/around/here/' and we run:</p>
-					<p><code class="cmd">/cd -2</code></p>
-					<p>PICTURE HERE</p>
-
-					<p id="p4c8">What happened here is that we changed our CWD from '/some/files/around/here/' to '/some/files/', and if you noticed, we moved 2 levels above the CWD</p>
+					<p id="ch2c1">In the previous chapter, we discussed about the basics of the File System in MF Shell<br>In this chapter we will talk about the selectors (also called selection tyes) and how we can select elements</p>
+					<p id="ch2c2">There are 3 selection types:<br>→ Simple select<br>→ Range select<br>→ Free select</p>
 
 					<!--
 						TODO: RANGE SELECT
@@ -144,12 +131,71 @@ code.cmd{font-size:110%;color:white;background-color:black;padding-left:8px;padd
 						TODO: FREE SELECT
 					-->
 
-					<p style="float:right;width:96px"><button class="w3-button w3-black w3-padding-large" onclick="page_next()">→</button></p>
+					<div class="w3-center">
+						<button class="bprev w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+						<button class="bnext w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
 
 				</div>
 			</div>
 
+			<div class="page">
+				<h2 id="sst" class="w3-center">The selectors / Simple selector</h2>
+				<div class="w3-content">
+
+					<p id="ss1">Form: 'N'. Where N is an integer<br>In the context of file management, when N is positive (above -1) you are selecting an element that exists in the CWD, we saw an example of this in the previous chapter, but let's see another example with the '/mv' command<br>The '/mv' command is used for moving files and directories and for simple renaming, it all depends on how you run it. Let's try renaming a file first:</p>
+
+					<p><code class="cmd">/ls</code></p>
+					<div><img src="show_mfshell_example5.png" class="example"></div>
+
+					<p><code class="cmd">/mv 3 new name.txt</code></p>
+					<div><img src="show_mfshell_example6.png" class="example"></div>
+
+					<p id="ss2">The file has been renamed, now we will see how to move it, but first, we have to run '/ls', because since the name of the file changed, there's a possibility that it's index has also changed</p>
+
+					<p><code class="cmd">/ls</code></p>
+					<div><img src="show_mfshell_example7.png" class="example"></div>
+
+					<p id="ss3">As we can see in the picture, the file changed it's position from 3 to 4. Knwong this, we can now run '/mv':</p>
+
+					<p><code class="cmd">/mv 4 1</code></p>
+					<div><img src="show_mfshell_example8.png" class="example"></div>
+
+					<p id="ss4">If we run '/ls' to look at that specific directory, we will see that the file is now inside</p>
+
+					<p><code class="cmd">/ls 1</code></p>
+					<div><img src="show_mfshell_example9.png" class="example"></div>
+
+					<div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
+					<p id="ss5">Advice:<br>By default, a directory listing not made by '/ls' is only done with '/back' and '/cd', however, there is a command called '/adl' that activates an Automatic Directory Listing (ADL) mode for more file related commands so that you don't have to run '/ls' manually and very often</p>
+					</div>
+
+					<p id="ss6">But what if N (the index) is negative (below zero)? In this case, N selects a parent and (obviously) it selects it as a directory<br>Our CWD right now is '/today/videos/nice/here/' so if we run:</p>
+					<p><code class="cmd">/cd -2</code></p>
+					<div><img src="show_mfshell_example10.png" class="example"></div>
+
+					<p id="ss7">What happened here is that we changed our CWD from '/today/videos/nice/here/' to '/today/videos/', and if you noticed, we moved 2 levels above the CWD</p>
+
+					<div class="w3-center">
+						<button class="bprev w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+						<button class="bnext w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="page">
+				<h2 id="p5t" class="w3-center">The selectors / Simple selector</h2>
+				<div class="w3-content">
+
+
+
+				</div>
+			</div>
+
+
 		</div>
+
 	</div>
 </body>
 </html>

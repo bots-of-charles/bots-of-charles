@@ -41,6 +41,10 @@ function page_update(start=false)
 			document.getElementById("ipage-msg")["style"]="display:none;";
 		};
 	};
+	if (window.scrollY>0)
+	{
+		window.scrollTo(0,0);
+	};
 };
 
 function page_set(n)
