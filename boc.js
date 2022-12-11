@@ -3,10 +3,11 @@ var page_curr=0;
 var ipage=true;
 
 // Pages system
-function page_update(start=false)
+function page_update()
 {
 	let pages_qtty=pages.length;
 	let page_last=pages_qtty-1;
+	const page_curr_saved=page_curr;
 
 	if (page_curr>page_last)
 	{
@@ -33,14 +34,7 @@ function page_update(start=false)
 		pages[idx]["style"]=set_display;
 		idx++;
 	};
-	if (start===false)
-	{
-		if (ipage)
-		{
-			ipage=false;
-			document.getElementById("ipage-msg")["style"]="display:none;";
-		};
-	};
+
 	if (window.scrollY>0)
 	{
 		window.scrollTo(0,0);
@@ -80,6 +74,7 @@ function translate()
 
 	for (let id in tldata)
 	{
+		//console.log(id);
 		let elem=document.getElementById(id);
 		let text_old=elem.innerHTML;
 		let text_new=tldata[id];
