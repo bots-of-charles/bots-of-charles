@@ -124,6 +124,8 @@ img.example {max-width:100%;}
 
 					<p id="tl_sels2">There are 3 selection types:<br>→ Simple select<br>→ Range select<br>→ Free select</p>
 
+					<p id="tl_sels3">All selection types can be used for managing queues or in file management</p>
+
 					<!--
 						TODO: RANGE SELECT
 					-->
@@ -208,18 +210,19 @@ img.example {max-width:100%;}
 						<button id="tl_sels_back2" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(4)">Go back to 'The selectors' menu</button>
 					</div>
 
-					<p id="tl_sels_rs1">Forms: 'N-M' or 'N-Mr'<br>Where N and M are positive integers and/or zero, and the 'r' (literally, an 'r' ) is a modifier</p>
-					<p id="tl_sels_rs2">In the context of file management, the range select only affects the elements present in the CWD, it has nothing to do with selecting parents of the CWD<br>Range select is also used for managing job queues<br>The 'N' is a starting index (or offset), 'M' is the quantity of elements to select from 'N' and the 'r' is used for selecting in reverse</p>
+					<p id="tl_sels_rs1">Forms: 'N-M' or 'N-Mr'<br>Where 'N' and 'M' are positive integers and/or zero<br>'N' is a starting index (or offset), 'M' is the quantity of elements to select from 'N' and the 'r' is used for selecting in reverse<br>'N' is safe to be zero, since it can be an existing first element in whatever situation, but when 'M' is zero, it selects all elements starting with 'N'</p>
+					<p id="tl_sels_rs2">In the context of file management, the range select only affects the elements present in the CWD, it has nothing to do with selecting parents of the CWD</p>
+					<p id="tl_sels_rs3">The range select is very important, there will be very obvious situations where you have to select large groups of (consecutive) elements, like, for example, uploading files using the '/upload' command, or moving large groups of files using '/mv' or delete files in range using '/rm'</p>
 
-					<p id="tl_sels_rs3">Let's suppose that we have 16 elements in front of us, it doesn't matter if it's in a queue or selecting files from a CWD:</p>
+					<p id="tl_sels_rs4">Let's suppose that we have 16 elements in front of us, it doesn't matter if it's in a queue or selecting files from a CWD:</p>
 
 					<div><img src="show_mfshell_example11.png" class="example"></div>
 
-					<p id="tl_sels_rs4">'3-5': It selects the elements 3,4,5,6 and 7 because it has index 3 as the offset and it selects 5 elements from there<br>'11-2': It selects the elements 11 and 12 because 11 is the starting point or offset and 2 elements are selected<br>Notice how the elements are normally selected. Let's see a few more examples:</p>
+					<p id="tl_sels_rs5">'3-5': It selects the elements 3,4,5,6 and 7 because it has index 3 as the offset and it selects 5 elements from there<br>'11-2': It selects the elements 11 and 12 because 11 is the starting point or offset and 2 elements are selected<br>Notice how the elements are normally selected. Let's see a few more examples:</p>
 
 					<div><img src="show_mfshell_example12.png" class="example"></div>
 
-					<p id="tl_sels_rs5">'4-0': It selects all elements starting from the element no. 4. A special rule is being done here, and that is, when 'M' is equal to zero, it means to select all starting from 'N'<br>'0-0': Using the special rule of 'M' being zero, combined with 'N' being zero, has a result of selecting all the elements<br>'9-4r': The starting point is index 9, and four elements are being selected, but they are being selected in reverse and this is because of the reverse modifier. The reverse modifier for range selections has very specific and rare use cases</p>
+					<p id="tl_sels_rs6">'4-0': It selects all elements starting from the element no. 4. The special rule of 'M' being zero and selecting everything is being applied here<br>'0-0': Using the special rule of 'M' being zero, combined with 'N' being zero, has a result of selecting all the elements<br>'9-4r': The starting point is index 9, and four elements are being selected, but they are being selected in reverse and this is because of the reverse modifier. The reverse modifier for range selections has very specific and rare use cases</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
@@ -237,7 +240,9 @@ img.example {max-width:100%;}
 						<button id="tl_sels_back3" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(4)">Go back to 'The selectors' menu</button>
 					</div>
 
-					<p>unfinished</p>
+					<p id="tl_sels_fs1">Form: 'A,B,C,D....Z'<br>All elements are positive integers and/or zero separated by comma with no space in between<br>2 or more elements being selected is what makes the free select a free select<br>The elements selected must be unique: an element is only selected once<br>The amount of elements selected cannot exceed the amount of elements available for selecion</p>
+					<p id="tl_sels_fs2">When working with files and directories, the free select only works with the elements present in the CWD, and (just like the range select) it has nothing to do with selecting parents of the CWD</p>
+					<p id="tl_sels_fs3">The main adavantage of the free select is that you can select multiple, non-consecutive elements in a specific order, and this is important because there are commands where the order in which elements are selected is important, but more importantly, there are situations where the elements that need to be selected for a certain task are not positioned consecutively</p>
 
 				</div>
 			</div>
