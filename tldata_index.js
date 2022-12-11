@@ -16,8 +16,8 @@ const tldata={
 	"s3b1":"Guía de usuario",
 	"s3b2":"Referencia de comandos",
 };
-tl_data["about1"]=tldata["bt2"];
-tl_data["about2"]=tldata["bt2"];
-tl_data["s3t1"]=tldata["bt3"];
-tl_data["s3b3"]=tldata["s3b1"];
-tl_data["s3b4"]=tldata["s3b2"];
+tldata["about1"]=tldata["bt2"];
+tldata["about2"]=tldata["bt2"];
+tldata["s3t1"]=tldata["bt3"];
+tldata["s3b3"]=tldata["s3b1"];
+tldata["s3b4"]=tldata["s3b2"];
