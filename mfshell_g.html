@@ -65,8 +65,8 @@ img.example {max-width:100%;}
 				<p class="w3-center"><button id="tl_menu0" class="w3-button w3-black" style="width:320px" onclick="page_set(2)">Introduction</button></p>
 				<p class="w3-center"><button id="tl_menu1" class="w3-button w3-black" style="width:320px" onclick="page_set(3)">The file system</button></p>
 				<p class="w3-center"><button id="tl_menu2" class="w3-button w3-black" style="width:320px" onclick="page_set(4)">The selectors</button></p>
-				<p class="w3-center"><button id="tl_menu3" class="w3-button w3-black" style="width:320px">Limits and queues</button></p>
-				<p class="w3-center"><button id="tl_menu4" class="w3-button w3-black" style="width:320px">Extra knowledge</button></p>
+				<p class="w3-center"><button id="tl_menu3" class="w3-button w3-black" style="width:320px" onclick="page_set(8)">Limits and queues</button></p>
+				<p class="w3-center"><button id="tl_menu4" class="w3-button w3-black" style="width:320px" onclick="page_set(9)">Extra knowledge</button></p>
 
 			</div>
 
@@ -222,6 +222,19 @@ img.example {max-width:100%;}
 
 					<p id="tl_sels_rs6">'4-0': It selects all elements starting from the element no. 4. The special rule of 'M' being zero and selecting everything is being applied here<br>'0-0': Using the special rule of 'M' being zero, combined with 'N' being zero, has a result of selecting all the elements<br>'9-4r': The starting point is index 9, and four elements are being selected, but they are being selected in reverse and this is because of the reverse modifier. The reverse modifier for range selections has very specific and rare use cases</p>
 
+					<p id="tl_sels_rs7">Let's see a real example of range select using the '/mv' command. This is how the CWD looks like:</p>
+					<p><code class="cmd">/ls</code></p>
+					<div><img src="show_mfshell_example13.png" class="example"></div>
+
+					<p id="tl_sels_rs8">What we will do is move the last 3 files to that directory called 'watch later':</p>
+					<p><code class="cmd">/mv 5-3 0</code></p>
+					<div><img src="show_mfshell_example14.png" class="example"></div>
+
+					<p><code class="cmd">/ls 0</code></p>
+					<div><img src="show_mfshell_example15.png" class="example"></div>
+
+					<p id="tl_sels_rs9">Since the goal was to move the last 3 files, other ways of range selecting for this particular case would have been '5-0' or '7-3r'</p>
+
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_next()">→</button>
@@ -240,7 +253,24 @@ img.example {max-width:100%;}
 
 					<p id="tl_sels_fs1">Form: 'A,B,C,D,...,Z'<br>All elements are positive integers and/or zero separated by comma with no space in between<br>The elements selected must be unique: an element is only selected once<br>The amount of elements selected cannot exceed the amount of elements available for selecion</p>
 					<p id="tl_sels_fs2">When working with files and directories, the free select only works with the elements present in the CWD, and (just like the range select) it has nothing to do with selecting parents of the CWD</p>
-					<p id="tl_sels_fs3">The main adavantage of the free select is that you can select multiple, non-consecutive elements in a specific order. This is important because there are commands where the order in which elements are selected is important. There are also situations where the elements that need to be selected for a certain task are not positioned consecutively</p>
+					<p id="tl_sels_fs3">The main adavantage of the free select is that you can select multiple, non-consecutive elements in a specific order. This is important because there are commands where the order in which elements are selected has an influence on the results. There are also situations where the elements that need to be selected for a certain task are not positioned consecutively</p>
+
+					<p id="tl_sels_fs4">Let's suppose that we have 8 elements, in a CWD or a queue:</p>
+					<div><img src="show_mfshell_example16.png" class="example"></div>
+
+					<p id="tl_sels_fs4">'1,3,6,7': Selects the elements 1,3,6 and 7, non-consecutive elements in that order<br>'4,5,2': Selects elements 4,5 and 2 in that specific order</p>
+
+					<p id="tl_sels_fs5">Let's now see a real example of a free select using the '/upload' command. This is how the CWD looks like:</p>
+
+					<p><code class="cmd">/ls</code></p>
+					<div><img src="show_mfshell_example17.png" class="example"></div>
+
+					<p id="tl_sels_fs6">What we will do is upload the elements (files) 2 and 0 in that order, this is the result:</p>
+
+					<p><code class="cmd">/upload 2,0</code></p>
+					<div><img src="show_mfshell_example18.png" class="example"></div>
+
+					<p id="tl_sels_fs7">As you can see in the image, the first file to be uploaded was no. 2 and then the file no. 1</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
@@ -250,6 +280,32 @@ img.example {max-width:100%;}
 				</div>
 			</div>
 
+			<div class="page">
+				<h2 id="tl_sels_fs" class="w3-center">Limits and queues</h2>
+				<div class="w3-content">
+
+					<p>...</p>
+
+					<div class="w3-center">
+						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
+						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_next()">→</button>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="page">
+				<h2 id="tl_sels_fs" class="w3-center">Extra knowledge</h2>
+				<div class="w3-content">
+
+					<p>...</p>
+
+					<div class="w3-center">
+						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
+					</div>
+
+				</div>
+			</div>
 
 
 		</div>

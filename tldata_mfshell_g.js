@@ -45,10 +45,17 @@ const tldata={
 	"tl_sels_rs4":"Supongamos que tenemos 16 elementos delante de nosotros, ya sea en una cola o en un CWD:",
 	"tl_sels_rs5":"'3-5': Selecciona los elementos 3,4,5,6 y 7 porque tiene índice inicial 3 y selecciona 5 elementos a partir del índice inicial<br>'11-2': Selecciona los elementos 11 y 12, porque 11 es el elemento inicial y se seleccionan 2 elementos<br>Note el sentido en que se seleccionan los elementos. Veamos más ejemplos:",
 	"tl_sels_rs6":"'4-0': Selecciona todos los elementos a partir del elemento 4. Aquí se está aplicando la regla especial de lo que pasa cuando 'M' vale cero<br>'0-0': Usando la regla especial de 'M' siendo cero, combinada con 'N' también valiendo cero, da como resultado seleccionar todos los elementos<br>'9-4r': El punto inicial es 9, y se seleccionan 4 elementos, pero se están seleccionando en el sentido contrario debido al modificador de reversa. El modificador de reversa en las selecciones por rango tiene unos casos de uso muy raros y específicos",
+	"tl_sels_rs7":"Veamos ahora un ejemplo de uso real de selección de rango usando el comando '/mv' para mover un grupo de archivos. Así se ve el CWD:",
+	"tl_sels_rs8":"Lo que hay que hacer es mover los tres últimos archivos a ese directorio llamado 'watch later':",
+	"tl_sels_rs9":"Como el objetivo era mover los tres últimos, otras formas de seleccionar por rango para este caso huberan sido '5-0' o '7-3r'",
 	"tl_sels_fs":"Los selectores / Selector libre",
 	"tl_sels_fs1":"Forma: 'A,B,C,D,...,Z'<br>Todos los elementos son enteros positivos y/o cero separados por coma y sin espacio entre ellos<br>Los elementos seleccionados no deben repetirse: cada elemento se debe seleccionar una única vez<br>La cantidad de elementos a seleccionar no debe exceder la cantidad de elementos disponible a seleccionar",
 	"tl_sels_fs2":"Al trabajar con archivos y directorios, el selector libre solo se limita a trabajar con los elementos presentes en el CWD, (al igual que el selector de rango) no trabaja con parientes del CWD",
-	"tl_sels_fs3":"La ventaja principal del selector libre es que puedes seleccionar múltiples elementos no consecutivos en un órden específico. Esto es importante porque hay comandos en los que el órden en el que se seleccionan los elementos es importante. Existen tambien determinadas situaciones en las que hace falta seleccionar elementos que no están posicionados de forma consecutiva",
+	"tl_sels_fs3":"La ventaja principal del selector libre es que puedes seleccionar múltiples elementos no consecutivos en un órden específico. Esto es importante porque hay comandos en los que el orden en el que se seleccionan los elementos influye en los resultados. Existen tambien determinadas situaciones en las que hace falta seleccionar elementos que no están posicionados de forma consecutiva",
+	"tl_sels_fs4":"'1,3,6,7': Selecciona los elementos 1,3,6 y 7 en ese orden<br>'4,5,2': Selecciona los elementos 4,5 y 2 en ese orden",
+	"tl_sels_fs5":"Veamos un ejemplo real de selcción libre usando el comando '/upload'. Así se ve el CWD:",
+	"tl_sels_fs6":"Lo que hacemos es subir los elementos (archivos) 2 y 0, en ese orden, y este es el resultado:",
+	"tl_sels_fs7":"Como se puede ver en la imagen, primero se subió el elemento no. 2 y después el no. 0",
 };
 tldata["tl_menu"]=tldata["tl_nb2"];
 tldata["tl_intro"]=tldata["tl_menu0"];
