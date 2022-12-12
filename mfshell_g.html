@@ -42,9 +42,9 @@ img.example {max-width:100%;}
 				<!-- Slides -->
 				<div class="w3-content">
 					<div class="slideshow w3-center" onclick="page_next()" style="cursor:pointer;">
-						<img class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
-						<img class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
-						<img class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic3">
+						<img loading="lazy" class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
+						<img loading="lazy" class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
+						<img loading="lazy" class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic3">
 					</div>
 					<script>
 						w3.slideshow(".slides", 2000);
@@ -97,16 +97,16 @@ img.example {max-width:100%;}
 					<p id="tl_fs3"><br><strong>Look around, move around</strong><br><br>To view the contents of the CWD you can run the '/ls' command like this:</p>
 					<p><code class="cmd">/ls</code></p>
 					<p id="tl_fs4">The following image is an example of an '/ls' output</p>
-					<div><img src="show_mfshell_example1.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example1.png" class="example"></div>
 					<p id="tl_fs5">As you can see in this image, at the beggining of the message you can see the CWD path and for each row (each element) you can tell wether the element is a file or a folder just by looking at the icon before the name, but more importantly, the number before the icon is the index of the element. In MF Shell when selecting files or directories, you do not use the filename, instead, you use the index that the file has in the CWD<br>Knowing this, we can take a look at a specific location, for example, the 'stufffff' directory, occupying index no. 1:</p>
 					<p><code class="cmd">/ls 1</code></p>
-					<div><img src="show_mfshell_example2.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example2.png" class="example"></div>
 					<p id="tl_fs6"><br><strong>I have not moved</strong><br><br>The '/ls' command is only useful for observing other elements, but looking at other paths does not mean that you changed your CWD<br>There are 2 commands that change your CWD: '/back' and '/cd'<br>The '/cd' command can change the CWD to a subdirectory:</p>
 					<p><code class="cmd">/cd 1</code></p>
-					<div><img src="show_mfshell_example3.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example3.png" class="example"></div>
 					<p id="tl_fs7">And the '/back' command changes the CWD to the parent command:</p>
 					<p><code class="cmd">/back</code></p>
-					<div><img src="show_mfshell_example4.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example4.png" class="example"></div>
 					<p id="tl_fs8">Using a single index of a file or directory as an argument in a command is called a 'Simple select'<br>The next chapter is about the selection types in MF Shell</p>
 
 					<div class="w3-center">
@@ -164,25 +164,25 @@ img.example {max-width:100%;}
 					<p id="tl_sels_ss1">Form: 'N'<br>Where N is an integer<br>In the context of file management, when N is positive (above -1) you are selecting an element that exists in the CWD, we saw an example of this in the previous chapter, but let's see another example with the '/mv' command<br>The '/mv' command is used for moving files and directories and for simple renaming, it all depends on how you run it. Let's try renaming a file first:</p>
 
 					<p><code class="cmd">/ls</code></p>
-					<div><img src="show_mfshell_example5.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example5.png" class="example"></div>
 
 					<p><code class="cmd">/mv 3 new name.txt</code></p>
-					<div><img src="show_mfshell_example6.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example6.png" class="example"></div>
 
 					<p id="tl_sels_ss2">The file has been renamed, now we will see how to move it, but first, we have to run '/ls' again, because since the name of the file changed and due to the fact that there are other files there's a possibility that the index of our target file changed in the CWD</p>
 
 					<p><code class="cmd">/ls</code></p>
-					<div><img src="show_mfshell_example7.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example7.png" class="example"></div>
 
 					<p id="tl_sels_ss3">As we can see in the picture, the file changed it's position from 3 to 4. Knwong this, we can now run '/mv':</p>
 
 					<p><code class="cmd">/mv 4 1</code></p>
-					<div><img src="show_mfshell_example8.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example8.png" class="example"></div>
 
 					<p id="tl_sels_ss4">If we run '/ls' to look at that specific directory, we will see that the file is now inside</p>
 
 					<p><code class="cmd">/ls 1</code></p>
-					<div><img src="show_mfshell_example9.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example9.png" class="example"></div>
 
 					<div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
 					<p id="tl_sels_ss5">Advice:<br>By default, a directory listing not made by '/ls' is only done with '/back' and '/cd', however, there is a command called '/adl' that activates an Automatic Directory Listing (ADL) mode for more file related commands so that you don't have to run '/ls' manually and very often</p>
@@ -190,7 +190,7 @@ img.example {max-width:100%;}
 
 					<p id="tl_sels_ss6">But what if N (the index) is negative (below zero)? In this case, N selects a parent and (obviously) it selects it as a directory<br>Our CWD right now is '/today/videos/nice/here/' so if we run:</p>
 					<p><code class="cmd">/cd -2</code></p>
-					<div><img src="show_mfshell_example10.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example10.png" class="example"></div>
 
 					<p id="tl_sels_ss7">What happened here is that we changed our CWD from '/today/videos/nice/here/' to '/today/videos/', and if you noticed, we moved 2 levels above the CWD</p>
 
@@ -215,23 +215,23 @@ img.example {max-width:100%;}
 					<p id="tl_sels_rs3">The range select is very important, there will be very obvious situations where you have to select large groups of (consecutive) elements, like, for example, uploading files using the '/upload' command, or moving large groups of files using '/mv' or delete files in range using '/rm'</p>
 
 					<p id="tl_sels_rs4">Let's suppose that we have 16 elements in front of us, it doesn't matter if it's in a queue or selecting files from a CWD:</p>
-					<div><img src="show_mfshell_example11.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example11.png" class="example"></div>
 
 					<p id="tl_sels_rs5">'3-5': It selects the elements 3,4,5,6 and 7 because it has index 3 as the offset and it selects 5 elements from there<br>'11-2': It selects the elements 11 and 12 because 11 is the starting point or offset and 2 elements are selected<br>Notice how the elements are normally selected. Let's see a few more examples:</p>
-					<div><img src="show_mfshell_example12.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example12.png" class="example"></div>
 
 					<p id="tl_sels_rs6">'4-0': It selects all elements starting from the element no. 4. The special rule of 'M' being zero and selecting everything is being applied here<br>'0-0': Using the special rule of 'M' being zero, combined with 'N' being zero, has a result of selecting all the elements<br>'9-4r': The starting point is index 9, and four elements are being selected, but they are being selected in reverse and this is because of the reverse modifier. The reverse modifier for range selections has very specific and rare use cases</p>
 
 					<p id="tl_sels_rs7">Let's see a real example of range select using the '/mv' command. This is how the CWD looks like:</p>
 					<p><code class="cmd">/ls</code></p>
-					<div><img src="show_mfshell_example13.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example13.png" class="example"></div>
 
 					<p id="tl_sels_rs8">What we will do is move the last 3 files to that directory called 'watch later':</p>
 					<p><code class="cmd">/mv 5-3 0</code></p>
-					<div><img src="show_mfshell_example14.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example14.png" class="example"></div>
 
 					<p><code class="cmd">/ls 0</code></p>
-					<div><img src="show_mfshell_example15.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example15.png" class="example"></div>
 
 					<p id="tl_sels_rs9">Since the goal was to move the last 3 files, other ways of range selecting for this particular case would have been '5-0' or '7-3r'</p>
 
@@ -256,19 +256,19 @@ img.example {max-width:100%;}
 					<p id="tl_sels_fs3">The main adavantage of the free select is that you can select multiple, non-consecutive elements in a specific order. This is important because there are commands where the order in which elements are selected has an influence on the results. There are also situations where the elements that need to be selected for a certain task are not positioned consecutively</p>
 
 					<p id="tl_sels_fs4">Let's suppose that we have 8 elements, in a CWD or a queue:</p>
-					<div><img src="show_mfshell_example16.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example16.png" class="example"></div>
 
 					<p id="tl_sels_fs4">'1,3,6,7': Selects the elements 1,3,6 and 7, non-consecutive elements in that order<br>'4,5,2': Selects elements 4,5 and 2 in that specific order</p>
 
 					<p id="tl_sels_fs5">Let's now see a real example of a free select using the '/upload' command. This is how the CWD looks like:</p>
 
 					<p><code class="cmd">/ls</code></p>
-					<div><img src="show_mfshell_example17.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example17.png" class="example"></div>
 
 					<p id="tl_sels_fs6">What we will do is upload the elements (files) 2 and 0 in that order, this is the result:</p>
 
 					<p><code class="cmd">/upload 2,0</code></p>
-					<div><img src="show_mfshell_example18.png" class="example"></div>
+					<div><img loading="lazy" src="show_mfshell_example18.png" class="example"></div>
 
 					<p id="tl_sels_fs7">As you can see in the image, the first file to be uploaded was no. 2 and then the file no. 1</p>
 
