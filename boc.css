@@ -1,8 +1,9 @@
 body {background-color:#18191D;color:white;}
-img.slides {width:100%;}
-div.bb {position:fixed;bottom:16px;}
-div.bnext {left:50%;}
-div.bprev {right:50%;}
+div.thing {background-color:#3A4047;padding:16px;margin-top:16px;margin-bottom:16px;}
 a.tglink {color:#1E90FF;}
+code.cmd {font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
 strong.sub {font-size:135%;}
+img.example {max-width:100%;}
+img.slides {width:100%;}
 #nvaf {display:none;}
+#search_input {color:white;background-color:black;padding:10px;border:none;border-bottom:3px solid #ccc;width:calc(100% - 112px)}

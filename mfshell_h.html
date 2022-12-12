@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<title>
+Bots Of Charles
+</title>
+<noscript>No JS ???</noscript> 
+<link rel="stylesheet" href="w3.css">
+<link rel="stylesheet" href="boc.css">
+<script src="w3.js"></script>
+<script src="tldata_mfshell_h.js"></script>
+<script src="tl.js"></script>
+<script src="search.js"></script>
+<script>
+	function init()
+	{
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			if (sessionStorage["lang"]==="es")
+			{
+				translate();
+				sessionStorage["lang"]="es"
+			};
+		};
+		document.getElementById("nvaf")["style"]="display:block;";
+	};
+	window.onload=init;
+</script>
+</head>
+<body>
+	<div id="nvaf">
+		<div class="w3-top">
+			<div class="w3-bar w3-black w3-card">
+				<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='index.html'">Home</button>
+				<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='mfshell_g.html'">Guide</button>
+				<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='#top'">Up</button>
+				<div style="float:right;">
+					<button id="tl_nb4" class="w3-bar-item w3-button w3-padding-large" onclick="translate()">Español</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="w3-container">
+
+			<div class="w3-content">
+				<p><br><br></p>
+				<h1 class="w3-center">Bots Of Charles / <span id="tl_page_title">MF Shell commands reference</span></h1>
+				<p id="tl_sub" class="w3-center">Telegram Bots</p>
+			</div>
+
+			<div class="w3-content">
+				<div class="w3-center">
+					<strong class="sub" id="tl_search">Search for a command<br>Leave empty to show all commands</strong>
+				</div>
+
+				<div  style="margin-top:32px;margin-bottom:32px;">
+					<input id="search_input" minlength=1 maxlength=32 placeholder="..." type="text" value="">
+					<button id="search_button" style="float:right;bottom:0" class="w3-black w3-button w3-padding-large" onclick="search_now()">Search</button></input></p>
+				</div>
+
+			</div>
+
+			<div class="w3-content">
+
+				<!--
+
+				TEMPLATES
+
+				<div class="thing">
+					<strong class="sub">/command</strong>
+					<p><code class="cmd">/command</code></p>
+					<p id="cmd_name"></p>
+				</div>
+
+				-->
+
+				<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+					<p>This page is under development<br>Esta página está en desarrollo</p>
+				</div>
+
+				<div class="thing">
+					<strong class="sub">/about</strong>
+					<p><code class="cmd">/about</code></p>
+					<p id="cmd_about">Shows a brief information about the bot, the admin and a link to the bot's internal website</p>
+				</div>
+
+				<div class="thing">
+					<strong class="sub">/help</strong>
+					<p><code class="cmd">/help</code></p>
+					<p id="cmd_help"></p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

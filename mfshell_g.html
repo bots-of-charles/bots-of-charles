@@ -9,13 +9,26 @@ Bots Of Charles
 <noscript>No JS ???</noscript>
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="boc.css">
-<style>
-code.cmd {font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
-img.example {max-width:100%;}
-</style>
 <script src="w3.js"></script>
 <script src="tldata_mfshell_g.js"></script>
-<script src="boc.js"></script>
+<script src="tl.js"></script>
+<script src="pages.js"></script>
+<script>
+	function init()
+	{
+		page_update(true);
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			if (sessionStorage["lang"]==="es")
+			{
+				translate();
+				sessionStorage["lang"]="es"
+			};
+		};
+		document.getElementById("nvaf")["style"]="display:block;";
+	};
+	window.onload=init;
+</script>
 </head>
 <body>
 	<div id="nvaf">
@@ -67,6 +80,7 @@ img.example {max-width:100%;}
 				<p class="w3-center"><button id="tl_menu2" class="w3-button w3-black" style="width:320px" onclick="page_set(4)">The selectors</button></p>
 				<p class="w3-center"><button id="tl_menu3" class="w3-button w3-black" style="width:320px" onclick="page_set(8)">Limits and queues</button></p>
 				<p class="w3-center"><button id="tl_menu4" class="w3-button w3-black" style="width:320px" onclick="page_set(9)">Extra knowledge</button></p>
+				<p class="w3-center"><button id="tl_menu5" class="w3-button w3-black" style="width:320px" onclick="window.location.href='mfshell_h.html'">Commands reference</button></p>
 
 			</div>
 
@@ -110,8 +124,8 @@ img.example {max-width:100%;}
 					<p id="tl_fs8">Using a single index of a file or directory as an argument in a command is called a 'Simple select'<br>The next chapter is about the selection types in MF Shell</p>
 
 					<div class="w3-center">
-						<button class="bprev w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
-						<button class="bnext w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
+						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_next()">→</button>
 					</div>
 
 				</div>

@@ -11,7 +11,24 @@ Bots Of Charles
 <link rel="stylesheet" href="boc.css">
 <script src="w3.js"></script>
 <script src="tldata_index.js"></script>
-<script src="boc.js"></script>
+<script src="tl.js"></script>
+<script src="pages.js"></script>
+<script>
+	function init()
+	{
+		page_update(true);
+		if (sessionStorage.hasOwnProperty("lang"))
+		{
+			if (sessionStorage["lang"]==="es")
+			{
+				translate();
+				sessionStorage["lang"]="es"
+			};
+		};
+		document.getElementById("nvaf")["style"]="display:block;";
+	};
+	window.onload=init;
+</script>
 </head>
 <body>
 	<div id="nvaf">
