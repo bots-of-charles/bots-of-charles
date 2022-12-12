@@ -73,9 +73,9 @@ img.example {max-width:100%;}
 			<div class="page">
 				<h2 id="tl_intro" class="w3-center">Introduction</h2>
 				<div class="w3-content">
-					<p id="tl_intro1"><br><strong>This bot is not normal</strong><br><br>In Telegram, most URL uploaders and leechers have this 'boomerang' effect: you give them something, wether it's a Telegram file or a URL, they do their 'thing' and then they upload it to the chat, this is considered 'normal'. The first thing you need to know is that MF Shell is not a 'normal' bot, because this 'boomerang effect' does not exist, and this is because there are two ways to get the files back. The first one is the typical upload to the chat and the second one is sharing through the web server, also known as File-to-Link</p>
-					<p id="tl_intro2"><br><strong>MF Shell main features</strong><br><br>→ Organize files in whatever way you want. Create folders, rename files (even in batch), delete files, extract ZIP, RAR, 7Z files, create 7Z files, and more<br>→ Download content anywhere you want. Not just the typical Youtube or MEGA files, there's direct support from Google Drive files and folders, to android apps and even comics and manga<br>→ Made for big jobs. MF Shell has a waitlist and queues system, queues can be cancelled or paused, you can modify a queue. The waitlist are a mean for rationing the computational resources used by the bot<br>→ FTL on steroids. The web interface of the bot is very helpful for downloading massive amounts of content</p>
-					<p id="tl_intro3"><br><strong>Video tutorial</strong><br><br>The guide can get very dense to read, this is why we have a tutorial video, showing off the basics of the bot</p>
+					<p id="tl_intro1"><strong class="sub">This bot is not normal</strong><br>In Telegram, most URL uploaders and leechers have this 'boomerang' effect: you give them something, wether it's a Telegram file or a URL, they do their 'thing' and then they upload it to the chat, this is considered 'normal'. The first thing you need to know is that MF Shell is not a 'normal' bot, because this 'boomerang effect' does not exist, and this is because there are two ways to get the files back. The first one is the typical upload to the chat and the second one is sharing through the web server, also known as File-to-Link</p>
+					<p id="tl_intro2"><strong class="sub">MF Shell's main features</strong><br>→ Organize files in whatever way you want. Create folders, rename files (even in batch), delete files, extract ZIP, RAR, 7Z files, create 7Z files, and more<br>→ Download content anywhere you want. Not just the typical Youtube or MEGA files, there's direct support from Google Drive files and folders, to android apps and even comics and manga<br>→ Made for big jobs. MF Shell has a waitlist and queues system, queues can be cancelled or paused, you can modify a queue. The waitlist are a mean for rationing the computational resources used by the bot<br>→ FTL on steroids. The web interface of the bot is very helpful for downloading massive amounts of content previously downloaded into the bot</p>
+					<p id="tl_intro3"><strong class="sub">Video tutorial</strong><br>The guide can get very dense to read, this is why we have a tutorial video, showing off the basics of the bot</p>
 
 					<p class="w3-center"><a id="tl_intro4" class="w3-button w3-black" style="width:320px" href="https://t.me/bots_of_charles/397">Watch the video</a></p>
 
@@ -92,16 +92,16 @@ img.example {max-width:100%;}
 			<div class="page">
 				<h2 id="tl_fs" class="w3-center">The File System</h2>
 				<div class="w3-content">
-					<p id="tl_fs1"><br><strong>Theory</strong><br><br>In the bot, each user has its own directory (folder) were it can work, and inside that one, the user can create more subdirectories to group files and other subdirectories</p>
+					<p id="tl_fs1"><strong class="sub">The theory</strong><br>In the bot, each user has its own directory (folder) were it can work, and inside that one, the user can create more subdirectories to group files and other subdirectories</p>
 					<p id="tl_fs2">There is a location (path) that is the current working directory (CWD). A user can change the CWD to go deeper or shallower in the structure. Also, each CWD has a parent path, except for the root "/", the root has no parent<br>If all of this sounds confusing, think about a tree upside down where each node (directory) has a different name</p>
-					<p id="tl_fs3"><br><strong>Look around, move around</strong><br><br>To view the contents of the CWD you can run the '/ls' command like this:</p>
+					<p id="tl_fs3"><strong class="sub">Looking around</strong><br>To view the contents of the CWD you can run the '/ls' command like this:</p>
 					<p><code class="cmd">/ls</code></p>
 					<p id="tl_fs4">The following image is an example of an '/ls' output</p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example1.png" class="example"></div>
 					<p id="tl_fs5">As you can see in this image, at the beggining of the message you can see the CWD path and for each row (each element) you can tell wether the element is a file or a folder just by looking at the icon before the name, but more importantly, the number before the icon is the index of the element. In MF Shell when selecting files or directories, you do not use the filename, instead, you use the index that the file has in the CWD<br>Knowing this, we can take a look at a specific location, for example, the 'stufffff' directory, occupying index no. 1:</p>
 					<p><code class="cmd">/ls 1</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example2.png" class="example"></div>
-					<p id="tl_fs6"><br><strong>I have not moved</strong><br><br>The '/ls' command is only useful for observing other elements, but looking at other paths does not mean that you changed your CWD<br>There are 2 commands that change your CWD: '/back' and '/cd'<br>The '/cd' command can change the CWD to a subdirectory:</p>
+					<p id="tl_fs6"><strong class="sub">Moving around</strong><br>The '/ls' command is only useful for observing other elements, but looking at other paths does not mean that you changed your CWD<br>There are 2 commands that change your CWD: '/back' and '/cd'<br>The '/cd' command can change the CWD to a subdirectory:</p>
 					<p><code class="cmd">/cd 1</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example3.png" class="example"></div>
 					<p id="tl_fs7">And the '/back' command changes the CWD to the parent command:</p>
@@ -121,35 +121,19 @@ img.example {max-width:100%;}
 				<h2 id="tl_sels" class="w3-center">The selectors</h2>
 				<div class="w3-content">
 					<p id="tl_sels1">In the previous chapter, we discussed about the basics of the File System in MF Shell<br>In this chapter we will talk about the selectors (also called selection tyes) and how we can select elements</p>
-
 					<p id="tl_sels2">There are 3 selection types:<br>→ Simple select<br>→ Range select<br>→ Free select</p>
-
 					<p id="tl_sels3">All selection types can be used for managing queues or in file management</p>
-
-					<!--
-						TODO: RANGE SELECT
-					-->
-
-					<!--
-						TODO: FREE SELECT
-					-->
-
 					<div class="w3-center">
-
 						<div class="w3-third w3-padding" style="margin-top:32px">
 							<button id="tl_sels_b1" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(5)">Simple select</button>
 						</div>
-
 						<div class="w3-third w3-padding" style="margin-top:32px">
 							<button id="tl_sels_b2" class="bnext w3-black w3-button w3-padding-large" onclick="page_set(6)">Range Select</button>
 						</div>
-
 						<div class="w3-third w3-padding" style="margin-top:32px">
 							<button id="tl_sels_b3" class="bnext w3-black w3-button w3-padding-large" onclick="page_set(7)">Free Select</button>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 
@@ -161,7 +145,9 @@ img.example {max-width:100%;}
 						<button id="tl_sels_back1" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(4)">Go back to 'The selectors' menu</button>
 					</div>
 
-					<p id="tl_sels_ss1">Form: 'N'<br>Where N is an integer<br>In the context of file management, when N is positive (above -1) you are selecting an element that exists in the CWD, we saw an example of this in the previous chapter, but let's see another example with the '/mv' command<br>The '/mv' command is used for moving files and directories and for simple renaming, it all depends on how you run it. Let's try renaming a file first:</p>
+					<p id="tl_sels_ss1"><strong class="sub">Basics</strong><br>Form: 'N'<br>Where 'N' is an integer<br>In the context of file management, when N is positive or zero you are selecting an element that exists in the CWD, same goes for queue management<br>When 'N' is negative, what happens is that the selected element is a parent of the CWD (this does not applies to queue management), the selected parent depends on how far the number is from zero: you are going up N levels above the CWD</p>
+					
+					<p id="tl_sels_ss2"><strong class="sub">Real example</strong><br>In the previous chapter we saw some examples of simple selectors while using '/ls' and '/cd' to learn about the file system, but let's see another example with the '/mv' command<br>The '/mv' command is used for moving files and directories and for simple renaming, it all depends on how you run it. Let's try renaming a file first:</p>
 
 					<p><code class="cmd">/ls</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example5.png" class="example"></div>
@@ -169,30 +155,30 @@ img.example {max-width:100%;}
 					<p><code class="cmd">/mv 3 new name.txt</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example6.png" class="example"></div>
 
-					<p id="tl_sels_ss2">The file has been renamed, now we will see how to move it, but first, we have to run '/ls' again, because since the name of the file changed and due to the fact that there are other files there's a possibility that the index of our target file changed in the CWD</p>
+					<p id="tl_sels_ss3">The file has been renamed, now we will see how to move it, but first, we have to run '/ls' again, because since the name of the file changed and due to the fact that there are other files there's a possibility that the index of our target file changed in the CWD</p>
 
 					<p><code class="cmd">/ls</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example7.png" class="example"></div>
 
-					<p id="tl_sels_ss3">As we can see in the picture, the file changed it's position from 3 to 4. Knwong this, we can now run '/mv':</p>
+					<p id="tl_sels_ss4">As we can see in the picture, the file changed it's position from 3 to 4. Knwong this, we can now run '/mv':</p>
 
 					<p><code class="cmd">/mv 4 1</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example8.png" class="example"></div>
 
-					<p id="tl_sels_ss4">If we run '/ls' to look at that specific directory, we will see that the file is now inside</p>
+					<p id="tl_sels_ss5">If we run '/ls' to look at that specific directory, we will see that the file is now inside</p>
 
 					<p><code class="cmd">/ls 1</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example9.png" class="example"></div>
 
 					<div class="w3-panel w3-pale-blue w3-leftbar w3-rightbar w3-border-blue">
-					<p id="tl_sels_ss5">Advice:<br>By default, a directory listing not made by '/ls' is only done with '/back' and '/cd', however, there is a command called '/adl' that activates an Automatic Directory Listing (ADL) mode for more file related commands so that you don't have to run '/ls' manually and very often</p>
+					<p id="tl_sels_ss6">Advice:<br>By default, a directory listing not made by '/ls' is only done with '/back' and '/cd', however, there is a command called '/adl' that activates an Automatic Directory Listing (ADL) mode for more file related commands so that you don't have to run '/ls' manually and very often</p>
 					</div>
 
-					<p id="tl_sels_ss6">But what if N (the index) is negative (below zero)? In this case, N selects a parent and (obviously) it selects it as a directory<br>Our CWD right now is '/today/videos/nice/here/' so if we run:</p>
+					<p id="tl_sels_ss7">But what if N (the index) is negative (below zero)? In this case, N selects a parent and (obviously) it selects it as a directory<br>Our CWD right now is '/today/videos/nice/here/' so if we run:</p>
 					<p><code class="cmd">/cd -2</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example10.png" class="example"></div>
 
-					<p id="tl_sels_ss7">What happened here is that we changed our CWD from '/today/videos/nice/here/' to '/today/videos/', and if you noticed, we moved 2 levels above the CWD</p>
+					<p id="tl_sels_ss8">What happened here is that we changed our CWD from '/today/videos/nice/here/' to '/today/videos/', and if you noticed, we moved 2 levels above the CWD</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:8px;width:80px;" onclick="page_prev()">←</button>
@@ -210,11 +196,11 @@ img.example {max-width:100%;}
 						<button id="tl_sels_back2" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(4)">Go back to 'The selectors' menu</button>
 					</div>
 
-					<p id="tl_sels_rs1">Forms: 'N-M' or 'N-Mr'<br>Where 'N' and 'M' are positive integers and/or zero<br>'N' is a starting index (or offset), 'M' is the quantity of elements to select from 'N' and the 'r' is used for selecting in reverse<br>'N' is safe to be zero, since it can be an existing first element in whatever situation, but when 'M' is zero, it selects all elements starting with 'N'</p>
+					<p id="tl_sels_rs1"><strong class="sub">Basics</strong><br>Forms: 'N-M' or 'N-Mr'<br>Where 'N' and 'M' are positive integers and/or zero<br>'N' is a starting index (or offset), 'M' is the quantity of elements to select from 'N' and the 'r' is used for selecting in reverse<br>'N' is safe to be zero, since it can be an existing first element in whatever situation, but when 'M' is zero, it selects all elements starting with 'N'</p>
 					<p id="tl_sels_rs2">In the context of file management, the range select only affects the elements present in the CWD, it has nothing to do with selecting parents of the CWD</p>
 					<p id="tl_sels_rs3">The range select is very important, there will be very obvious situations where you have to select large groups of (consecutive) elements, like, for example, uploading files using the '/upload' command, or moving large groups of files using '/mv' or delete files in range using '/rm'</p>
 
-					<p id="tl_sels_rs4">Let's suppose that we have 16 elements in front of us, it doesn't matter if it's in a queue or selecting files from a CWD:</p>
+					<p id="tl_sels_rs4"><strong class="sub">Pseudo example</strong><br>Let's suppose that we have 16 elements in front of us, it doesn't matter if it's in a queue or selecting files from a CWD:</p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example11.png" class="example"></div>
 
 					<p id="tl_sels_rs5">'3-5': It selects the elements 3,4,5,6 and 7 because it has index 3 as the offset and it selects 5 elements from there<br>'11-2': It selects the elements 11 and 12 because 11 is the starting point or offset and 2 elements are selected<br>Notice how the elements are normally selected. Let's see a few more examples:</p>
@@ -222,7 +208,7 @@ img.example {max-width:100%;}
 
 					<p id="tl_sels_rs6">'4-0': It selects all elements starting from the element no. 4. The special rule of 'M' being zero and selecting everything is being applied here<br>'0-0': Using the special rule of 'M' being zero, combined with 'N' being zero, has a result of selecting all the elements<br>'9-4r': The starting point is index 9, and four elements are being selected, but they are being selected in reverse and this is because of the reverse modifier. The reverse modifier for range selections has very specific and rare use cases</p>
 
-					<p id="tl_sels_rs7">Let's see a real example of range select using the '/mv' command. This is how the CWD looks like:</p>
+					<p id="tl_sels_rs7"><strong class="sub">Real example</strong><br>Let's see a real example of range select using the '/mv' command. This is how the CWD looks like:</p>
 					<p><code class="cmd">/ls</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example13.png" class="example"></div>
 
@@ -251,26 +237,26 @@ img.example {max-width:100%;}
 						<button id="tl_sels_back3" class="bprev w3-black w3-button w3-padding-large" onclick="page_set(4)">Go back to 'The selectors' menu</button>
 					</div>
 
-					<p id="tl_sels_fs1">Form: 'A,B,C,D,...,Z'<br>All elements are positive integers and/or zero separated by comma with no space in between<br>The elements selected must be unique: an element is only selected once<br>The amount of elements selected cannot exceed the amount of elements available for selecion</p>
+					<p id="tl_sels_fs1"><strong class="sub">Basics</strong><br>Form: 'A,B,C,D,...,Z'<br>All elements are positive integers and/or zero separated by comma with no space in between<br>The elements selected must be unique: an element is only selected once<br>The amount of elements selected cannot exceed the amount of elements available for selecion</p>
 					<p id="tl_sels_fs2">When working with files and directories, the free select only works with the elements present in the CWD, and (just like the range select) it has nothing to do with selecting parents of the CWD</p>
 					<p id="tl_sels_fs3">The main adavantage of the free select is that you can select multiple, non-consecutive elements in a specific order. This is important because there are commands where the order in which elements are selected has an influence on the results. There are also situations where the elements that need to be selected for a certain task are not positioned consecutively</p>
 
-					<p id="tl_sels_fs4">Let's suppose that we have 8 elements, in a CWD or a queue:</p>
+					<p id="tl_sels_fs4"><strong class="sub">Pseudo example</strong><br>Let's suppose that we have 8 elements, in a CWD or a queue:</p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example16.png" class="example"></div>
 
-					<p id="tl_sels_fs4">'1,3,6,7': Selects the elements 1,3,6 and 7, non-consecutive elements in that order<br>'4,5,2': Selects elements 4,5 and 2 in that specific order</p>
+					<p id="tl_sels_fs5">'1,3,6,7': Selects the elements 1,3,6 and 7, non-consecutive elements in that order<br>'4,5,2': Selects elements 4,5 and 2 in that specific order</p>
 
-					<p id="tl_sels_fs5">Let's now see a real example of a free select using the '/upload' command. This is how the CWD looks like:</p>
+					<p id="tl_sels_fs6"><strong class="sub">Real example</strong><br>Let's now see a real example of a free select using the '/upload' command. This is how the CWD looks like:</p>
 
 					<p><code class="cmd">/ls</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example17.png" class="example"></div>
 
-					<p id="tl_sels_fs6">What we will do is upload the elements (files) 2 and 0 in that order, this is the result:</p>
+					<p id="tl_sels_fs7">What we will do is upload the elements (files) 2 and 0 in that order, this is the result:</p>
 
 					<p><code class="cmd">/upload 2,0</code></p>
 					<div><img loading="lazy" alt="LOADING IMAGE..." src="show_mfshell_example18.png" class="example"></div>
 
-					<p id="tl_sels_fs7">As you can see in the image, the first file to be uploaded was no. 2 and then the file no. 1</p>
+					<p id="tl_sels_fs8">As you can see in the image, the first file to be uploaded was no. 2 and then the file no. 1</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
