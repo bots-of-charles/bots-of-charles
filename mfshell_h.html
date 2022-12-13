@@ -49,51 +49,114 @@ Bots Of Charles
 				<p><br><br></p>
 				<h1 class="w3-center">Bots Of Charles / <span id="tl_page_title">MF Shell commands reference</span></h1>
 				<p id="tl_sub" class="w3-center">Telegram Bots</p>
-			</div>
-
-			<div class="w3-content">
-				<div class="w3-center">
-					<strong class="sub" id="tl_search">Search for a command<br>Leave empty to show all commands</strong>
-				</div>
-
-				<div  style="margin-top:32px;margin-bottom:32px;">
-					<input id="search_input" minlength=1 maxlength=32 placeholder="..." type="text" value="">
-					<button id="search_button" style="float:right;bottom:0" class="w3-black w3-button w3-padding-large" onclick="search_now()">Search</button></input></p>
-				</div>
-
-			</div>
-
-			<div class="w3-content">
 
 				<!--
+				<div style="margin-top:32px">
+					<div class="w3-half w3-padding">
+						
+					</div>
 
-				TEMPLATES
-
-				<div class="thing">
-					<strong class="sub">/command</strong>
-					<p><code class="cmd">/command</code></p>
-					<p id="cmd_name"></p>
+					<div class="w3-half w3-padding">
+						
+					</div>
 				</div>
-
 				-->
 
+			</div>
+
+			<div id="page_search">
+				<div class="w3-content">
+					<div class="w3-center">
+						<button id="show_all_commands" class="w3-black w3-button w3-padding-large" onclick="search_mode_switch()">Show all commands</button>
+					</div>
+
+					<div style="margin-top:16px;margin-bottom:16px;">
+						<input id="search_input" minlength=1 maxlength=32 placeholder="..." type="text" value="">
+						<button id="search_button" style="float:right;bottom:0" class="w3-black w3-button w3-padding-large" onclick="search_now()">Search</button></input></p>
+					</div>
+				</div>
+
+				<div id="search_results" class="w3-content">
+					<!-- SEARCH RESULTS APPEAR HERE -->
+				</div>
+			</div>
+
+			<div id="page_all" style="display:none;">
+				<div class="w3-content">
+
+					<div class="w3-center">
+						<button id="search_a_command" class="w3-black w3-button w3-padding-large" onclick="search_mode_switch()">Search a command</button>
+					</div>
+
+					<!--
+
+					TEMPLATES
+
+					<div class="thing">
+						<strong class="sub">/command</strong>
+						<p><code class="cmd">/command</code></p>
+						<p class="the_text" id="cmd_name"></p>
+					</div>
+
+					-->
+
+					<div class="thing">
+						<strong class="sub">/about</strong>
+						<p><code class="cmd">/about</code></p>
+						<p class="the_text" id="cmd_about">Shows a brief information about the bot, the admin and a link to the bot's internal website</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/help</strong>
+						<p><code class="cmd">/help</code></p>
+						<p class="the_text" id="cmd_help">Shows links to the user guide and the commands reference for the bot (this website)</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/start</strong>
+						<p><code class="cmd">/start</code></p>
+						<p class="the_text" id="cmd_start">Shows real time information about the bot and your session in the bot</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/ls</strong>
+						<p><code class="cmd">/ls</code></p>
+						<p><code class="cmd">/ls N</code> N = SimSel. or RanSel.</p>
+						<p class="the_text" id="cmd_ls">List contents of a path<br>The path can be the CWD (no args), a subdirectory or a parent of the CWD (simple select as an arg)<br>If the argument is a range selector, it will display the selected elements. You can use this for testing range selections</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/cd</strong>
+						<p><code class="cmd">/cd N</code> N = SimSel.</p>
+						<p class="the_text" id="cmd_cd">Changes the CWD<br>The selected target (mandatory) can be a subdirectory or a parent of the CWD</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/back</strong>
+						<p><code class="cmd">/back</code><br></p>
+						<p class="the_text" id="cmd_back">Changes the CWD to the parent<br>It will fail if your current CWD is the root '/'</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/adl</strong>
+						<p><code class="cmd">/adl</code></p>
+						<p class="the_text" id="cmd_adl">Activates or deactivates the Automatic Directory listing mode (ADL)<br>Deactivated by default<br>By default, the only way to automatically list the contents of a CWD is after running '/cd' and '/back', but with ADL mode activated, more file management related commands are supported</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/info</strong>
+						<p><code class="cmd">/info</code> (REPL.)</p>
+						<p class="the_text" id="cmd_info">Displays information of a Telegram file</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="w3-content">
 				<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
 					<p>This page is under development<br>Esta página está en desarrollo</p>
 				</div>
-
-				<div class="thing">
-					<strong class="sub">/about</strong>
-					<p><code class="cmd">/about</code></p>
-					<p id="cmd_about">Shows a brief information about the bot, the admin and a link to the bot's internal website</p>
-				</div>
-
-				<div class="thing">
-					<strong class="sub">/help</strong>
-					<p><code class="cmd">/help</code></p>
-					<p id="cmd_help">Shows links to the user guide and the commands reference for the bot (this website)</p>
-				</div>
-
 			</div>
+
 		</div>
 	</div>
 </body>

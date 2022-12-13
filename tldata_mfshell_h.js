@@ -5,12 +5,15 @@ const tldata={
 	"tl_nb4":"English",
 	"tl_page_title":"Referencia de comandos de MF Shell",
 	"tl_sub":"Bots de Telegram",
-	"tl_search":"Busque un comando<br>Deje vacío para mostrar todos los comandos",
+	"show_all_commands":"Mostrar todos los comandos",
+	"search_a_command":"Buscar un comando",
 	"search_button":"Buscar",
 	"cmd_about":"Muestra una breve información acerca del bot, el administrador, y un enlace al sitio web interno del bot",
-}
-
-const kwdata={
-	"cmd_about":"about acerca admin bot info information informacion información",
-	"cmd_help":"help ayuda docs cmds commands documentacion documentación",
+	"cmd_help":"Muestra enlaces a la guía de usuario y la referencia de comandos del bot (o sea, este sitio web)",
+	"cmd_start":"Muestra información real del bot y de su sesión en el bot",
+	"cmd_ls":"Lista los contenidos de una ruta<br>La ruta puede ser el CWD (cuando se ejecuta sin argumentos), un subdirectorio o un pariente del CWD (una selección simple como argumento)<br>Si el argumento es una selección de rango, mostrará los elementos seleccionados. Esto puede usarse para hacer pruebas de rango",
+	"cmd_cd":"Cambia de CWD<br>El objetivo seleccionado (obligatorio) puede ser un subdirectorio o un pariente del CWD",
+	"cmd_back":"Cambia el CWD al padre<br>Falla si el CWD es la raíz '/'",
+	"cmd_adl":"Activa o desactiva el listado automático de directorio (ADL en inglés)<br>Desactivado de forma predeterminada<br>De forma predeterminada, la única forma de que el contenido del CWD sea listado de forma automática es después de ejecutar '/cd' y '/back', pero con el ADL activado, el listado automático está disponible para más comandos que trabajen con archivos",
+	"cmd_info":"Muestra información de un archivo de Telegram",
 }
