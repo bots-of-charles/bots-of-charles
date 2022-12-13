@@ -37,7 +37,7 @@ const tldata={
 	"tl_sels_ss3":"El archivo ha sido renombrado, ahora vamos a moverlo de sitio, pero primero hay que ejecutar otra vez '/ls' ya que debido a que el nombre del archivo cambió y hay más archivos presentes, es probable que su índice en el CWD haya cambiado",
 	"tl_sels_ss4":"Como podemos ver en la imagen, el archivo cambió de posición del índice 3 al índice 4. Sabiendo esto, Ejecutamos ahora '/mv':",
 	"tl_sels_ss5":"Si corremos '/ls' para ver al directorio que ocupa el índice no. 2, veremos el archivo que recién movimos",
-	"tl_sels_ss6":"Consejo:<br>De forma predeterminada, el listado de un directorio que no sea hecho por '/ls' lo hacen '/cd' y '/back', sin embargo, hay un comando llamado '/adl' que activa un modo de listado automático de directorio (ADL en inglés) en muchos comandos relacionados con archivos para no tener que ejecutar '/ls' manualmente y muy seguido",
+	"tl_sels_ss6":"Consejo:<br>Véase el comando '/adl' en la referencia de comandos",
 	"tl_sels_ss7":"Si 'N' es negativo, se selecciona un pariente del CWD, es decir, se sube N niveles hacia arriba respecto al CWD<br>Nuestro CWD ahora mismo es '/some/files/around/here/', si ejecutamos:",
 	"tl_sels_ss8":"Lo que pasó aquí es que cambiamos nuestro CWD de '/some/files/around/here/' a '/some/files/', y si nos fijamos bien, lo que hicimos fue movernos 2 niveles por encima",
 	"tl_sels_rs":"Los selectores / Selector de rango",
