@@ -1,14 +1,14 @@
 const thing_coll=document.getElementsByClassName("thing");
 
-function search_matches(wlist_reference,wlist_reference)
+function search_matches(wlist_test,wlist_reference)
 {
 	let matches=0;
 	let idx=0;
-	let idx_max=wlist_reference.length;
+	let idx_max=wlist_test.length;
 	while (idx<idx_max)
 	{
 		let it_matches=false;
-		let word_curr=wlist_reference[idx];
+		let word_curr=wlist_test[idx];
 
 		if (wlist_reference.indexOf(word_curr)>-1)
 		{
@@ -38,6 +38,8 @@ function search_now()
 	search_raw=search_raw.toLowerCase();
 	search_txtsplit=search_raw.split(" ");
 
+	document.getElementById("search_results").innerHTML="";
+
 	if (search_txtsplit.length>0 && search_raw.length>1)
 	{
 		console.log("Searching: "+search_raw);
@@ -46,22 +48,38 @@ function search_now()
 		let idx_max=thing_coll.length;
 		while (idx<idx_max)
 		{
-			//innerText → gives ya duh text
-
 			let thing=thing_coll[idx];
-			let thing_text=thing_now.getElementsByClassName("the_text")[0];
+			let thing_text=thing.getElementsByClassName("the_text")[0];
 
-			let thing_text_stext=thing_text.innerText.toLowerCase().trim().replaceAll("\n",".").split(" ");
+			let data_kwords=kwdata[thing_text.id].split(" ");
+			data_kwords.push("/"+data_kwords[0]);
+			let thing_matches_kwords=search_matches(search_txtsplit,data_kwords);
 
-			let thing_kwlist=kwdata[thing_text.id].split(" ");
-			let thing_kwlist_max=thing_kwlist.length;
-			let thing_kwlist_matches=search_matching_keywords(search_txtsplit,thing_kwlist);
+			let data_ftext=thing_text.innerText.toLowerCase().trim().replaceAll("\n",".").split(" ");
+			let thing_matches_ftext=search_matches(search_txtsplit,data_ftext);
 
-			console.log(thing_now_text.id+"kw :"+thing_kwlist_matches+"/"+thing_kwlist_max+" ("+100*(thing_kwlist_matches/thing_kwlist_max)+" %)");
-			console.log(thing_now_text.id+"tm :");
+			// console.log(thing_text.id+"\n\t"+thing_matches_ftext+"/"+data_ftext.length+"\n\t"+thing_matches_kwords+"/"+data_kwords.length)
+
+			if (thing_matches_kwords>0 || thing_matches_ftext>0) 
+			{
+				results_raw.push({id:thing_text.id,score:thing_matches_kwords+thing_matches_ftext});
+			};
 
 			idx++;
 		};
+
+		// TODO: sort by score
+
+		idx=0;
+		while (idx<results_raw.length)
+		{
+			let elem_id=results_raw[idx].id;
+			let elem_text=document.getElementById(elem_id).parentElement.innerHTML;
+			let results_section=document.getElementById("search_results");
+			results_section.innerHTML=results_section.innerHTML+"\n\t\t\t\t\t<div class=\"thing\">\n"+elem_text+"\n\t\t\t\t\t</div>";
+			idx++;
+		};
+
 		search_elem.value="";
 	};
 };
@@ -73,6 +91,7 @@ function search_mode_switch()
 
 	if (elem_page_all["style"].display==="none")
 	{
+		document.getElementById("search_results").innerHTML="";
 		elem_page_all["style"].display="block";
 		elem_page_search["style"].display="none";
 	}
