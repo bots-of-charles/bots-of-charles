@@ -1,5 +1,11 @@
 const thing_coll=document.getElementsByClassName("thing");
 
+function sort_results(results_list)
+{
+	let score_list=[];
+	
+}
+
 function search_match_keywords(wlist_test,wlist_reference)
 {
 	let matches=0;
@@ -64,22 +70,25 @@ function search_now()
 
 			if (matches>0) 
 			{
-				results_raw.push({id:thing_text.id,score:matches});
+				results_raw.push({tid:thing_text.id,score:matches});
 			};
 
 			idx++;
 		};
 
+		let results_ok=sort_results(results_raw);
+		let results_qtty=results_raw.length;
+
 		idx=0;
-		while (idx<results_raw.length)
+		while (idx<results_qtty)
 		{
-			let elem_id=results_raw[idx].id;
-			let elem_text=document.getElementById(elem_id).parentElement.innerHTML;
+			let elem=results_ok[idx];
+			let elem_text=document.getElementById(elem.tid).parentElement.innerHTML;
 			let results_section=document.getElementById("search_results");
 
 			let score_display="";
 			let i=0;
-			while (i<results_raw[idx].score)
+			while (i<elem.score)
 			{
 				score_display=score_display+" ⭐";
 				i=i+1;

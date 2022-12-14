@@ -15,6 +15,30 @@ Bots Of Charles
 <script src="tl.js"></script>
 <script src="pages.js"></script>
 <script>
+
+	function update_size()
+	{
+		let is_landscape=window.matchMedia("(orientation: landscape)").matches;
+		let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+
+		if (is_landscape)
+		{
+			console.log("LANDSCAPE");
+			document.getElementById("img1")["src"]="show_mfshell_1.jpeg";
+			document.getElementById("img2")["src"]="show_mfshell_2.jpeg";
+			document.getElementById("img3")["src"]="show_mfshell_3.jpeg";
+			return
+		}
+		if (is_portrait)
+		{
+			console.log("PORTRAIT");
+			document.getElementById("img1")["src"]="show_mfshell_1_mobile.jpeg";
+			document.getElementById("img2")["src"]="show_mfshell_2_mobile.jpeg";
+			document.getElementById("img3")["src"]="show_mfshell_3_mobile.jpeg";
+			return;
+		};
+	};
+
 	function init()
 	{
 		page_update(true);
@@ -26,10 +50,12 @@ Bots Of Charles
 				sessionStorage["lang"]="es"
 			};
 		};
+		update_size();
 		document.getElementById("nvaf")["style"]="display:block;";
 		document.getElementById("tl_nb4").addEventListener("click",translate);
 	};
 	window.onload=init;
+	window.onresize=update_size;
 </script>
 </head>
 <body>
@@ -55,11 +81,11 @@ Bots Of Charles
 
 			<div class="page">
 				<!-- Slides -->
-				<div class="w3-content">
-					<div class="slideshow w3-center" onclick="page_next()" style="cursor:pointer;">
-						<img loading="lazy" class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
-						<img loading="lazy" class="slides" src="show_mfshell_2.jpeg" alt="mfshell pic2">
-						<img loading="lazy" class="slides" src="show_mfshell_3.jpeg" alt="mfshell pic3">
+				<div class="w3-content w3-center">
+					<div id="slideshow" class="slideshow" onclick="page_next()" style="cursor:pointer;position:relative;">
+						<img id="img1" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic1">
+						<img id="img2" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic2">
+						<img id="img3" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic3">
 					</div>
 					<script>
 						w3.slideshow(".slides", 2000);
