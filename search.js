@@ -85,7 +85,7 @@ function search_now()
 				i=i+1;
 			}
 			score_display=score_display.trim()
-			results_section.innerHTML=results_section.innerHTML+"\n\t\t\t\t\t<div class=\"thing\">\n"+elem_text+"\n\t\t\t\t\t<p>"+score_display+"</p>\n\t\t\t\t\t</div>";
+			results_section.innerHTML=results_section.innerHTML+"\n\t\t\t\t\t<div class=\"thing\">\n\t\t\t\t\t<p>"+score_display+"</p>\n"+elem_text+"\n\t\t\t\t\t</div>";
 			idx++;
 		};
 
