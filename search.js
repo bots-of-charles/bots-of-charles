@@ -36,6 +36,28 @@ function search_match_keywords(wlist_test,wlist_reference)
 	return matches;
 };
 
+function sort_results(raw_results_list)
+{
+	raw_results_list.sort(
+		function compare(a,b)
+		{
+			if (a.score > b.score)
+			{
+				return -1;
+			}
+			else if (a.score < b.score)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			};
+		}
+	);
+	return raw_results_list;
+};
+
 function search_now()
 {
 	let search_elem=document.getElementById("search_input");
