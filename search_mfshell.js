@@ -10,6 +10,7 @@ const kwdata={
 	"cmd_mv":"mv dir directorio directory carpeta folder subdirectorio subdirectory archivo file mover renombrar cambiar nombre move rename renaming change name filename",
 	"cmd_rm":"rm dir directorio directory carpeta folder subdirectorio subdirectory archivo file borrar eliminar delete remove eliminate erase",
 	"cmd_bren":"bren mv archivos files renombrar cambiar nombres rename renaming change names filenames múltiples multiple batch masa massive group",
+	"cmd_seven":"seven comprimir archivar agrupar picar trocear compress archiver 7z rar split splitted file archivo",
 	"cmd_ext":"ext archivos files 7z zip rar xz tar tgz tar.xz tar.gz winrar extraer extract descomprimir decompress",
 	"cmd_join":"join archivos files concatenar concatenate unir merge merging cat raw",
 	"cmd_info":"info telegram file archivo properties propiedades information informacion información",

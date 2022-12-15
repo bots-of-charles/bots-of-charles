@@ -112,13 +112,13 @@ Bots Of Charles
 						<strong class="sub">/ls</strong>
 						<p><code class="cmd">/ls</code></p>
 						<p><code class="cmd">/ls N</code></p>
-						<p class="the_text" id="cmd_ls">List contents of a path<br>N = (Optional) Simple select or Range select<br>The path can be the CWD (no argument), a subdirectory or a parent of the CWD (simple select as an arg)<br>If the argument is a range selector, it will display the selected elements. You can use this for testing range selections</p>
+						<p class="the_text" id="cmd_ls">List contents of a path<br><br>N = (Optional) Simple select or Range select<br><br>The path can be the CWD (no argument), a subdirectory or a parent of the CWD (simple select as an arg)<br>If the argument is a range selector, it will display the selected elements. You can use this for testing range selections</p>
 					</div>
 
 					<div class="thing">
 						<strong class="sub">/cd</strong>
 						<p><code class="cmd">/cd N</code></p>
-						<p class="the_text" id="cmd_cd">Changes the CWD<br>N = (Mandatory) Simple select for a subdirectory or a parent</p>
+						<p class="the_text" id="cmd_cd">Changes the CWD<br><br>N = (Mandatory) Simple select for a subdirectory or a parent</p>
 					</div>
 
 					<div class="thing">
@@ -136,7 +136,7 @@ Bots Of Charles
 					<div class="thing">
 						<strong class="sub">/mkdir</strong>
 						<p><code class="cmd">/mkdir N</code></p>
-						<p class="the_text" id="cmd_mkdir">Creates a new subdirectory (a new folder) in the CWD<br>N = (Mandatory) New name for the directory<br>The command will raise an error if a resource with the same name exists in the CWD<br>This command is compatible with the ADL mode</p>
+						<p class="the_text" id="cmd_mkdir">Creates a new subdirectory (a new folder) in the CWD<br><br>N = (Mandatory) New name for the directory<br><br>The command will raise an error if a resource with the same name exists in the CWD<br>This command is compatible with the ADL mode</p>
 					</div>
 
 					<div class="thing">
@@ -148,18 +148,26 @@ Bots Of Charles
 					<div class="thing">
 						<strong class="sub">/rm</strong>
 						<p><code class="cmd">/rm N</code></p>
-						<p class="the_text" id="cmd_rm">Deletes one or more resources in the CWD<br>N = (Obligatorio) Simple, range or free select of resources in the CWD<br>This command does not ask for confirmation of any kind: the selected resources will be instantly and permamently deleted<br>You must not delete resources that take part of pending or ongoing operations from another command</p>
+						<p class="the_text" id="cmd_rm">Deletes one or more resources in the CWD<br><br>N = (Obligatorio) Simple, range or free select of resources in the CWD<br><br>This command does not ask for confirmation of any kind: the selected resources will be instantly and permamently deleted<br>You must not delete resources that take part of pending or ongoing operations from another command</p>
 					</div>
 
 					<div class="thing">
 						<strong class="sub">/bren</strong>
 						<p><code class="cmd">/bren X Y Z</code></p>
-						<p class="the_text" id="cmd_bren">Batch file renamer<br>The arguments X, Y and Z are mandatory<br>X = Simple, range or free select of resources. In the particular case of simple-selecting a subdirectory, what will happen is that it will select all files inside that subdirectory. In the case of range or free select, all subdirectories selected are ignored. The command will throw an error in case that the amount of files for processing is below 2<br>Y = Operation type. There are 3 operations: 'A' (add), 'E' (enumerate) and 'R' (replace)<br>Z = Operation parameters. It depends on the operation type. The parameters must be in a certain format, each operation has it's own format<br><br>The operation parameters<br>A (Add):<br>Add an aditional string to the beggining (prefix) or the end (suffix) of the stem (the filename without the extension)<br>Format (prefix): 'StringToAdd/'<br>Format (suffix): '/StringToAdd'<br>E (Enumerate):<br>Renames the files in a way that end up like this: 'NewName + Number + OriginalExtension'<br>Format: 'NewStem/InitialNumber/Digits'<br>R (Replace):<br>Finds in the name of each file a given string and it replaces it for a new string if found<br>Format: 'OldString/NewString'<br><br>When you run this command, a confirmation screen with the result will appear. If you run '/ok', the changes will be applied, but if you use any other command or run a different order of '/bren' the current proposal will be cancelled or updated</p>
+						<p class="the_text" id="cmd_bren">Batch file renamer<br><br>The arguments X, Y and Z are mandatory<br>X = Simple, range or free select of resources. In the particular case of simple-selecting a subdirectory, what will happen is that it will select all files inside that subdirectory. In the case of range or free select, all subdirectories selected are ignored. The command will throw an error in case that the amount of files for processing is below 2<br>Y = Operation type. There are 3 operations: 'A' (add), 'E' (enumerate) and 'R' (replace)<br>Z = Operation parameters. It depends on the operation type. The parameters must be in a certain format, each operation has it's own format<br><br>The operation parameters<br>A (Add):<br>Add an aditional string to the beggining (prefix) or the end (suffix) of the stem (the filename without the extension)<br>Format (prefix): 'StringToAdd/'<br>Format (suffix): '/StringToAdd'<br>E (Enumerate):<br>Renames the files in a way that end up like this: 'NewName + Number + OriginalExtension'<br>Format: 'NewStem/InitialNumber/Digits'<br>R (Replace):<br>Finds in the name of each file a given string and it replaces it for a new string if found<br>Format: 'OldString/NewString'<br><br>When you run this command, a confirmation screen with the result will appear. If you run '/ok', the changes will be applied, but if you use any other command or run a different order of '/bren' the current proposal will be cancelled or updated</p>
 
 						<div class="w3-center">
 							<a id="cmd_bren_tutorial" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles/141">Watch tutorial video</a>
 						</div>
 						<!-- https://t.me/bots_of_charles/141 -->
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/seven</strong>
+						<p><code class="cmd">/seven A</code></p>
+						<p><code class="cmd">/seven A B</code></p>
+						<p><code class="cmd">/seven A B C</code></p>
+						<p class="the_text" id="cmd_seven">Zero compression archiver utility<br><br>Argument 'A' is mandatory, arguments 'B' and 'C' are optional but argument 'C' depends on the existance of argument 'B'<br>A = Simple select of a resource in the CWD. In case of selecting a subdirectory, it will select all files and subdirectories alike. The selection does not involve any parents of the CWD<br>B = Positive integer or zero. A positive integer indicates the part size in megabytes for splitting (No need to put MB or M, just the number). In case of being zero it will create a single file. Default value is zero so if you omit this argument, by default a single file is created<br>C = Password for encrypting the resulting file or parts<br><br>All files created are 7z files with zero compression. The reason why it does not apply compression is because the main goal of this command is to group or split files at a high speed regardless of the resulting size (the exact same as the files original files). Compression is slow and tends to consume too much resources</p>
 					</div>
 
 					<div class="thing">
