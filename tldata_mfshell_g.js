@@ -8,9 +8,10 @@ const tldata={
 	"tl_menu0":"Introducción",
 	"tl_menu1":"El Sistema de Archivos",
 	"tl_menu2":"Los selectores",
-	"tl_menu3":"Límites y colas",
-	"tl_menu4":"Conocimiento extra",
-	"tl_menu5":"Referencia de comandos",
+	"tl_menu3":"Transferencias de archivos",
+	"tl_menu4":"Límites y colas",
+	"tl_menu5":"Conocimiento extra",
+	"tl_menu6":"Referencia de comandos",
 	"tl_intro1":"<strong class=\"sub\">Este bot no es normal</strong><br>En Telegram, la mayoría de bots para descargar y bots de leech tienen este 'efecto boomerang': les das algo, ya sea un archivo de Telegram, o una URL que conduce a un archivo, ellos hacen 'lo suyo' y al terminar suben al chat, todo esto se considera 'normal'. Lo primero que debe saber es que MF Shell no es un bot 'normal', ese 'efecto boomerang' no existe en el bot porque hay dos formas principales para sacar los archivos. La primera es la típica subida del bot al chat y la segunda es compartir los archivos vía web, también conocido como 'File-to-Link'",
 	"tl_intro2":"<strong class=\"sub\">Características de MF Shell</strong><br>→ Organice sus archivos como guste. Crear carpeta, renombrar archivos (en masa también), borrar archivos, extraer archivos ZIP, RAR, agrupar archivos en 7Z, y mucho más<br>→ Descarga contenido de donde sea. No se trata del típico Youtube o MEGA, aquí hay soporte directo desde archivos y carpetas de Google Drive, hasta aplicaciones de Android e incluso comics y manga<br>→ Creado para trabajos grandes. MF Shell tiene sistemas de listas de espera y colas. Los procesos encolados pueden pausarse o cancelarse, puedes modificar elementos en una cola. Las listas de espera son para racionar los recursos de cómputo del bot<br>→ FTL con esteroides. La interfaz web es muy útil para descargar grandes cantidades de contenido alojado en el bot",
 	"tl_intro3":"<strong class=\"sub\">Tutorial en vídeo</strong><br>La guía puede llegar a ser densa de leer, es por eso que tenemos un tutorial en vídeo mostrando lo básico que se puede hacer en el bot",
@@ -59,6 +60,16 @@ const tldata={
 	"tl_sels_fs6":"<strong class=\"sub\">Ejemplo real</strong><br>Veamos un ejemplo real de selección libre usando el comando '/upload'. Así se ve el CWD:",
 	"tl_sels_fs7":"Lo que hacemos es subir los elementos (archivos) 2 y 0, en ese orden, y este es el resultado:",
 	"tl_sels_fs8":"Como se puede ver en la imagen, primero se subió el elemento no. 2 y después el no. 0",
+	"tl_nt1":"Además de las herramientas de gestión de archivos, el bot también tiene comandos para descargar contenido hacia el bot, un comando para subir contenido a su chat con el bot ('/upload') y un comando para compartir su contenido dentro del bot via web, similar a un FTL ('/share')",
+	"tl_nt_b1":"Las descargas",
+	"tl_nt_b2":"Sacar los archivos",
+	"tl_nt_down":"Transferencias de archivos / Las descargas",
+	"tl_nt_down1":"<strong class=\"sub\">¿Dónde están los archivos?</strong><br>Al principio de la guía, se explicó que el 'efecto boomerang', muy común en los bots 'normales' de descga no existe en MF Shell. Cuando se descarga un archivo de un sitio web o de Telegram, el archivo se descarga hacia el bot, en el CWD. Es usted quien decide cómo sacar los archivos<br>",
+	"tl_nt_down2":"<strong class=\"sub\">Los descargadores web</strong><br>Hay 5 descargadores de sitios web y plataformas en el bot: /wget, /gddl, /megadl, /freak, y /video<br>En el caso específico de /wget, /video y /freak, estos tienen una lista de sitios compatibles que tienen un soporte directo<br>El comando /wget es un descargador generalista, que puede intentar descargar de sitios no soportados directamente, los demás descargadores no hacen esto, solo descargan si el sitio o plataforma de donde viene el enlace está soportado<br>Para más información sobre cada descargador, visite la referencia de comandos",
+	"tl_nt_down3":"<strong class=\"sub\">Los sitios y plataformas soportados</strong><br>Tenga en cuenta que solo porque un sitio web o plataforma está soportado, no implica que un enlace en cualquier forma que lleve a un archivo sea compatible<br>Por ejemplo, el comando /wget soporta los enlaces a archivos de Mediafire, pero eso no significa que puedas poner a bajar un enlace directo al archivo o un enlace cualquiera, debe de poner un tipo de enlace específico, en este caso, un enlace de página al archivo, el cual es bastante fácil de conseguir, ya que es el primer enlace que verás del archivo, porque es el que se comparte. Los descargadores web esperan los enlaces de los sitios soportados de una forma específica (todos ellos esperan enlaces de página) porque ellos trabajan en base a la forma del enlace para llegar al archivo, asi no complique las cosas usando IDM o las herramientas de desarrollador de su navegador, porque el comando ya hace ese trabajo",
+	"tl_nt_pull":"Transferencias de archivos / Sacar los archivos",
+	"tl_nt_pull1":"<strong class=\"sub\">Subir a Telegram</strong><br>Probablemente la vía más lenta de sacar los archivos del bot porque si el objetivo es descargar los archivos a su dispositivo, primero tiene que subir los archivos del bot a Telegram, y luego, descargar los archivos a su dispositivo desde Telegram. Sin embargo, si la intención es usar los archivos en otro bot (como PRO Mail por ejemplo), eso ya es otra historia<br>La subida de archivos del bot a Telegram las hace el comando '/upload'. Para más información, revise la referencia de comandos",
+	"tl_nt_pull2":"<strong class=\"sub\">Compartir por web</strong><br>Esta es la vía más rápida para tener los archivos en su dispositivo, porque se trata de una descarga directa del servidor del bot a su dispositivo: No necesita pasar por Telegram<br>Activar o desactivar el compartir su contenido via web se hace con el comando '/share'. Para más información, revise la referencia de comandos",
 };
 tldata["tl_menu"]=tldata["tl_nb2"];
 tldata["tl_intro"]=tldata["tl_menu0"];
@@ -66,3 +77,4 @@ tldata["tl_fs"]=tldata["tl_menu1"];
 tldata["tl_sels"]=tldata["tl_menu2"];
 tldata["tl_sels_back2"]=tldata["tl_sels_back1"];
 tldata["tl_sels_back3"]=tldata["tl_sels_back1"];
+tldata["tl_nt"]=tldata["tl_menu3"]

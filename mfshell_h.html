@@ -186,7 +186,7 @@ Bots Of Charles
 						<strong class="sub">/wget</strong>
 						<p><code class="cmd">/wget</code></p>
 						<p><code class="cmd">/wget URL1 URL2 URL3 ... URLN</code></p>
-						<p class="the_text" id="cmd_wget">General purposes web downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br>The only argument that this command uses is a group of URLs, it can be one or more URLs sepparated by a space<br>This command although it has a compatibility list, it can try and download any unsupported URL that would apparently lead to a file, however, not all of the apparently direct links are direct<br><br>About the directly supported websites<br>Just because a website is supported doesn't mean that a link in any possible form that it can have leading to a file will be downloaded<br>Most of the supported links are in a form of page links and giving a page link is not that harde: it's the first link you see of the file, the page itself, not a link obtained by an app like IDM, the bot does the job for you so you don't have to</p>
+						<p class="the_text" id="cmd_wget">General purposes web downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br>The only argument that this command uses is a group of URLs, it can be one or more URLs sepparated by a space<br>This command although it has a compatibility list, it can try and download any unsupported URL that would apparently lead to a file, however, not all of the apparently direct links are direct<br><br>About the directly supported websites<br>Just because a website is supported doesn't mean that a link in any possible form that it can have leading to a file will be downloaded<br>Most of the supported links are in a form of page links and giving a page link is not that harde: it's the first link you see of the file, the page itself, not a link obtained by an app like IDM, the bot does the job for you so you don't have to<br>This next video is quite old, but it's a video about the supported websites in /wget, and what ind of links should be passed to it</p>
 					</div>
 
 					<div class="thing">
@@ -203,11 +203,22 @@ Bots Of Charles
 						<p><code class="cmd">/video URL1 360:URL2 URL3</code> <span id="cmd_video_e5">The first URL and last URLs will be downloaded in '720' (because it's the default format), only the second one will be downloaded in '360'</span></p>
 					</div>
 
-
 					<div class="thing">
 						<strong class="sub">/auto</strong>
 						<p><code class="cmd">/auto</code></p>
 						<p class="the_text" id="cmd_auto">Activates/Deactivates automatic downloads mode<br>Deactivated by default<br><br>When activated, it automatically downloads Telegram files and albums forwarded to yout chat with the bot<br>This command is also the only way to download Telegram albums into the bot<br><br>This command can also download URLs directly from forwarded messages without the need of a downloader command such as /wget, /video, etc... for every group of messages with URLs in it, just send the URLs directly in messages like in a 'normal' bot<br>By default, the assigned command for URL downloading is /wget, which means you need to send URLs compatible with the /wget command, to use a different web downloader, you have to run the downloader command args while /auto is activated, you will recieve a message that will say that the compatibility changed for that downloader command</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/upload</strong>
+						<p><code class="cmd">/upload N</code></p>
+						<p class="the_text" id="cmd_upload">Uploads files from the CWD to your chat with the bot in Telegram<br><br>N = (Mandatory) Simple, ranged or free select of resources in the CWD. In case of doing a simple select of a subdirectory, all the files in that subdirectory are selected for an upload. The simple select does not include parents of the CWD<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When selecting files, you may encounter error codes related to the file limitations:<br>E1 → File size is larger than 2 GB. The quickest solution is to use /seven to split the file, or, in case of multiple parts already split (+2GB of size per part) another solution is to delete the parts and split the original files in a smaller part size<br>E2 → The file name is very long, the limit is 63 characters. The solution to this is to use /mv or /bren for renaming depending on the situation. A classic solution to this problem before /bren existed was to create a subdirectory with a short name, move the files into that subdirectory, and then split it using /seven<br><br>The filename length and file size limitations are not set by the admin nor the bot, these limitations are set by Telegram, so there's no point in forcing it: an error related to it will happen one way or another</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/share</strong>
+						<p><code class="cmd">/share</code></p>
+						<p class="the_text" id="cmd_share">Activates/deactivates web file sharing<br>Deactivated by default<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When you activate the file sharing mode, a link to all your files and directories will be given to you to accesss it through the web interface of the bot. You can see your link any time using the /start command<br>MF Shell's web interface makes it very easy for direct downloading large ammounts of files from the bot: This is not a normal FTL</p>
 					</div>
 
 					<div class="thing">
@@ -218,8 +229,8 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/mediainfo</strong>
-						<p><code class="cmd">/mediainfo N</code></p>
-						<p class="the_text" id="cmd_mediainfo">Runs 'mediainfo' on a file</p>
+						<p><code class="cmd">/mediainfo X</code></p>
+						<p class="the_text" id="cmd_mediainfo">Runs 'mediainfo' on a file<br><br>X = (Mandatory) Simple select of a file in the CWD<br><br>This command is based on 'mediainfo', a command for extracting media information from video files, audio files and pictures<br>The mediainfo output is saved into a file and automatically uploaded to your chat with the bot<br>In case of not being able to upload it, the file with the output will still be present in the CWD</p>
 					</div>
 
 					<!--
