@@ -10,36 +10,59 @@ Bots Of Charles
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="boc.css">
-<script src="w3.js"></script>
 <script src="tldata_mfshell_g.js"></script>
 <script src="tl.js"></script>
 <script src="pages.js"></script>
 <script>
 
-	function update_size()
-	{
-		let is_landscape=window.matchMedia("(orientation: landscape)").matches;
-		let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+	const pics_hor=["show_mfshell_1.jpeg","show_mfshell_2.jpeg","show_mfshell_3.jpeg"];
+	const pics_ver=["show_mfshell_1_mobile.jpeg","show_mfshell_2_mobile.jpeg","show_mfshell_3_mobile.jpeg"];
+	var currpic=0;
 
-		if (is_landscape)
+	function main_slides()
+	{
+		if (page_curr===0)
 		{
-			document.getElementById("img1")["src"]="show_mfshell_1.jpeg";
-			document.getElementById("img2")["src"]="show_mfshell_2.jpeg";
-			document.getElementById("img3")["src"]="show_mfshell_3.jpeg";
-			return
-		}
-		if (is_portrait)
-		{
-			document.getElementById("img1")["src"]="show_mfshell_1_mobile.jpeg";
-			document.getElementById("img2")["src"]="show_mfshell_2_mobile.jpeg";
-			document.getElementById("img3")["src"]="show_mfshell_3_mobile.jpeg";
-			return;
+			let elem_pics=document.getElementById("nicepics");
+			let is_landscape=window.matchMedia("(orientation: landscape)").matches;
+			let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+			let maxpic=0;
+
+			let im="";
+			let piclist=[];
+
+			if (is_landscape)
+			{
+				piclist=pics_hor;
+			};
+
+			if (is_portrait)
+			{
+				piclist=pics_ver;
+			};
+
+			if (piclist.length>0)
+			{
+				maxpic=piclist.length;
+				if (currpic===maxpic)
+				{
+					currpic=0;
+				};
+
+				im=piclist[currpic];
+				elem_pics.style.backgroundImage="url("+im+")";
+
+				currpic++;
+				if (currpic===maxpic)
+				{
+					currpic=0;
+				};
+			};
 		};
 	};
 
 	function init()
 	{
-		update_size();
 		page_update(true);
 		if (sessionStorage.hasOwnProperty("lang"))
 		{
@@ -51,9 +74,10 @@ Bots Of Charles
 		};
 		document.getElementById("nvaf")["style"]="display:block;";
 		document.getElementById("tl_nb4").addEventListener("click",translate);
+		main_slides()
 	};
 	window.onload=init;
-	window.onresize=update_size;
+	setInterval(main_slides,1500);
 </script>
 </head>
 <body>
@@ -69,30 +93,31 @@ Bots Of Charles
 			</div>
 		</div>
 
+		<div id="nicepics">
+			<!-- Nice pics here -->
+		</div>
+
 		<div class="w3-container">
 
 			<div class="w3-content">
 				<p><br><br></p>
-				<h1 class="w3-center">Bots Of Charles / <span id="tl_page_title">MF Shell guide</span></h1>
-				<p id="tl_sub" class="w3-center">Telegram Bots</p>
+				<div id="th">
+					<h1 class="w3-center">Bots Of Charles / <span id="tl_page_title">MF Shell guide</span></h1>
+					<p id="tl_sub" class="w3-center">Telegram Bots</p>
+				</div>
 			</div>
 
 			<div class="page">
-				<!-- Slides -->
-				<div class="w3-content w3-center">
-					<div id="slideshow" class="slideshow" onclick="page_next()" style="cursor:pointer;position:relative;">
-						<img id="img1" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic1">
-						<img id="img2" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic2">
-						<img id="img3" loading="lazy" class="w3-center slides" src="wait.png" alt="mfshell pic3">
-					</div>
-					<script>
-						w3.slideshow(".slides", 2000);
-					</script>
+
+				<div id="start">
+					<button class="w3-black w3-button w3-padding-large" onclick="page_next()">START</button>
 				</div>
 
-				<div class="w3-content">
-					<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
-					<p>This page is under development<br>Esta página está en desarrollo</p>
+				<div style="position:fixed;bottom:16px;right:0;width:100%;padding:32px;">
+					<div class="w3-content">
+						<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+						<p>This page is in development<br>Esta página está en desarrollo</p>
+						</div>
 					</div>
 				</div>
 

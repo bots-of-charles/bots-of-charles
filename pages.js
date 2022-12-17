@@ -35,6 +35,26 @@ function page_update()
 		idx++;
 	};
 
+	let elem_pics=document.getElementById("nicepics")
+	let elem_title=document.getElementById("th")
+	if (elem_pics && elem_title)
+	{
+		let nd=""
+		let bg=""
+		if (page_curr>0)
+		{
+			nd="none";
+			bg="transparent";
+		}
+		else
+		{
+			nd="block";
+			bg="rgba(0, 0, 0, 0.75)"
+		};
+		elem_pics.style.display=nd;
+		elem_title.style["background-color"]=bg;
+	};
+
 	if (window.scrollY>0)
 	{
 		window.scrollTo(0,0);

@@ -1,4 +1,5 @@
-body {background-color:#18191D;color:white;}
+body {color:white;background-color:#18191D;}
+body.pagezero {}
 div.thing {background-color:#3A4047;padding:16px;margin-top:16px;margin-bottom:16px;}
 a.tglink {color:#1E90FF;}
 code.cmd {font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
@@ -11,3 +12,6 @@ img.slides {margin:auto;display:block;}
 
 #nvaf {display:none;}
 #search_input {color:white;background-color:black;padding:10px;border:none;border-bottom:3px solid #ccc;width:calc(100% - 112px)}
+#nicepics {display:block;z-index:-8;position:absolute;overflow:visible;width:100%;height:100%;padding:64px;background-repeat:no-repeat;background-attachment:fixed;background-origin:content-box;background-position:center center;background-attachment:local;background-size:contain;}
+#th {background-color:rgba(0, 0, 0, 0.75);padding:4px}
+#start {position:fixed;width:80px;top:50%;left:calc(50% - 40px);}

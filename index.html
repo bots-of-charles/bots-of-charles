@@ -10,11 +10,57 @@ Bots Of Charles
 <link rel="icon" href="favicon.png">
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="boc.css">
-<script src="w3.js"></script>
 <script src="tldata_index.js"></script>
 <script src="tl.js"></script>
 <script src="pages.js"></script>
 <script>
+
+	const pics_hor=["show_mfshell_1.jpeg","show_mfshell_2.jpeg","show_mfshell_3.jpeg","show_promail_1.jpeg","show_promail_2.jpeg","show_promail_3.jpeg"];
+	const pics_ver=["show_mfshell_1_mobile.jpeg","show_mfshell_2_mobile.jpeg","show_mfshell_3_mobile.jpeg"];
+	var currpic=0;
+
+	function main_slides()
+	{
+		if (page_curr===0)
+		{
+			let elem_pics=document.getElementById("nicepics");
+			let is_landscape=window.matchMedia("(orientation: landscape)").matches;
+			let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+			let maxpic=0;
+
+			let im="";
+			let piclist=[];
+
+			if (is_landscape)
+			{
+				piclist=pics_hor;
+			};
+
+			if (is_portrait)
+			{
+				piclist=pics_ver;
+			};
+
+			if (piclist.length>0)
+			{
+				maxpic=piclist.length;
+				if (currpic===maxpic)
+				{
+					currpic=0;
+				};
+
+				im=piclist[currpic];
+				elem_pics.style.backgroundImage="url("+im+")";
+
+				currpic++;
+				if (currpic===maxpic)
+				{
+					currpic=0;
+				};
+			};
+		};
+	};
+
 	function init()
 	{
 		page_update(true);
@@ -28,8 +74,10 @@ Bots Of Charles
 		};
 		document.getElementById("nvaf")["style"]="display:block;";
 		document.getElementById("tl_nb4").addEventListener("click",translate);
+		main_slides();
 	};
 	window.onload=init;
+	setInterval(main_slides,1500);
 </script>
 </head>
 <body>
@@ -48,15 +96,21 @@ Bots Of Charles
 			</div>
 		</div>
 
+		<div id="nicepics">
+			<!-- Nice pics here -->
+		</div>
+
 		<div class="w3-container">
 			<div class="w3-content">
 				<p><br><br></p>
-				<h1 class="w3-center">Bots Of Charles</h1>
-				<p id="tl_sub" class="w3-center">Telegram Bots</p>
+				<div id="th">
+					<h1 class="w3-center">Bots Of Charles</h1>
+					<p id="tl_sub" class="w3-center">Telegram Bots</p>
+				</div>
 			</div>
 
 			<div class="page">
-				<!-- Slides -->
+				<!-- Slides
 				<div class="w3-content" onclick="page_next()" style="cursor:pointer;">
 					<div class="slideshow w3-center">
 						<img loading="lazy" class="slides" src="show_mfshell_1.jpeg" alt="mfshell pic1">
@@ -69,15 +123,20 @@ Bots Of Charles
 					<script>
 						w3.slideshow(".slides", 3000);
 					</script>
+				</div>
+				-->
 
+				<div id="start">
+					<button class="w3-black w3-button w3-padding-large" onclick="page_next()">START</button>
 				</div>
 
-				<div class="w3-content">
-					<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
-					<p>This website is in development<br>Este sitio web está en desarrollo</p>
+				<div style="position:fixed;bottom:16px;right:0;width:100%;padding:32px;">
+					<div class="w3-content">
+						<div class="w3-panel w3-pale-red w3-leftbar w3-rightbar w3-border-red">
+						<p>This website is in development<br>Este sitio web está en desarrollo</p>
+						</div>
 					</div>
 				</div>
-
 
 			</div>
 
