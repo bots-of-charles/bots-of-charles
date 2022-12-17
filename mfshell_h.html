@@ -183,9 +183,43 @@ Bots Of Charles
 					</div>
 
 					<div class="thing">
+						<strong class="sub">/wget</strong>
+						<p><code class="cmd">/wget</code></p>
+						<p><code class="cmd">/wget URL1 URL2 URL3 ... URLN</code></p>
+						<p class="the_text" id="cmd_wget">General purposes web downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br>The only argument that this command uses is a group of URLs, it can be one or more URLs sepparated by a space<br>This command although it has a compatibility list, it can try and download any unsupported URL that would apparently lead to a file, however, not all of the apparently direct links are direct<br><br>About the directly supported websites<br>Just because a website is supported doesn't mean that a link in any possible form that it can have leading to a file will be downloaded<br>Most of the supported links are in a form of page links and giving a page link is not that harde: it's the first link you see of the file, the page itself, not a link obtained by an app like IDM, the bot does the job for you so you don't have to</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/video</strong>
+						<p><code class="cmd">/video</code></p>
+						<p><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN</code></p>
+						<p><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN -Frm</code></p>
+						<p class="the_text" id="cmd_video">Video downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br><br>The first argument of the command is a group of units, there can be one or more units<br>The second argument is the default format for the run<br><br>Units<br>There are 2 types of units: specified and unspecified<br>Specified units are URLs that will be downloaded with a specific format. Specified units have the following form: 'Format:URL'<br>Unspecified units are single URLs withoout a specific format, the format used for them is the default format for the run. Unspecified units have the following form: 'URL'<br><br>Formats<br>Formats are divided in several groups: 'EXA','240','360','480','720','2K'<br>Among the formats, 'EXA' is for audio extraction and the rest are format groups of different video resolutions, with '720' being the default format grup in case no general format is specified while running the command<br>Only a handful of the supported websites and platforms have a format support, run the command without arguments to see the supported websites and platforms</p>
+						<p id="cmd_video_examples">Examples:</p>
+						<p><code class="cmd">/video</code> <span id="cmd_video_e1">Display the supported websites and platforms</span></p>
+						<p><code class="cmd">/video URL1 URL2 URL3 URL4 URL5</code> <span id="cmd_video_e2">Downloads 5 URLs</span></p>
+						<p><code class="cmd">/video URL1 URL2 URL3 -360</code> <span id="cmd_video_e3">Downloads 3 URLs and uses '360' as the format group</span></p>
+						<p><code class="cmd">/video EXA:URL1 URL2 -480</code> <span id="cmd_video_e4">The first URL will be downloaded as an audio, the second one will be downloaded in '480'</span></p>
+						<p><code class="cmd">/video URL1 360:URL2 URL3</code> <span id="cmd_video_e5">The first URL and last URLs will be downloaded in '720' (because it's the default format), only the second one will be downloaded in '360'</span></p>
+					</div>
+
+
+					<div class="thing">
+						<strong class="sub">/auto</strong>
+						<p><code class="cmd">/auto</code></p>
+						<p class="the_text" id="cmd_auto">Activates/Deactivates automatic downloads mode<br>Deactivated by default<br><br>When activated, it automatically downloads Telegram files and albums forwarded to yout chat with the bot<br>This command is also the only way to download Telegram albums into the bot<br><br>This command can also download URLs directly from forwarded messages without the need of a downloader command such as /wget, /video, etc... for every group of messages with URLs in it, just send the URLs directly in messages like in a 'normal' bot<br>By default, the assigned command for URL downloading is /wget, which means you need to send URLs compatible with the /wget command, to use a different web downloader, you have to run the downloader command args while /auto is activated, you will recieve a message that will say that the compatibility changed for that downloader command</p>
+					</div>
+
+					<div class="thing">
 						<strong class="sub">/info</strong>
 						<p><code class="cmd">/info</code></p>
 						<p class="the_text" id="cmd_info">Displays information of a Telegram file<br>You use it by replying to a file in Telegram</p>
+					</div>
+
+					<div class="thing">
+						<strong class="sub">/mediainfo</strong>
+						<p><code class="cmd">/mediainfo N</code></p>
+						<p class="the_text" id="cmd_mediainfo">Runs 'mediainfo' on a file</p>
 					</div>
 
 					<!--
