@@ -74,9 +74,13 @@ function search_now()
 			let thing=thing_coll[idx];
 			let thing_text=thing.getElementsByClassName("the_text")[0];
 
-			let data_kwords=kwdata[thing_text.id].split(" ");
-			data_kwords.push("/"+data_kwords[0]);
-			matches=matches+search_match_keywords(search_txtsplit,data_kwords);
+			let data_words_id=kwdata[thing_text.id]
+			if (data_words_id)
+			{
+				let data_kwords=data_words_id.split(" ");
+				data_kwords.push("/"+data_kwords[0]);
+				matches=matches+search_match_keywords(search_txtsplit,data_kwords);
+			};
 
 			/*
 			let data_ftext=thing_text.innerText.toLowerCase().trim().replaceAll("\n",".").split(" ");
