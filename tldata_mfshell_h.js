@@ -23,4 +23,6 @@ const tldata={
 	"cmd_bren_tutorial":"Ver tutorial",
 	"cmd_info":"Muestra información de un archivo de Telegram<br>Se usa respondiendo a un archivo de Telegram",
 	"cmd_ss":"Toma capturas de un archivo de vídeo y sube las imágenes a tu chat con el bot<br><br>El argumento F es obligatorio; los argumentos Q y M son opcionales pero para que M exista, primero debe existir Q<br>F = Selección simple de un archivo de vídeo en el CWD<br>Q = Cantidad de imágenes a generar. La cantidad predeterminada es de 10 imágenes<br>M = Opciones. Hay dos opciones: la opción \"g\" para subir las imágenes de forma gradual en lugar de subirlas como un álbum y la opción \"f\" para subir los archivos de imágenes como archivos en vez de como imágenes. Puede activar una o ambas opciones a la vez, asi que en total serían 3 posibles casos. El tercer caso es una combinación de las dos primeras ('gf' o 'fg')<br><br>Las capturas de imágenes se hacen dependiendo de la duración del vídeo y la cantidad solicitada<br>En el caso de no poder subir una o más imágenes, los archivos se quedan en el CWD. Puede acceder a ellas por la interfaz web o subirlas a mano con /upload",
+	"cmd_ss_1":"Ver publicación",
+	"cmd_ss_2":"Ver ejemplo de uso",
 }
