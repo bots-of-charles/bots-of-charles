@@ -232,6 +232,14 @@ Bots Of Charles
 						<p class="the_text" id="cmd_mediainfo">Runs 'mediainfo' on a file<br><br>X = (Mandatory) Simple select of a file in the CWD<br><br>This command is based on 'mediainfo', a commandline tool for extracting media information from video files, audio files and pictures<br>The mediainfo output is saved into a file and automatically uploaded to your chat with the bot<br>In case of not being able to upload it, the file with the output will still be present in the CWD</p>
 					</div>
 
+					<div class="thing">
+						<strong class="sub">/ss</strong>
+						<p><code class="cmd">/ss F</code></p>
+						<p><code class="cmd">/ss F Q</code></p>
+						<p><code class="cmd">/ss F Q M</code></p>
+						<p class="the_text" id="cmd_ss">Takes screenshots of a video file and uploads them to your chat with the bot<br><br>Argument F is mandatory; arguments Q and M are optional, but if M exists, Q also needs to exist<br>F = Simple select of a video file in the CWD<br>Q = The number of images to create. The default is 10 images<br>M = Switches. There are 2 switches: "g" for gradually upload each image instead of uploading albums, and "f" to force upload the files as documents instead of images. You can activate one or both of them<br><br>The screenshots are taken depending on the duration of the video and the amount of images to create<br>In case of not being able to upload any number of images, the files will still be in the CWD. You can either access them through the web interface or upload them yourself</p>
+					</div>
+
 					<!--
 
 					TEMPLATE
