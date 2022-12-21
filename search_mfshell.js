@@ -14,4 +14,5 @@ const kwdata={
 	"cmd_ext":"ext archivos files 7z zip rar xz tar tgz tar.xz tar.gz winrar extraer extract descomprimir decompress",
 	"cmd_join":"join archivos files concatenar concatenate unir merge merging cat raw",
 	"cmd_info":"info telegram file archivo properties propiedades information informacion información",
+	"cmd_ss":"pantalla screen captura capture video vídeo imágenes images screenshots screenshot",
 }

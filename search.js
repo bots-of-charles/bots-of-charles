@@ -1,11 +1,5 @@
 const thing_coll=document.getElementsByClassName("thing");
 
-function sort_results(results_list)
-{
-	let score_list=[];
-	
-}
-
 function search_match_keywords(wlist_test,wlist_reference)
 {
 	let matches=0;
