@@ -5,7 +5,7 @@ a.tglink {color:#1E90FF;}
 code.cmd {font-size:110%;color:white;background-color:black;padding-left:8px;padding-right:8px;padding-top:2px;padding-bottom:2px;margin:2px;}
 strong.sub {font-size:135%;}
 img.example {max-width:100%;}
-
+p.keywords {display:none;}
 img.slides {margin:auto;display:block;}
 @media (orientation: landscape) {img.slides {width:100%;}}
 @media (orientation: portrait) {img.slides {width:70%;}}
