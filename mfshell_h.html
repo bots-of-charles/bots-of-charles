@@ -109,8 +109,7 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/ls</strong>
-						<p><code class="cmd">/ls</code></p>
-						<p><code class="cmd">/ls N</code></p>
+						<p><code class="cmd">/ls</code><br><code class="cmd">/ls N</code></p>
 						<p class="the_text" id="cmd_ls">List contents of a path<br><br>N = (Optional) Simple select or Range select<br><br>The path can be the CWD (no argument), a subdirectory or a parent of the CWD (simple select as an arg)<br>If the argument is a range selector, it will display the selected elements. You can use this for testing range selections</p>
 					</div>
 
@@ -122,7 +121,7 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/back</strong>
-						<p><code class="cmd">/back</code><br></p>
+						<p><code class="cmd">/back</code></p>
 						<p class="the_text" id="cmd_back">Changes the CWD to the parent<br>It will fail if your current CWD is the root '/'</p>
 					</div>
 
@@ -140,7 +139,8 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/mv</strong>
-						<p>U1: <code class="cmd">/mv A B</code> U2: <code class="cmd">/mv C D</code></p>
+						<p>U1: <code class="cmd">/mv A B</code></p>
+						<p>U2: <code class="cmd">/mv C D</code></p>
 						<p class="the_text" id="cmd_mv">Usage 1<br>Move a resource (file or directory) or a group of resources to a subdirectory or a parent location of the CWD<br>The arguments A and B are mandatory<br>A = Simple, range or free select of elements present in the CWD<br>B = Simple select of a subdirectory or a parent of the CWD<br><br>Usage 2<br>Change the name of a resource (file or directory) in the CWD<br>The arguments C and C are mandatory<br>C = Simple select of a resource in the CWD<br>D = New name for the resource. In case of being a file, it must include the suffix (extension)</p>
 					</div>
 
@@ -163,9 +163,7 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/seven</strong>
-						<p><code class="cmd">/seven A</code></p>
-						<p><code class="cmd">/seven A B</code></p>
-						<p><code class="cmd">/seven A B C</code></p>
+						<p><code class="cmd">/seven A</code><br><code class="cmd">/seven A B</code><br><code class="cmd">/seven A B C</code></p>
 						<p class="the_text" id="cmd_seven">Zero compression archiver utility<br><br>Argument 'A' is mandatory, arguments 'B' and 'C' are optional but argument 'C' depends on the existance of argument 'B'<br>A = Simple select of a resource in the CWD. In case of selecting a subdirectory, it will select all files and subdirectories alike. The selection does not involve any parents of the CWD<br>B = Positive integer or zero. A positive integer indicates the part size in megabytes for splitting (No need to put MB or M, just the number). In case of being zero it will create a single file. Default value is zero so if you omit this argument, by default a single file is created<br>C = Password for encrypting the resulting file or parts<br><br>All files created are 7z files with zero compression. The reason why it does not apply compression is because the main goal of this command is to group or split files at a high speed regardless of the resulting size (the exact same as the files original files). Compression is slow and tends to consume too much resources</p>
 					</div>
 
@@ -183,16 +181,18 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/wget</strong>
-						<p><code class="cmd">/wget</code></p>
-						<p><code class="cmd">/wget URL1 URL2 URL3 ... URLN</code></p>
+						<p><code class="cmd">/wget</code><br><code class="cmd">/wget URL1 URL2 URL3 ... URLN</code></p>
 						<p class="the_text" id="cmd_wget">General purposes web downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br>The only argument that this command uses is a group of URLs, it can be one or more URLs sepparated by a space<br>This command although it has a compatibility list, it can try and download any unsupported URL that would apparently lead to a file, however, not all of the apparently direct links are direct<br><br>About the directly supported websites<br>Just because a website is supported doesn't mean that a link in any possible form that it can have leading to a file will be downloaded<br>Most of the supported links are in a form of page links and giving a page link is not that harde: it's the first link you see of the file, the page itself, not a link obtained by an app like IDM, the bot does the job for you so you don't have to<br>This next video is quite old, but it's a video about the supported websites in /wget, and what ind of links should be passed to it</p>
 					</div>
 
 					<div class="thing">
 						<strong class="sub">/video</strong>
+						<p><code class="cmd">/video</code><br><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN</code><br><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN -Frm</code></p>
+						<!--
 						<p><code class="cmd">/video</code></p>
 						<p><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN</code></p>
 						<p><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN -Frm</code></p>
+						-->
 						<p class="the_text" id="cmd_video">Video downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br><br>The first argument of the command is a group of units, there can be one or more units<br>The second argument is the default format for the run<br><br>Units<br>There are 2 types of units: specified and unspecified<br>Specified units are URLs that will be downloaded with a specific format. Specified units have the following form: 'Format:URL'<br>Unspecified units are single URLs withoout a specific format, the format used for them is the default format for the run. Unspecified units have the following form: 'URL'<br><br>Formats<br>Formats are divided in several groups: 'EXA','240','360','480','720','2K'<br>Among the formats, 'EXA' is for audio extraction and the rest are format groups of different video resolutions, with '720' being the default format grup in case no general format is specified while running the command<br>Only a handful of the supported websites and platforms have a format support, run the command without arguments to see the supported websites and platforms</p>
 						<p id="cmd_video_examples">Examples:</p>
 						<p><code class="cmd">/video</code> <span id="cmd_video_e1">Display the supported websites and platforms</span></p>
@@ -201,6 +201,16 @@ Bots Of Charles
 						<p><code class="cmd">/video EXA:URL1 URL2 -480</code> <span id="cmd_video_e4">The first URL will be downloaded as an audio, the second one will be downloaded in '480'</span></p>
 						<p><code class="cmd">/video URL1 360:URL2 URL3</code> <span id="cmd_video_e5">The first URL and last URLs will be downloaded in '720' (because it's the default format), only the second one will be downloaded in '360'</span></p>
 					</div>
+
+					<!--
+					<div class="thing">
+						<strong class="sub">/vconf</strong>
+						<p><code class="cmd">/vconf</code></p>
+						<p>U1:<br><code class="cmd">/vconf K</code><br><code class="cmd">/vconf K:V</code></p>
+						<p>U2:<br><code class="cmd">/vconf A C</code></p>
+						<p class="the_text" id="cmd_vconf">Configuration for /video<br><br>The configuration is kept using 'contexts': the persistent context and the volatile context<br>When you use /video, the command will first search for the volatile context, in case of not existing, it will fallback and use the persistent context. If the run of the command was successful (one or more items were added to the queue) and the context used was the volatile context, it will be erased, this is because the volatile context is for single-use<br><br>Usage 1:<br>Argument 'K' is an available option and 'V' stands for the value compatible with the option<br>Not specifying the value will display the information about the option such as possible values and examples on how to set them<br><br>Usage 2:<br>Argument 'A' is the action to perform over a context, and argument 'C' is a context<br>There are 2 actions (argument A): 'sav' and 'res'<br>The 'sav' action is for saving the current data in the volatile context in the persistent context. There's no need to specify the context argument when using this action<br>The 'res' action when used over the persistent context, it will load the default config that comes with the bot, if it's used in the volatile context, it will reset the volatile context, making it the same as the persistent<br>The 2 contexts (argument C) are 'per', the persistent context, and 'vol', the volatile context<br><br>Usage examples and available options are within the command</p>
+					</div>
+					-->
 
 					<div class="thing">
 						<strong class="sub">/auto</strong>
@@ -211,7 +221,7 @@ Bots Of Charles
 					<div class="thing">
 						<strong class="sub">/upload</strong>
 						<p><code class="cmd">/upload N</code></p>
-						<p class="the_text" id="cmd_upload">Uploads files from the CWD to your chat with the bot in Telegram<br><br>N = (Mandatory) Simple, ranged or free select of resources in the CWD. In case of doing a simple select of a subdirectory, all the files in that subdirectory are selected for an upload. The simple select does not include parents of the CWD<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When selecting files, you may encounter error codes related to the file limitations:<br>E1 → File size is larger than 2 GB. The quickest solution is to use /seven to split the file, or, in case of multiple parts already split (+2GB of size per part) another solution is to delete the parts and split the original files in a smaller part size<br>E2 → The file name is very long, the limit is 63 characters. The solution to this is to use /mv or /bren for renaming depending on the situation. A classic solution to this problem before /bren existed was to create a subdirectory with a short name, move the files into that subdirectory, and then split it using /seven<br><br>The filename length and file size limitations are not set by the admin nor the bot, these limitations are set by Telegram, so there's no point in forcing it: an error related to it will happen one way or another</p>
+						<p class="the_text" id="cmd_upload">Uploads files from the CWD to your chat with the bot in Telegram<br><br>N = (Mandatory) Simple, ranged or free select of resources in the CWD. In case of doing a simple select of a subdirectory, all the files in that subdirectory are selected for an upload. The simple select does not include parents of the CWD<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When selecting files, you may encounter error codes related to the file limitations:<br>E1 → File size is larger than 2 GB. The quickest solution is to use /seven to split the file, or, in case of multiple parts already split (+2GB of size per part) another solution is to delete the parts and split the original files in a smaller part size<br>E2 → The file name is very long, the limit is 63 characters. The solution to this is to use /mv or /bren for renaming depending on the situation. A classic solution to this problem before /bren existed was to create a subdirectory with a short name, move the files into that subdirectory, and then split it using /seven<br><br>The filename length and file size limitations are not set by the admin nor the bot, these limitations are set by Telegram, so there's no point in forcing it: an error related to it will happen one way or another<br></p>
 					</div>
 
 					<div class="thing">
@@ -234,16 +244,13 @@ Bots Of Charles
 
 					<div class="thing">
 						<strong class="sub">/avcat</strong>
-						<p><code class="cmd">/avcat S</code></p>
-						<p><code class="cmd">/avcat S F</code></p>
+						<p><code class="cmd">/avcat S</code><br><code class="cmd">/avcat S F</code></p>
 						<p class="the_text" id="cmd_avcat">Concatenates audio or video files in a single audio or video file<br><br>Argument S is mandatory, argument F is optional<br>S = Range or free select if video or audio files in the CWD<br>F = Name of the resulting file without the extension (the stem). By default the name is generated automatically by the command<br><br>The selected files can be either video files or audio files: they cannot be video and audio files<br>The selected files can have different containers (formats) but they must have the same codecs inside<br>The extension of the resulting filename (and its container) is determined automatically according to the selected files</p>
 					</div>
 
 					<div class="thing">
 						<strong class="sub">/ss</strong>
-						<p><code class="cmd">/ss F</code></p>
-						<p><code class="cmd">/ss F Q</code></p>
-						<p><code class="cmd">/ss F Q M</code></p>
+						<p><code class="cmd">/ss F</code><br><code class="cmd">/ss F Q</code><br><code class="cmd">/ss F Q M</code></p>
 						<p class="the_text" id="cmd_ss">Takes screenshots of a video file and uploads them to your chat with the bot<br><br>Argument F is mandatory; arguments Q and M are optional, but if M exists, Q also needs to exist<br>F = Simple select of a video file in the CWD<br>Q = The number of images to create. The default is 10 images<br>M = Switches. There are 2 switches: "g" for gradually upload each image instead of uploading albums, and "f" to force upload the files as documents instead of images. You can activate one or both of them, so there are 3 possible cases. The third one ('fg' or 'gf') is a combination of both<br><br>The screenshots are taken depending on the duration of the video and the amount of images to create<br>In case of not being able to upload any number of images, the files will still be in the CWD. You can either access them through the web interface or upload them yourself</p>
 
 						<div class="w3-center w3-margin">
