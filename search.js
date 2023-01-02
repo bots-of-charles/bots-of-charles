@@ -70,17 +70,21 @@ function search_now()
 		let idx_max=thing_coll.length;
 		while (idx<idx_max)
 		{
-			let matches=0;
 			let thing=thing_coll[idx];
 			let thing_text=thing.getElementsByClassName("the_text")[0];
 
-			let data_words_id=kwdata[thing_text.id]
-			if (data_words_id)
-			{
-				let data_kwords=data_words_id.split(" ");
-				data_kwords.push("/"+data_kwords[0]);
-				matches=matches+search_match_keywords(search_txtsplit,data_kwords);
-			};
+			let wordlist=thing_text.innerText.split(" ");
+			// wordlist.push("")
+
+			let matches=search_match_keywords(search_txtsplit,wordlist);
+
+			//let data_words_id=kwdata[thing_text.id]
+			//if (data_words_id)
+			//{
+			//	let data_kwords=data_words_id.split(" ");
+			//	data_kwords.push("/"+data_kwords[0]);
+			//	matches=matches+search_match_keywords(search_txtsplit,data_kwords);
+			//};
 
 			/*
 			let data_ftext=thing_text.innerText.toLowerCase().trim().replaceAll("\n",".").split(" ");
