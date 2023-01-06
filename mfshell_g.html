@@ -138,9 +138,8 @@ Bots Of Charles
 				<p class="w3-center"><button id="tl_menu1" class="w3-button w3-black" style="width:320px" onclick="page_set(3)">The file system</button></p>
 				<p class="w3-center"><button id="tl_menu2" class="w3-button w3-black" style="width:320px" onclick="page_set(4)">The selectors</button></p>
 				<p class="w3-center"><button id="tl_menu3" class="w3-button w3-black" style="width:320px" onclick="page_set(8)">File transfering</button></p>
-				<p class="w3-center"><button id="tl_menu4" class="w3-button w3-black" style="width:320px" onclick="page_set(8)">Limits and queues</button></p>
-				<p class="w3-center"><button id="tl_menu5" class="w3-button w3-black" style="width:320px" onclick="page_set(9)">Extra knowledge</button></p>
-				<p class="w3-center"><button id="tl_menu6" class="w3-button w3-black" style="width:320px" onclick="window.location.href='mfshell_h.html'">Commands reference</button></p>
+				<p class="w3-center"><button id="tl_menu4" class="w3-button w3-black" style="width:320px" onclick="page_set(11)">Limits and queues</button></p>
+				<p class="w3-center"><button id="tl_menu5" class="w3-button w3-black" style="width:320px" onclick="window.location.href='mfshell_h.html'">Commands reference</button></p>
 
 			</div>
 
@@ -362,11 +361,11 @@ Bots Of Charles
 				<h2 id="tl_nt_down" class="w3-center">File transfering / The downloads</h2>
 				<div class="w3-content">
 
-					<p id="tl_nt_down1"><strong class="sub">Where are the files?</strong><br>At the beggining of the guide we explained that in MF Shell the 'boomerang effect' very common in URL uploaders and leechers does not exist. When you download a file from a website or from Telegram, the file will be downloaded into the bot, at the CWD. You have to decide how to pull the files out</p>
+					<p id="tl_nt_down1"><strong class="sub">From Telegram to the bot</strong><br>Of course, Telegram files can be downloaded to the bot, this is usually done with the /download command replying to a file in the chat<br>In case you did not know: not all files in Telegram have a filename, specially photos, so if a file does not exist, the bot will generate a name automatically. For more information, read the commands reference</p>
 
 					<p id="tl_nt_down2"><strong class="sub">The web downloaders</strong><br>There are 5 website and platform downloaders in this bot: /wget, /gddl, /megadl, /freak, and /video<br>In the specific case of /wget, /video and /freak, they have a list of compatible websites that are directly supported<br>The /wget command is a general purposes downloader, so it can also try to download files from unsupported websites, the other web downloaders cannot do this, they strictly download only if the website is supported by them. For more information about each web downloader, read the commands reference</p>
 
-					<p id="tl_nt_down3"><strong class="sub">The supported websites and platforms</strong><br>You should know that just because a command is directly supported does not mean that any form of a link that leads to the content is compatible<br>For example, the '/wget' command supports Mediafire file links directly, but that doesn't mean that you can put any kind of Mediafire link that leads to a file, you have to put a specific type of link, in this case it's the link of the page of the file, which is extremely easy to get because it's the first link you see of the file that you want to download. The web downloaders expect compatible and supported website links in a specific way (they all expect page links) because they work based on the link's form to get the file, so stop complicating things using IDM or your browser's devtools when a website is already supported directly by a web downloader</p>
+					<p id="tl_nt_down3"><strong class="sub">The supported websites and platforms</strong><br>You should know that just because a website or a platform is directly supported does not mean that any form of a link that leads to the content is compatible<br>For example, the '/wget' command supports Mediafire file links directly, but that doesn't mean that you can put any kind of Mediafire link that leads to a file, you have to put a specific type of link, in this case it's the link of the page of the file, which is extremely easy to get because it's the first link you see of the file that you want to download. The web downloaders expect compatible and supported website links in a specific way (basically, page links only) because they work based on the link's form to get the file, so stop (if you are used to it) complicating things using IDM or your browser's devtools when a website is already supported directly by a web downloader</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
@@ -384,9 +383,11 @@ Bots Of Charles
 				<h2 id="tl_nt_pull" class="w3-center">File transfering / Pulling files out</h2>
 				<div class="w3-content">
 
-					<p id="tl_nt_pull1"><strong class="sub">Telegram uploads</strong><br>Probably the slowest way to pull out the files from the bot, because if you intend to download them to your device, you have to upload the files first to your chat with the bot in Telegram, and then, download the files to your device from Telegram. However, if you intend to use the files in another bot (Like PRO Mail), it's a whole different story<br>Uploading from the CWD to your chat with the bot is handled by the /upload command. For more information, read about it at the commands reference</p>
+					<p id="tl_nt_pull1"><strong class="sub">Where are the files?</strong><br>At the beggining of the guide we explained that in MF Shell the 'boomerang effect' very common in URL uploaders and leechers does not exist. When you download a file from a website or from Telegram, the file will be downloaded into the bot, at the CWD. You have to decide how to pull the files out</p>
 
-					<p id="tl_nt_pull2"><strong class="sub">Web sharing</strong><br>This is the fastest way of pulling the files ut of the bot, because it's a direct download from the bot's server: There's no need to go through Telegram<br>Activating or deactivating content sharing is done using the /share command. For more information, read about it at the commands reference</p>
+					<p id="tl_nt_pull2"><strong class="sub">Telegram uploads</strong><br>Probably the slowest way to pull out the files from the bot, because if you intend to download them to your device, you have to upload the files first to your chat with the bot in Telegram, and then, download the files to your device from Telegram. However, if you intend to use the files in another bot (Like PRO Mail), it's a whole different story<br>Uploading from the CWD to your chat with the bot is handled by the /upload command. For more information, read about it at the commands reference</p>
+
+					<p id="tl_nt_pull3"><strong class="sub">Web sharing</strong><br>This is the fastest way of pulling the files ut of the bot, because it's a direct download from the bot's server: There's no need to go through Telegram<br>Activating or deactivating content sharing is done using the /share command. For more information, read about it at the commands reference</p>
 
 					<div class="w3-center">
 						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
@@ -409,20 +410,6 @@ Bots Of Charles
 
 				</div>
 			</div>
-
-			<div class="page">
-				<h2 id="tl_sels_fs" class="w3-center">Extra knowledge</h2>
-				<div class="w3-content">
-
-					<p>...</p>
-
-					<div class="w3-center">
-						<button class="w3-black w3-button w3-padding-large" style="margin:16px;width:80px;" onclick="page_prev()">←</button>
-					</div>
-
-				</div>
-			</div>
-
 
 		</div>
 

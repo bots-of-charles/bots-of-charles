@@ -15,7 +15,7 @@ function search_match_keywords(wlist_test,wlist_reference)
 			it_matches=true;
 		};
 
-		if ((!it_matches && word_curr.length>3) && (wlist_reference.indexOf(word_curr.slice(0,-1))>-1))
+		if ((!it_matches && wlist_reference.length>3) && (wlist_reference.indexOf(word_curr.slice(0,-1))>-1))
 		{
 			it_matches=true;
 		};
@@ -72,25 +72,26 @@ function search_now()
 		{
 			let thing=thing_coll[idx];
 			let thing_text=thing.getElementsByClassName("the_text")[0];
+			let cmd_name=document.getElementsByTagName("strong")[0].innerText;
 
-			let wordlist=thing_text.innerText.split(" ");
-			// wordlist.push("")
+			let matches=search_match_keywords(search_txtsplit,cmd_name+" "+thing_text.innerText);
 
-			let matches=search_match_keywords(search_txtsplit,wordlist);
+			let keywords=thing.getElementsByClassName("kp")
+			if (keywords.length>0)
+			{
+				let matches_kw=search_match_keywords(search_txtsplit,keywords[0].innerText);
+				matches=matches+matches_kw;
+			};
 
-			//let data_words_id=kwdata[thing_text.id]
-			//if (data_words_id)
-			//{
-			//	let data_kwords=data_words_id.split(" ");
-			//	data_kwords.push("/"+data_kwords[0]);
-			//	matches=matches+search_match_keywords(search_txtsplit,data_kwords);
-			//};
-
-			/*
-			let data_ftext=thing_text.innerText.toLowerCase().trim().replaceAll("\n",".").split(" ");
-			let thing_matches_ftext=search_match_keywords(search_txtsplit,data_ftext);
-			*/
-			// console.log(thing_text.id+"\n\t"+thing_matches_ftext+"/"+data_ftext.length+"\n\t"+thing_matches_kwords+"/"+data_kwords.length)
+			let negatives=thing.getElementsByClassName("kn")
+			if (keywords.length>0)
+			{
+				let matches_neg=search_match_keywords(search_txtsplit,negatives[0].innerText);
+				if (matches_neg>0)
+				{
+					matches=0;
+				};
+			};
 
 			if (matches>0) 
 			{
@@ -107,6 +108,7 @@ function search_now()
 		while (idx<results_qtty)
 		{
 			let elem=results_ok[idx];
+			console.log(elem);
 			let elem_text=document.getElementById(elem.tid).parentElement.innerHTML;
 			let results_section=document.getElementById("search_results");
 
