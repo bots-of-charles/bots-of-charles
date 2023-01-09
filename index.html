@@ -30,11 +30,26 @@ Bots Of Charles
 
 	function main_slides()
 	{
+		let is_landscape=window.matchMedia("(orientation: landscape)").matches;
+		let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+
+		if (is_landscape)
+		{
+			document.getElementById("when_hor")["style"]="display:block;";
+			document.getElementById("when_ver")["style"]="display:none;";
+		}
+		else
+		{
+			if (is_portrait)
+			{
+				document.getElementById("when_hor")["style"]="display:none;";
+				document.getElementById("when_ver")["style"]="display:block;";
+			};
+		};
+
 		if (page_curr===0)
 		{
 			let elem_pics=document.getElementById("nicepics");
-			let is_landscape=window.matchMedia("(orientation: landscape)").matches;
-			let is_portrait=window.matchMedia("(orientation: portrait)").matches;
 			let maxpic=0;
 
 			let im="";
@@ -82,25 +97,40 @@ Bots Of Charles
 			};
 		};
 		document.getElementById("nvaf")["style"]="display:block;";
-		document.getElementById("tl_nb4").addEventListener("click",translate);
+		document.getElementById("tl_nb4_hor").addEventListener("click",translate);
+		document.getElementById("tl_nb4_ver").addEventListener("click",translate);
 		main_slides();
 	};
 	window.onload=init;
 	setInterval(main_slides,1500);
+
 </script>
 </head>
 <body>
 	<div id="nvaf">
-		<div class="w3-top">
-			<div class="w3-bar w3-black w3-card">
-				<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">Home</button>
-				<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(1)">About</button>
-				<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(3)">Our Bots</button>
-				<div style="float:right;">
-					<!--
-					<button id="tl_nb4" class="w3-bar-item w3-button w3-padding-large" onclick="translate()">Español</button>
-					-->
-					<button id="tl_nb4" class="w3-bar-item w3-button w3-padding-large">Español</button>
+
+		<div id="when_hor">
+			<div class="w3-top">
+				<div class="w3-bar w3-black w3-card">
+					<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">Home</button>
+					<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(1)">About</button>
+					<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="page_set(3)">Our Bots</button>
+					<div style="float:right;">
+						<button id="tl_nb4_hor" class="w3-bar-item w3-button w3-padding-large">Español</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="when_ver">
+			<div class="w3-top">
+				<div class="w3-bar w3-black w3-card">
+					<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(0)">🏠</button>
+					<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(1)">🤔</button>
+					<button class="w3-bar-item w3-button w3-padding-large" onclick="page_set(3)">🤖</button>
+					<div style="float:right;">
+						<button id="tl_nb4_ver" class="w3-bar-item w3-button w3-padding-large">🇪🇸</button>
+					</div>
 				</div>
 			</div>
 		</div>

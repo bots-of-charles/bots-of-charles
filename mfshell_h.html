@@ -14,6 +14,27 @@ Bots Of Charles
 <script src="tl.js"></script>
 <script src="search.js"></script>
 <script>
+
+	function oricheck()
+	{
+		let is_landscape=window.matchMedia("(orientation: landscape)").matches;
+		let is_portrait=window.matchMedia("(orientation: portrait)").matches;
+
+		if (is_landscape)
+		{
+			document.getElementById("when_hor")["style"]="display:block;";
+			document.getElementById("when_ver")["style"]="display:none;";
+		}
+		else
+		{
+			if (is_portrait)
+			{
+				document.getElementById("when_hor")["style"]="display:none;";
+				document.getElementById("when_ver")["style"]="display:block;";
+			};
+		};
+	};
+
 	function init()
 	{
 		if (sessionStorage.hasOwnProperty("lang"))
@@ -25,20 +46,41 @@ Bots Of Charles
 			};
 		};
 		document.getElementById("nvaf")["style"]="display:block;";
-		document.getElementById("tl_nb4").addEventListener("click",translate);
+		document.getElementById("tl_nb4_hor").addEventListener("click",translate);
+		document.getElementById("tl_nb4_ver").addEventListener("click",translate);
+		oricheck();
 	};
+
 	window.onload=init;
+	setInterval(oricheck,1000);
+
 </script>
 </head>
 <body>
 	<div id="nvaf">
-		<div class="w3-top">
-			<div class="w3-bar w3-black w3-card">
-				<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='index.html'">Home</button>
-				<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='mfshell_g.html'">Guide</button>
-				<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='#top'">Up</button>
-				<div style="float:right;">
-					<button id="tl_nb4" class="w3-bar-item w3-button w3-padding-large">Español</button>
+
+		<div id="when_hor">
+			<div class="w3-top">
+				<div class="w3-bar w3-black w3-card">
+					<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='index.html'">Home</button>
+					<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='mfshell_g.html'">Guide</button>
+					<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='#top'">Up</button>
+					<div style="float:right;">
+						<button id="tl_nb4_hor" class="w3-bar-item w3-button w3-padding-large">Español</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="when_ver">
+			<div class="w3-top">
+				<div class="w3-bar w3-black w3-card">
+					<button id="tl_nb1" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='index.html'">🏠</button>
+					<button id="tl_nb2" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='mfshell_g.html'">G</button>
+					<button id="tl_nb3" class="w3-bar-item w3-button w3-padding-large" onclick="window.location.href='#top'">↑</button>
+					<div style="float:right;">
+						<button id="tl_nb4_ver" class="w3-bar-item w3-button w3-padding-large">🇪🇸</button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -140,6 +182,7 @@ Bots Of Charles
 						<strong class="sub">/adl</strong>
 						<p><code class="cmd">/adl</code></p>
 						<p class="the_text" id="cmd_adl">Activates or deactivates the Automatic Directory listing mode (ADL)<br>Deactivated by default<br>By default, the only way to automatically list the contents of a CWD is after running '/cd' and '/back', but with ADL mode activated, more file management related commands are supported</p>
+						<div class="kp">automatic automático automatizar automate dir directory directories folder carpeta listar listing list dir see ver</div>
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
@@ -147,6 +190,7 @@ Bots Of Charles
 						<strong class="sub">/mkdir</strong>
 						<p><code class="cmd">/mkdir N</code></p>
 						<p class="the_text" id="cmd_mkdir">Creates a new subdirectory (a new folder) in the CWD<br><br>N = (Mandatory) New name for the directory<br><br>The command will raise an error if a resource with the same name exists in the CWD<br>This command is compatible with the ADL mode</p>
+						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
 					<div class="thing">
@@ -262,7 +306,7 @@ Bots Of Charles
 					<div class="thing">
 						<strong class="sub">/ss</strong>
 						<p><code class="cmd">/ss F</code><br><code class="cmd">/ss F Q</code><br><code class="cmd">/ss F Q M</code></p>
-						<p class="the_text" id="cmd_ss">Takes screenshots of a video file and uploads them to your chat with the bot<br><br>Argument F is mandatory; arguments Q and M are optional, but if M exists, Q also needs to exist<br>F = Simple select of a video file in the CWD<br>Q = The number of images to create. The default is 10 images<br>M = Switches. There are 2 switches: "g" for gradually upload each image instead of uploading albums, and "f" to force upload the files as documents instead of images. You can activate one or both of them, so there are 3 possible cases. The third one ('fg' or 'gf') is a combination of both<br><br>The screenshots are taken depending on the duration of the video and the amount of images to create<br>In case of not being able to upload any number of images, the files will still be in the CWD. You can either access them through the web interface or upload them yourself</p>
+						<p class="the_text" id="cmd_ss">Takes screenshots of a video file and uploads them to your chat with the bot<br><br>Argument F is mandatory; arguments Q and M are optional, but if M exists, Q also needs to exist<br>F = Simple select of a video file in the CWD<br>Q = The number of images to create. The default is 10 images<br>M = Switches. There are 2 switches: "g" for gradually upload each image instead of uploading albums, and "f" to force upload the files as documents instead of images. You can activate one or both of them, so there are 3 possible cases. The third one ('fg' or 'gf') is a combination of both<br><br>The screenshots are taken depending on the duration of the video and the amount of images to create<br>In case of not being able to upload any number of images, the files will still remain in the CWD. You can either access them through the web interface or upload them yourself</p>
 
 						<div class="w3-center w3-margin">
 							<a id="cmd_ss_1" class="w3-black w3-button w3-padding-large" href="https://t.me/bots_of_charles/525">Read post</a>
