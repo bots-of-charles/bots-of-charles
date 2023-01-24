@@ -1,7 +1,9 @@
-const thing_coll=document.getElementsByClassName("thing");
+const topic_coll=document.getElementsByClassName("topic");
 
-function search_match_keywords(wlist_test,wlist_reference)
+function search_match_keywords(wlist_test,wlist_reference,strict=false)
 {
+	console.log("\nFind: "+wlist_test);
+	console.log("In: "+wlist_reference);
 	let matches=0;
 	let idx=0;
 	let idx_max=wlist_test.length;
@@ -15,7 +17,7 @@ function search_match_keywords(wlist_test,wlist_reference)
 			it_matches=true;
 		};
 
-		if ((!it_matches && wlist_reference.length>3) && (wlist_reference.indexOf(word_curr.slice(0,-1))>-1))
+		if ((!strict) && (!it_matches && wlist_reference.length>3) && (wlist_reference.indexOf(word_curr.slice(0,-1))>-1))
 		{
 			it_matches=true;
 		};
@@ -67,35 +69,48 @@ function search_now()
 		console.log("Searching: "+search_raw);
 		let results_raw=[];
 		let idx=0;
-		let idx_max=thing_coll.length;
+		let idx_max=topic_coll.length;
 		while (idx<idx_max)
 		{
-			let thing=thing_coll[idx];
-			let thing_text=thing.getElementsByClassName("the_text")[0];
-			let cmd_name=document.getElementsByTagName("strong")[0].innerText;
+			let topic=topic_coll[idx];
+			let topic_name=topic.getElementsByClassName("sub")[0].innerText;
+			let topic_text=topic.getElementsByClassName("the_text")[0];
 
-			let matches=search_match_keywords(search_txtsplit,cmd_name+" "+thing_text.innerText);
+			//let matches=search_match_keywords(search_txtsplit,topic_text.innerText);
 
-			let keywords=thing.getElementsByClassName("kp")
-			if (keywords.length>0)
+			let matches=0;
+			let keywords;
+
+			try
 			{
-				let matches_kw=search_match_keywords(search_txtsplit,keywords[0].innerText);
-				matches=matches+matches_kw;
+				keywords=topic.getElementsByClassName("kp")[0].innerText;
+			}
+			catch (error)
+			{
+				keywords=" ";
 			};
 
-			let negatives=thing.getElementsByClassName("kn")
-			if (keywords.length>0)
+			let matches_kp=search_match_keywords(search_txtsplit,topic_name+" "+topic_name.slice(1)+" "+keywords,strict=true);
+			matches=matches+matches_kp;
+
+			try
 			{
-				let matches_neg=search_match_keywords(search_txtsplit,negatives[0].innerText);
-				if (matches_neg>0)
-				{
-					matches=0;
-				};
+				keywords=topic.getElementsByClassName("kn")[0].innerText;
+			}
+			catch (error)
+			{
+				keywords=" ";
+			};
+
+			let matches_neg=search_match_keywords(search_txtsplit,keywords,strict=true);
+			if (matches_neg>0)
+			{
+				matches=0;
 			};
 
 			if (matches>0) 
 			{
-				results_raw.push({tid:thing_text.id,score:matches});
+				results_raw.push({tid:topic_text.id,score:matches});
 			};
 
 			idx++;
@@ -120,7 +135,7 @@ function search_now()
 				i=i+1;
 			}
 			score_display=score_display.trim()
-			results_section.innerHTML=results_section.innerHTML+"\n\t\t\t\t\t<div class=\"thing\">\n\t\t\t\t\t<p>"+score_display+"</p>\n"+elem_text+"\n\t\t\t\t\t</div>";
+			results_section.innerHTML=results_section.innerHTML+"\n\t\t\t\t\t<div class=\"topic\">\n\t\t\t\t\t<p>"+score_display+"</p>\n"+elem_text+"\n\t\t\t\t\t</div>";
 			idx++;
 		};
 

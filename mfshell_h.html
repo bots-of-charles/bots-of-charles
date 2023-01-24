@@ -130,7 +130,7 @@ Bots Of Charles
 						<button id="search_a_command" class="w3-black w3-button w3-padding-large" onclick="search_mode_switch()">Search a command</button>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/about</strong>
 						<p><code class="cmd">/about</code></p>
 						<p class="the_text" id="cmd_about">Shows a brief information about the bot, the admin and a link to the bot's internal website</p>
@@ -138,7 +138,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/help</strong>
 						<p><code class="cmd">/help</code></p>
 						<p class="the_text" id="cmd_help">Shows links to the user guide and the commands reference for the bot (this website)</p>
@@ -146,7 +146,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/start</strong>
 						<p><code class="cmd">/start</code></p>
 						<p class="the_text" id="cmd_start">Shows real time information about the bot and your session in the bot</p>
@@ -154,7 +154,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/ls</strong>
 						<p><code class="cmd">/ls</code><br><code class="cmd">/ls N</code></p>
 						<p class="the_text" id="cmd_ls">List contents of a path<br><br>N = (Optional) Simple select or Range select<br><br>The path can be the CWD (no argument), a subdirectory or a parent of the CWD (simple select as an arg)<br>If the argument is a range selector, it will display the selected elements. You can use this for testing range selections</p>
@@ -162,7 +162,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/cd</strong>
 						<p><code class="cmd">/cd N</code></p>
 						<p class="the_text" id="cmd_cd">Changes the CWD<br><br>N = (Mandatory) Simple select for a subdirectory or a parent</p>
@@ -170,7 +170,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/back</strong>
 						<p><code class="cmd">/back</code></p>
 						<p class="the_text" id="cmd_back">Changes the CWD to the parent<br>It will fail if your current CWD is the root '/'</p>
@@ -178,7 +178,7 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/adl</strong>
 						<p><code class="cmd">/adl</code></p>
 						<p class="the_text" id="cmd_adl">Activates or deactivates the Automatic Directory listing mode (ADL)<br>Deactivated by default<br>By default, the only way to automatically list the contents of a CWD is after running '/cd' and '/back', but with ADL mode activated, more file management related commands are supported</p>
@@ -186,27 +186,27 @@ Bots Of Charles
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/mkdir</strong>
 						<p><code class="cmd">/mkdir N</code></p>
 						<p class="the_text" id="cmd_mkdir">Creates a new subdirectory (a new folder) in the CWD<br><br>N = (Mandatory) New name for the directory<br><br>The command will raise an error if a resource with the same name exists in the CWD<br>This command is compatible with the ADL mode</p>
 						<div class="kn">download upload subir bajar descargar crear borrar eliminar create erase delete</div>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/mv</strong>
 						<p>U1: <code class="cmd">/mv A B</code></p>
 						<p>U2: <code class="cmd">/mv C D</code></p>
 						<p class="the_text" id="cmd_mv">Usage 1<br>Move a resource (file or directory) or a group of resources to a subdirectory or a parent location of the CWD<br>The arguments A and B are mandatory<br>A = Simple, range or free select of elements present in the CWD<br>B = Simple select of a subdirectory or a parent of the CWD<br><br>Usage 2<br>Change the name of a resource (file or directory) in the CWD<br>The arguments C and C are mandatory<br>C = Simple select of a resource in the CWD<br>D = New name for the resource. In case of being a file, it must include the suffix (extension)</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/rm</strong>
 						<p><code class="cmd">/rm N</code></p>
 						<p class="the_text" id="cmd_rm">Deletes one or more resources in the CWD<br><br>N = (Obligatorio) Simple, range or free select of resources in the CWD<br><br>This command does not ask for confirmation of any kind: the selected resources will be instantly and permamently deleted<br>You must not delete resources that take part of pending or ongoing operations from another command</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/bren</strong>
 						<p><code class="cmd">/bren X Y Z</code></p>
 						<p class="the_text" id="cmd_bren">Batch file renamer<br><br>The arguments X, Y and Z are mandatory<br>X = Simple, range or free select of resources. In the particular case of simple-selecting a subdirectory, what will happen is that it will select all files inside that subdirectory. In the case of range or free select, all subdirectories selected are ignored. The command will throw an error in case that the amount of files for processing is below 2<br>Y = Operation type. There are 3 operations: 'A' (add), 'E' (enumerate) and 'R' (replace)<br>Z = Operation parameters. It depends on the operation type. The parameters must be in a certain format, each operation has it's own format<br><br>The operation parameters<br>A (Add):<br>Add an aditional string to the beggining (prefix) or the end (suffix) of the stem (the filename without the extension)<br>Format (prefix): 'StringToAdd/'<br>Format (suffix): '/StringToAdd'<br>E (Enumerate):<br>Renames the files in a way that end up like this: 'NewName + Number + OriginalExtension'<br>Format: 'NewStem/InitialNumber/Digits'<br>R (Replace):<br>Finds in the name of each file a given string and it replaces it for a new string if found<br>Format: 'OldString/NewString'<br><br>When you run this command, a confirmation screen with the result will appear. If you run '/ok', the changes will be applied, but if you use any other command or run a different order of '/bren' the current proposal will be cancelled or updated</p>
@@ -217,31 +217,31 @@ Bots Of Charles
 						<!-- https://t.me/bots_of_charles/141 -->
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/seven</strong>
 						<p><code class="cmd">/seven A</code><br><code class="cmd">/seven A B</code><br><code class="cmd">/seven A B C</code></p>
 						<p class="the_text" id="cmd_seven">Zero compression archiver utility<br><br>Argument 'A' is mandatory, arguments 'B' and 'C' are optional but argument 'C' depends on the existance of argument 'B'<br>A = Simple select of a resource in the CWD. In case of selecting a subdirectory, it will select all files and subdirectories alike. The selection does not involve any parents of the CWD<br>B = Positive integer or zero. A positive integer indicates the part size in megabytes for splitting (No need to put MB or M, just the number). In case of being zero it will create a single file. Default value is zero so if you omit this argument, by default a single file is created<br>C = Password for encrypting the resulting file or parts<br><br>All files created are 7z files with zero compression. The reason why it does not apply compression is because the main goal of this command is to group or split files at a high speed regardless of the resulting size (the exact same as the files original files). Compression is slow and tends to consume too much resources</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/ext</strong>
 						<p><code class="cmd">/ext N</code></p>
 						<p class="the_text" id="cmd_ext"></p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/join</strong>
 						<p><code class="cmd">/join N</code></p>
 						<p class="the_text" id="cmd_join"></p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/wget</strong>
 						<p><code class="cmd">/wget</code><br><code class="cmd">/wget URL1 URL2 URL3 ... URLN</code></p>
 						<p class="the_text" id="cmd_wget">General purposes web downloader<br><br>Running this command without arguments will display a list of compatible websites that are directly supported<br>The only argument that this command uses is a group of URLs, it can be one or more URLs sepparated by a space<br>This command although it has a compatibility list, it can try and download any unsupported URL that would apparently lead to a file, however, not all of the apparently direct links are direct</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/video</strong>
 						<p><code class="cmd">/video</code><br><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN</code><br><code class="cmd">/video Unit1 Unit2 Unit3 ... UnitN -Frm</code></p>
 						<!--
@@ -259,7 +259,7 @@ Bots Of Charles
 					</div>
 
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/vconf</strong>
 						<p><code class="cmd">/vconf</code></p>
 						<p>U1:<br><code class="cmd">/vconf K</code><br><code class="cmd">/vconf K:V</code></p>
@@ -267,43 +267,43 @@ Bots Of Charles
 						<p class="the_text" id="cmd_vconf">Configuration for /video<br><br>The configuration is kept using 'contexts': the persistent context and the volatile context<br>When you use /video, the command will first search for the volatile context, in case of not existing, it will fallback and use the persistent context. If the run of the command was successful (one or more items were added to the queue) and the context used was the volatile context, it will be erased, this is because the volatile context is for single-use<br><br>Usage 1:<br>Argument 'K' is an available option and 'V' stands for the value compatible with the option<br>Not specifying the value will display the information about the option such as possible values and examples on how to set them<br><br>Usage 2:<br>Argument 'A' is the action to perform over a context, and argument 'C' is a context. The 2 actions are 'sav', for saving and 'res', for restoring/resetting<br>The 2 contexts (argument 'C') are 'per', the persistent context, and 'vol', the volatile context<br>The 'sav' action is for saving the current data in the volatile context in the persistent context. There's no need to specify the context argument when using this action<br>The 'res' action when used over the persistent context, it will load the default config that comes with the bot, if it's used in the volatile context, it will reset the volatile context, making it the same as the persistent<br><br>Usage examples and available options are within the command</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/auto</strong>
 						<p><code class="cmd">/auto</code></p>
 						<p class="the_text" id="cmd_auto">Activates/Deactivates automatic downloads mode<br>Deactivated by default<br><br>When activated, it automatically downloads Telegram files and albums forwarded to yout chat with the bot<br>This command is also the only way to download Telegram albums into the bot<br><br>This command can also download URLs directly from forwarded messages without the need of a downloader command such as /wget, /video, etc... for every group of messages with URLs in it, just send the URLs directly in messages like in a 'normal' bot<br>By default, the assigned command for URL downloading is /wget, which means you need to send URLs compatible with the /wget command, to use a different web downloader, you have to run the downloader command args while /auto is activated, you will recieve a message that will say that the compatibility changed for that downloader command</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/upload</strong>
 						<p><code class="cmd">/upload N</code></p>
 						<p class="the_text" id="cmd_upload">Uploads files from the CWD to your chat with the bot in Telegram<br><br>N = (Mandatory) Simple, ranged or free select of resources in the CWD. In case of doing a simple select of a subdirectory, all the files in that subdirectory are selected for an upload. The simple select does not include parents of the CWD<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When selecting files, you may encounter error codes related to the file limitations:<br>E1 → File size is larger than 2 GB. The quickest solution is to use /seven to split the file, or, in case of multiple parts already split (+2GB of size per part) another solution is to delete the parts and split the original files in a smaller part size<br>E2 → The file name is very long, the limit is 63 characters. The solution to this is to use /mv or /bren for renaming depending on the situation. A classic solution to this problem before /bren existed was to create a subdirectory with a short name, move the files into that subdirectory, and then split it using /seven<br><br>The filename length and file size limitations are not set by the admin nor the bot, these limitations are set by Telegram, so there's no point in forcing it: an error related to it will happen one way or another<br></p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/share</strong>
 						<p><code class="cmd">/share</code></p>
 						<p class="the_text" id="cmd_share">Activates/deactivates web file sharing<br>Deactivated by default<br><br>This command is one of the 2 ways of pulling files out of the bot<br><br>When you activate the file sharing mode, a link to all your files and directories will be given to you to accesss it through the web interface of the bot. You can see your link any time using the /start command<br>MF Shell's web interface makes it very easy for direct downloading large ammounts of files from the bot: This is not a normal FTL</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/info</strong>
 						<p><code class="cmd">/info</code></p>
 						<p class="the_text" id="cmd_info">Displays information of a Telegram file<br>You use it by replying to a file in Telegram</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/mediainfo</strong>
 						<p><code class="cmd">/mediainfo X</code></p>
 						<p class="the_text" id="cmd_mediainfo">Runs 'mediainfo' on a file<br><br>X = (Mandatory) Simple select of a file in the CWD<br><br>This command is based on 'mediainfo', a commandline tool for extracting media information from video files, audio files and pictures<br>The mediainfo output is saved into a file and automatically uploaded to your chat with the bot<br>In case of not being able to upload it, the file with the output will still be present in the CWD</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/avcat</strong>
 						<p><code class="cmd">/avcat S</code><br><code class="cmd">/avcat S F</code></p>
 						<p class="the_text" id="cmd_avcat">Concatenates audio or video files in a single audio or video file<br><br>Argument S is mandatory, argument F is optional<br>S = Range or free select if video or audio files in the CWD<br>F = Name of the resulting file without the extension (the stem). By default the name is generated automatically by the command<br><br>The selected files can be either video files or audio files: they cannot be video and audio files<br>The selected files can have different containers (formats) but they must have the same codecs inside<br>The extension of the resulting filename (and its container) is determined automatically according to the selected files</p>
 					</div>
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/ss</strong>
 						<p><code class="cmd">/ss F</code><br><code class="cmd">/ss F Q</code><br><code class="cmd">/ss F Q M</code></p>
 						<p class="the_text" id="cmd_ss">Takes screenshots of a video file and uploads them to your chat with the bot<br><br>Argument F is mandatory; arguments Q and M are optional, but if M exists, Q also needs to exist<br>F = Simple select of a video file in the CWD<br>Q = The number of images to create. The default is 10 images<br>M = Switches. There are 2 switches: "g" for gradually upload each image instead of uploading albums, and "f" to force upload the files as documents instead of images. You can activate one or both of them, so there are 3 possible cases. The third one ('fg' or 'gf') is a combination of both<br><br>The screenshots are taken depending on the duration of the video and the amount of images to create<br>In case of not being able to upload any number of images, the files will still remain in the CWD. You can either access them through the web interface or upload them yourself</p>
@@ -322,7 +322,7 @@ Bots Of Charles
 
 					TEMPLATE
 
-					<div class="thing">
+					<div class="topic">
 						<strong class="sub">/command</strong>
 						<p><code class="cmd">/command</code></p>
 						<p class="the_text" id="cmd_name"></p>
